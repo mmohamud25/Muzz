@@ -89,11 +89,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .flip-card{height:128px;perspective:800px;cursor:pointer;transition:transform 0.2s}
 .flip-card:hover .flip-f{border-color:rgba(14,158,146,0.4);background:rgba(255,255,255,0.07)}
 .flip-card:hover{transform:translateY(-2px)}
-.flip-inner{width:100%;height:100%;transition:transform 0.55s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d;position:relative}
-.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
-.flip-f,.flip-b{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.85rem;text-align:center}
+.flip-inner{width:100%;height:100%;transition:transform 0.55s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d;position:relative}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg);-webkit-transform:rotateY(180deg)}
+.flip-f,.flip-b{position:absolute;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.85rem;text-align:center}
 .flip-f{background:rgba(255,255,255,0.04);border:1px solid var(--dim)}
-.flip-b{background:linear-gradient(135deg,rgba(14,158,146,0.11),rgba(201,140,42,0.07));border:1px solid rgba(14,158,146,0.25);transform:rotateY(180deg)}
+.flip-b{background:linear-gradient(135deg,rgba(14,158,146,0.11),rgba(201,140,42,0.07));border:1px solid rgba(14,158,146,0.25);transform:rotateY(180deg);-webkit-transform:rotateY(180deg)}
 .flip-icon{font-size:1.6rem;margin-bottom:0.3rem}
 .flip-lbl{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
 .flip-reveal{font-size:0.79rem;color:var(--cream);line-height:1.45}
@@ -273,6 +273,77 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .back-top:hover{filter:brightness(1.15);transform:translateY(-2px)}
 .fade-item{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
 .fade-item.visible{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE FIXES ── */
+@media (max-width: 480px) {
+
+  /* Fix 1: Typed text clipping */
+  .hero-sub {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Fix 2: Tags overflow */
+  .tag {
+    padding: 4px 10px;
+    font-size: 0.68rem;
+  }
+  .tags { gap: 5px; }
+
+  /* Fix 3: Flip cards - replace broken 3D with opacity on mobile WebKit */
+  .flip-card .flip-inner {
+    transform-style: flat !important;
+    -webkit-transform-style: flat !important;
+    transition: none !important;
+  }
+  .flip-card .flip-f {
+    transition: opacity 0.25s ease;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+  }
+  .flip-card .flip-b {
+    transform: none !important;
+    -webkit-transform: none !important;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+  }
+  .flip-card.flipped .flip-f { opacity: 0; pointer-events: none; }
+  .flip-card.flipped .flip-b { opacity: 1; }
+  .flip-card.flipped .flip-inner { transform: none !important; }
+
+  /* Fix 4: Section headings padding */
+  .section { padding: 2rem 1.25rem; }
+  .sec-title { font-size: 1.55rem; }
+
+  /* Fix 5: Vibe cards gap - force new compositing layer */
+  .vibe-grid { transform: translateZ(0); -webkit-transform: translateZ(0); }
+  .vibe-item { transform: translateZ(0); }
+
+  /* Fix 6: Outdoor grid 2 columns */
+  .outdoor-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* Fix 7: Quiz result percentage */
+  .result-pct { font-size: 3.5rem; }
+
+  /* Fix 8: Form labels */
+  .form-group label { font-size: 0.75rem; }
+  .ay-progress-label { font-size: 0.68rem; }
+
+  /* Fix 9: Back to top clearance for iPhone home bar */
+  .back-top { bottom: 2rem; }
+
+  /* Bonus: hero ring slightly smaller on small phones */
+  .hero-ring { width: 100px; height: 100px; }
+  .hero-inner { font-size: 2.6rem; }
+  .hero h1 { font-size: 2.6rem; }
+}
 </style>
 </head>
 <body>
@@ -333,6 +404,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The voice</div><div class="tl-title">Co-host of Intel Cast</div><div class="tl-desc">I co-host a podcast because honest conversations shift things. I bring the same care to every discussion that I bring to every relationship.</div></div>
     <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The community</div><div class="tl-title">Co-founder of Rise Community Development</div><div class="tl-desc">Legacy is not just about your family. It is about what you leave behind for the people around you. Giving back has never felt optional to me.</div></div>
     <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">What home means to me</div><div class="tl-title">Somewhere with meaning</div><div class="tl-desc">I do not picture a house. I picture a feeling. Quran in the morning. The smell of food being made without rush. A place where conversation never feels forced and silence never feels awkward. Somewhere warm enough that people do not want to leave.</div></div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The real week</div><div class="tl-title">A Tuesday looks like this</div><div class="tl-desc">Up before most people. Fajr. Then the laptop opens and it does not close for a long time. MS coursework in the morning, company decisions by afternoon, podcast prep somewhere in between. By evening I am usually still at it - building something, fixing something, thinking about what the next version of something should look like. Around 11pm I sit with a book or just with my thoughts. That is not a performance. That is just what building actually looks like from the inside. I want a partner who understands that this is not me neglecting her. It is me being exactly who I said I was.</div></div>
     <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The next chapter</div><div class="tl-title">Looking for a partner in all of it</div><div class="tl-desc">Not someone to complete me. Someone to build alongside. Someone with her own fire, her own deen, her own vision who chooses to share the journey with mine.</div></div>
   </div>
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
@@ -397,6 +469,18 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Communication when things get hard</div><div class="vibe-sub">Go quiet from the world, never from me</div></div></div>
     <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Your own purpose and drive</div><div class="vibe-sub">I want a partner, not a passenger</div></div></div>
   </div>
+  <span class="sub-label" style="color:#e05c5c">Let's be honest</span>
+  <div style="background:rgba(220,50,50,0.06);border:1px solid rgba(220,50,50,0.2);border-radius:14px;padding:1.2rem;margin-bottom:1.5rem">
+    <p style="font-size:0.8rem;color:rgba(240,236,228,0.55);margin-bottom:0.9rem;font-style:italic">These are not preferences. They are actual dealbreakers.</p>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#e05c5c;font-size:0.85rem;margin-top:1px;flex-shrink:0">✕</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.8);line-height:1.5">If religion is decoration and not direction for you</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#e05c5c;font-size:0.85rem;margin-top:1px;flex-shrink:0">✕</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.8);line-height:1.5">If your idea of resolving conflict is silence until it blows over</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#e05c5c;font-size:0.85rem;margin-top:1px;flex-shrink:0">✕</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.8);line-height:1.5">If you need external validation before you can hold your own opinion</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#e05c5c;font-size:0.85rem;margin-top:1px;flex-shrink:0">✕</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.8);line-height:1.5">If ambition in a husband reads to you as unavailability</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:#e05c5c;font-size:0.85rem;margin-top:1px;flex-shrink:0">✕</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.8);line-height:1.5">If home is just somewhere you sleep and not something you actively build</span></div>
+    </div>
+  </div>
+
   <span class="sub-label" style="color:var(--teal)">This or that</span>
   <div class="tot-card">
     <div class="tot-counter" id="tot-counter">Round 1 of 10</div>
@@ -502,7 +586,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="ay-step active" id="ay-step-1">
       <div class="ay-progress-row"><span class="ay-progress-label">1 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:9%"></div></div></div>
       <div class="ay-question">What should I call you?</div>
-      <input type="text" class="ay-input" id="ay-name" placeholder="Your name..." maxlength="60">
+      <input type="text" class="ay-input" id="ay-name" placeholder="Your name..." maxlength="100" autocomplete="name">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(1)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-2">
@@ -541,58 +625,48 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="ay-step" id="ay-step-5">
       <div class="ay-progress-row"><span class="ay-progress-label">5 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:45%"></div></div></div>
       <div class="ay-question">How would your closest friends describe you in one sentence?</div>
-      <input type="text" class="ay-input" id="ay-friends" placeholder="What would they say..." maxlength="120">
+      <input type="text" class="ay-input" id="ay-friends" placeholder="What would they say..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(5)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-6">
       <div class="ay-progress-row"><span class="ay-progress-label">6 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:54%"></div></div></div>
-      <div class="ay-question">When you are having a hard day, what do you need from the person closest to you?</div>
+      <div class="ay-question">A close friend tells you something about your spouse that bothers you. You have not verified it yet. What do you do first?</div>
       <div class="ay-opts" id="ay-opts-6">
-        <div class="ay-opt" onclick="ayPick(this,6)">Just sit with me, I do not need words</div>
-        <div class="ay-opt" onclick="ayPick(this,6)">Let me talk through it, I need to be heard</div>
-        <div class="ay-opt" onclick="ayPick(this,6)">Give me space and check on me later</div>
-        <div class="ay-opt" onclick="ayPick(this,6)">Distract me, take me somewhere else mentally</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Talk to my spouse directly, always</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Ask the friend for more context first</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Sit with it alone until I am sure</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Depends on what it is honestly</div>
       </div>
       <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-6" onclick="ayNext(6)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-7">
       <div class="ay-progress-row"><span class="ay-progress-label">7 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:63%"></div></div></div>
       <div class="ay-question">What are you actively working on about yourself right now?</div>
-      <input type="text" class="ay-input" id="ay-working" placeholder="Be honest..." maxlength="150">
+      <input type="text" class="ay-input" id="ay-working" placeholder="Be honest..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(7)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-8">
       <div class="ay-progress-row"><span class="ay-progress-label">8 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:72%"></div></div></div>
-      <div class="ay-question">Your relationship with your family looks like...</div>
-      <div class="ay-opts" id="ay-opts-8">
-        <div class="ay-opt" onclick="ayPick(this,8)">Very close, family is central to everything I do</div>
-        <div class="ay-opt" onclick="ayPick(this,8)">Close but I value my independence too</div>
-        <div class="ay-opt" onclick="ayPick(this,8)">Complicated but I am working on it</div>
-        <div class="ay-opt" onclick="ayPick(this,8)">I am building my own definition of family</div>
-      </div>
-      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-8" onclick="ayNext(8)">Next →</button>
+      <div class="ay-question">What is something your closest friend would say is your blind spot?</div>
+      <input type="text" class="ay-input" id="ay-blindspot" placeholder="Be real about this one..." maxlength="200" autocomplete="off">
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(8)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-9">
       <div class="ay-progress-row"><span class="ay-progress-label">9 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:81%"></div></div></div>
-      <div class="ay-question">What is your biggest fear about marriage?</div>
-      <div class="ay-opts" id="ay-opts-9">
-        <div class="ay-opt" onclick="ayPick(this,9)">Losing myself in someone else</div>
-        <div class="ay-opt" onclick="ayPick(this,9)">Choosing the wrong person and it falling apart</div>
-        <div class="ay-opt" onclick="ayPick(this,9)">Not being enough for the other person</div>
-        <div class="ay-opt" onclick="ayPick(this,9)">The responsibility and everything that comes with it</div>
-      </div>
-      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-9" onclick="ayNext(9)">Next →</button>
+      <div class="ay-question">What is one thing you need in a marriage that you have never been able to fully say out loud before?</div>
+      <textarea class="ay-input" id="ay-unsaid" placeholder="Take your time with this one..." rows="3" maxlength="400" autocomplete="off"></textarea>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(9)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-10">
       <div class="ay-progress-row"><span class="ay-progress-label">10 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:90%"></div></div></div>
       <div class="ay-question">What is one thing you need your partner to understand about you from day one?</div>
-      <input type="text" class="ay-input" id="ay-understand" placeholder="What is non-negotiable for you..." maxlength="150">
+      <input type="text" class="ay-input" id="ay-understand" placeholder="What is non-negotiable for you..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(10)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-11">
       <div class="ay-progress-row"><span class="ay-progress-label">11 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
       <div class="ay-question">Tell me one real thing about yourself that a profile would never show.</div>
-      <textarea class="ay-input" id="ay-real" placeholder="Be honest. This goes straight to me." rows="4" maxlength="500"></textarea>
+      <textarea class="ay-input" id="ay-real" placeholder="Be honest. This goes straight to me." rows="4" maxlength="500" autocomplete="off"></textarea>
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(11)">See my profile →</button>
     </div>
     <div class="ay-step" id="ay-profile">
@@ -613,8 +687,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
       </div>
       <div class="ay-personal-note"><p>Qasim reads every message personally. No screening, no middleman. Just him.</p></div>
       <div style="margin-bottom:1rem">
-        <div class="form-group"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your email</label><input type="email" class="ay-input" id="ay-email" placeholder="So he can reach you..."></div>
-        <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" class="ay-input" id="ay-phone" placeholder="If you prefer a text..."></div>
+        <div class="form-group"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your email</label><input type="email" class="ay-input" id="ay-email" placeholder="So he can reach you..." maxlength="254" autocomplete="email"></div>
+        <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" class="ay-input" id="ay-phone" placeholder="If you prefer a text..." maxlength="20" autocomplete="tel"></div>
       </div>
       <button type="button" class="btn" id="ay-send-btn" onclick="aySubmit()">Send my answers to Qasim →</button>
       <button type="button" class="btn btn-outline" onclick="ayRestart()">Start over</button>
@@ -624,14 +698,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
 
+  <div class="sec-eyebrow">Five years from now</div>
+  <div class="sec-title">Picture <em>a moment</em></div>
+  <div style="background:rgba(201,140,42,0.06);border:1px solid rgba(201,140,42,0.18);border-radius:14px;padding:1.2rem;margin-bottom:1rem">
+    <p style="font-size:0.88rem;color:rgba(240,236,228,0.75);line-height:1.8;font-style:italic;margin-bottom:0.8rem">You just woke up. It is a Saturday morning five years into marriage. Where are you? What does the morning smell like? What are you both doing at 9am?</p>
+    <p style="font-size:0.75rem;color:var(--dim)">Write whatever comes to mind. There is no right answer. This goes to Qasim with your other responses if you choose to send them.</p>
+  </div>
+  <textarea class="ay-input" id="five-years-input" placeholder="Describe the moment..." rows="4" maxlength="400" autocomplete="off"></textarea>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
   <div class="sec-eyebrow">No filter</div>
   <div class="sec-title">Ask me <em>anything</em></div>
   <div class="truth-stage">
-    <div class="truth-lbl">Qasim answers honestly</div>
-    <div class="truth-text" id="truth-text">Press the button. No performance, no filter.</div>
+    <div class="truth-lbl" id="truth-lbl">Choose a category below</div>
+    <div class="truth-text" id="truth-text">Pick a category and I will answer honestly. No filter.</div>
     <div class="truth-num" id="truth-num"></div>
   </div>
-  <button class="btn btn-outline" type="button" onclick="nextTruth()">Reveal something unfiltered 🎲</button>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+    <button type="button" class="btn btn-outline" style="font-size:0.72rem;padding:0.7rem 0.4rem;min-height:52px;line-height:1.3" onclick="nextTruth('private')">Something<br>private 🔒</button>
+    <button type="button" class="btn btn-outline" style="font-size:0.72rem;padding:0.7rem 0.4rem;min-height:52px;line-height:1.3" onclick="nextTruth('surprised')">Surprised<br>myself 💡</button>
+    <button type="button" class="btn btn-outline" style="font-size:0.72rem;padding:0.7rem 0.4rem;min-height:52px;line-height:1.3" onclick="nextTruth('love')">How I will<br>love you 💌</button>
+  </div>
 
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
 
@@ -662,15 +750,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <p style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Send me a message</p>
     <p style="font-size:0.78rem;color:var(--dim);font-style:italic;text-align:center;margin-bottom:1rem">Goes straight to me. No one else sees it.</p>
     <form id="contact-form" action="https://formspree.io/f/mrejarlr" method="POST">
-      <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="What should I call you?" required></div>
-      <div class="form-group"><label>Your email</label><input type="email" name="email" placeholder="Your email address..." required></div>
-      <div class="form-group"><label>Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" name="phone" placeholder="Your number if you prefer..."></div>
-      <div class="form-group"><label>Your message</label><textarea name="message" rows="4" placeholder="Say something real..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="What should I call you?" maxlength="100" autocomplete="name" required></div>
+      <div class="form-group"><label>Your email</label><input type="email" name="email" placeholder="Your email address..." maxlength="254" autocomplete="email" required></div>
+      <div class="form-group"><label>Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" name="phone" placeholder="Your number if you prefer..." maxlength="20" autocomplete="tel"></div>
+      <div class="form-group"><label>Your message</label><textarea name="message" rows="4" placeholder="Say something real..." maxlength="2000" autocomplete="off" required></textarea></div>
       <button type="submit" class="btn">Send message →</button>
     </form>
     <div class="submit-msg" id="submit-msg">Message sent. JazakAllah khayr. I will respond when I can. 🤍</div>
   </div>
   <div class="closing-note"><p>Not looking for perfect. Just looking for real. If you made it this far you probably already know.</p></div>
+
+  <div style="margin-top:1rem;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;text-align:center">
+    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;font-style:italic">If you made it this far, I noticed something about you.</p>
+    <button type="button" class="btn btn-gold" id="noticed-btn" onclick="showNoticed()">What did you notice? →</button>
+    <div id="noticed-text" style="display:none;margin-top:1rem;animation:fadeIn 0.5s ease">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.85;text-align:left">Someone who reads everything, every section, every question, every flip card - that person is not browsing. They are genuinely trying to understand who someone is before they decide anything. That kind of care before commitment is rare. It says you take people seriously. It says you would rather know the real version than the curated one. It says you are probably the kind of person who shows up fully when it matters.</p>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);line-height:1.85;text-align:left;margin-top:0.8rem">That is exactly the kind of person this site was built for.</p>
+    </div>
+  </div>
 </div>
 
 <footer style="position:relative;z-index:1;max-width:480px;margin:0 auto;padding:1.5rem 1.5rem 2rem;text-align:center;border-top:1px solid rgba(240,236,228,0.08)">
@@ -681,12 +779,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 </div>
 <script>
 const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
+function sanitize(str){const d=document.createElement('div');d.textContent=String(str||'');return d.innerHTML;}
 let stars=[];
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;stars=Array.from({length:90},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+0.3,a:Math.random(),s:Math.random()*0.004+0.002}))}
 function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.globalAlpha=s.a*0.55;ctx.fillStyle='#f0ece4';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(drawStars)}
 window.addEventListener('resize',resize);resize();drawStars();
 
-const phrases=["a student of this deen and this world","building something real","faith-driven, purpose-built","a founder with a soft heart","looking for the one","ambivert who connects deeply","loves a good hike and a deeper conversation","making dua for you already"];
+const phrases=["faith-driven, purpose-built","building something real","a founder with a soft heart","looking for the one","loves a hike and a deep talk","making dua for you already","student of deen and world"];
 let pi=0,ci=0,del=false,typed='';
 function type(){const p=phrases[pi];if(!del){if(ci<p.length){typed+=p[ci++];document.getElementById('typed').textContent=typed;setTimeout(type,65);}else{del=true;setTimeout(type,2200);}}else{if(ci>0){typed=typed.slice(0,-1);ci--;document.getElementById('typed').textContent=typed;setTimeout(type,38);}else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);}}}
 type();
@@ -727,15 +826,21 @@ const tots=[
   {q:"Ghazali or Nawawi?",a:"Al-Ghazali",b:"Imam Nawawi",ans:"That question is not fair. Ghazali for the inner life. Nawawi for precision. I need both."},
   {q:"Quran recitation or understanding?",a:"Recitation",b:"Understanding",ans:"Both are necessary but understanding changed me more. Knowing what Allah is saying is different."},
   {q:"Adventure or peace?",a:"Adventure",b:"Peace",ans:"Peace. Every time. I want home to feel like the calmest place in my life."},
-  {q:"Orwell or Al-Ghazali?",a:"Orwell",b:"Al-Ghazali",ans:"Al-Ghazali for how to live. Orwell for how to see the world clearly. Both necessary."},
-  {q:"Sunrise hike or sunset walk?",a:"Sunrise hike",b:"Sunset walk",ans:"Sunrise hike. Starting the day with something hard and beautiful puts everything in perspective."}
+  {q:"Sunrise hike or sunset walk?",a:"Sunrise hike",b:"Sunset walk",ans:"Sunrise hike. Starting the day with something hard and beautiful puts everything in perspective."},
+  {q:"Orwell or Al-Ghazali?",a:"Orwell",b:"Al-Ghazali",ans:"Al-Ghazali for how to live. Orwell for how to see the world clearly. Both necessary.",twist:false},
+  {q:"No easy answer - A close friend tells you something about your spouse that bothers you. You have not verified it yet. What do you do first?",a:"Talk to my spouse directly",b:"Ask the friend for more context",ans:"Talk to my spouse directly. Always. Loyalty means your spouse hears it from you first, not through anyone else. Trust has to start somewhere.",twist:true},
+  {q:"No easy answer - Your husband has been carrying something heavy for weeks and has not told you. You can see it. He has not opened up. What do you do?",a:"Give him space and wait",b:"Gently tell him I see it",ans:"Tell him I see it. Quietly. Without pressure. Just letting someone know they are not invisible is sometimes the only thing that matters.",twist:true}
 ];
 let ti=0,tPicked=false,totHistory=[];
 function loadTot(){
   if(ti>=tots.length){showTotSummary();return;}
   const t=tots[ti];
-  document.getElementById('tot-counter').textContent='Round '+(ti+1)+' of '+tots.length;
-  document.getElementById('tot-q').textContent=t.q;
+  const isTwist=t.twist===true;
+  document.getElementById('tot-counter').textContent=(isTwist?'Values round - no easy answer':'Round '+(ti+1)+' of '+tots.length);
+  document.getElementById('tot-counter').style.color=isTwist?'var(--gold)':'var(--dim)';
+  document.getElementById('tot-q').textContent=isTwist?t.q.replace('No easy answer - ',''):t.q;
+  if(isTwist)document.getElementById('tot-q').style.fontStyle='normal';
+  else document.getElementById('tot-q').style.fontStyle='italic';
   document.getElementById('tot-a').textContent=t.a;
   document.getElementById('tot-b').textContent=t.b;
   document.getElementById('tot-a').className='tot-opt a';
@@ -761,9 +866,9 @@ function showTotSummary(){
     const t=tots.find(x=>x.q===r.q);
     const iMatch=t&&(r.mine.toLowerCase().startsWith(r.hers.toLowerCase().substring(0,4)));
     return `<div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:10px;padding:0.75rem;margin-bottom:8px">
-      <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem">${r.q}</div>
+      <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem">${sanitize(r.q)}</div>
       <div style="display:flex;gap:8px;font-size:0.8rem">
-        <span style="flex:1;color:var(--teal)">You: ${r.hers}</span>
+        <span style="flex:1;color:var(--teal)">You: ${sanitize(r.hers)}</span>
         <span style="flex:1;color:var(--gold)">Qasim: ${r.hers}</span>
       </div>
     </div>`;
@@ -832,21 +937,21 @@ loadQ();
 
 const wwStatements=[
   {text:"You believe home is something you build together, not something you find"},
-  {text:"You do not need constant entertainment, you are comfortable with stillness"},
+  {text:"You think a husband's final say in a genuine disagreement is not oppression - it is trust when the foundation is right"},
   {text:"You believe a spouse should make your deen easier, not harder"},
-  {text:"You are okay with a partner who is publicly active but privately quiet"},
+  {text:"You are okay with a partner who is publicly active but privately quiet and needs space to recharge"},
   {text:"You think a simple life with purpose beats a comfortable life without it"},
-  {text:"You can give space without making it mean something is wrong"},
-  {text:"You believe honest conversations are better than comfortable silence"},
-  {text:"You want to raise children who know who they are and where they come from"},
-  {text:"You are willing to move for something bigger than convenience"},
-  {text:"You believe the best version of a relationship makes both people better Muslims"}
+  {text:"You can give space without making silence mean something is wrong"},
+  {text:"You believe raising children who know exactly who they are and where they come from is worth real sacrifice"},
+  {text:"You are willing to relocate for something bigger than convenience if the vision is shared"},
+  {text:"You believe the best version of a marriage makes both people better Muslims, not just happier people"},
+  {text:"You think a woman who supports her husband's ambition is not losing herself - she is choosing her team"}
 ];
 let wwAgreed=0;
 function buildWW(){
   const grid=document.getElementById('ww-grid');
   wwStatements.forEach((s,i)=>{
-    grid.innerHTML+=`<div class="ww-item" id="ww-${i}" onclick="toggleWW(${i})"><span class="ww-text">${s.text}</span><button type="button" class="ww-btn" id="ww-btn-${i}">Tap if this is you</button></div>`;
+    grid.innerHTML+=`<div class="ww-item" id="ww-${i}" onclick="toggleWW(${i})"><span class="ww-text">${sanitize(s.text)}</span><button type="button" class="ww-btn" id="ww-btn-${i}">Tap if this is you</button></div>`;
   });
 }
 function toggleWW(i){
@@ -871,6 +976,8 @@ function ayNext(step){
   if(step===1){const n=document.getElementById('ay-name').value.trim();if(!n){document.getElementById('ay-name').focus();return;}ayAnswers.name=n;}
   if(step===5){const v=document.getElementById('ay-friends').value.trim();if(!v){document.getElementById('ay-friends').focus();return;}ayAnswers.q5=v;}
   if(step===7){const v=document.getElementById('ay-working').value.trim();if(!v){document.getElementById('ay-working').focus();return;}ayAnswers.q7=v;}
+  if(step===8){const v=document.getElementById('ay-blindspot').value.trim();if(!v){document.getElementById('ay-blindspot').focus();return;}ayAnswers.q8=v;}
+  if(step===9){const v=document.getElementById('ay-unsaid').value.trim();if(!v){document.getElementById('ay-unsaid').focus();return;}ayAnswers.q9=v;}
   if(step===10){const v=document.getElementById('ay-understand').value.trim();if(!v){document.getElementById('ay-understand').focus();return;}ayAnswers.q10=v;}
   if(step===11){const r=document.getElementById('ay-real').value.trim();if(!r){document.getElementById('ay-real').focus();return;}ayAnswers.real=r;showAyProfile();return;}
   document.getElementById('ay-step-'+step).classList.remove('active');
@@ -883,21 +990,32 @@ function ayPick(el,step){
   document.getElementById('ay-next-'+step).style.display='block';
 }
 function aySubmit(){
-  const lines=[`Name: ${ayAnswers.name}`,`Deen: ${ayAnswers.q2}`,`Where she wants to live: ${ayAnswers.q3}`,`Love language: ${ayAnswers.q4}`,`How friends describe her: ${ayAnswers.q5}`,`Hard day needs: ${ayAnswers.q6}`,`Working on: ${ayAnswers.q7}`,`Family relationship: ${ayAnswers.q8}`,`Fear about marriage: ${ayAnswers.q9}`,`Needs understood from day one: ${ayAnswers.q10}`,`Something real: ${ayAnswers.real}`];
+  const fiveYears=document.getElementById('five-years-input')?document.getElementById('five-years-input').value.trim():'';
+  const lines=[`Name: ${ayAnswers.name}`,`Deen: ${ayAnswers.q2}`,`Where she wants to live: ${ayAnswers.q3}`,`Love language: ${ayAnswers.q4}`,`How friends describe her: ${ayAnswers.q5}`,`When something goes wrong: ${ayAnswers.q6}`,`Working on: ${ayAnswers.q7}`,`Blind spot: ${ayAnswers.q8}`,`Something never said out loud: ${ayAnswers.q9}`,`Needs understood from day one: ${ayAnswers.q10}`,`Something real: ${ayAnswers.real}`];
+  if(fiveYears)lines.push(`Five years from now: ${fiveYears}`);
   const email=document.getElementById('ay-email').value.trim();
   const phone=document.getElementById('ay-phone').value.trim();
   if(email)lines.push(`Email: ${email}`);
   if(phone)lines.push(`Phone: ${phone}`);
-  const fd=new FormData();fd.append('name',ayAnswers.name);fd.append('email',email||'not provided');fd.append('message',lines.filter(l=>!l.endsWith(': ')).join('\n\n'));
+  const fd=new FormData();
+  fd.append('name',ayAnswers.name);
+  fd.append('email',email||'not provided');
+  fd.append('_gotcha','');
+  fd.append('message',lines.filter(l=>!l.endsWith(': ')).join('\n\n'));
+  const sendBtn=document.getElementById('ay-send-btn');
+  sendBtn.disabled=true;
   fetch('https://formspree.io/f/mrejarlr',{method:'POST',body:fd,headers:{Accept:'application/json'}})
-  .then(r=>{if(r.ok){document.getElementById('ay-send-btn').style.display='none';document.getElementById('ay-submit-msg').style.display='block';}});
+  .then(r=>{
+    if(r.ok){sendBtn.style.display='none';document.getElementById('ay-submit-msg').style.display='block';}
+    else{sendBtn.disabled=false;}
+  }).catch(()=>{sendBtn.disabled=false;});
 }
 function ayRestart(){
   Object.keys(ayAnswers).forEach(k=>ayAnswers[k]='');
   document.querySelectorAll('.ay-step').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.ay-opt').forEach(o=>o.classList.remove('selected'));
   document.querySelectorAll('[id^=ay-next-]').forEach(b=>b.style.display='none');
-  ['ay-name','ay-friends','ay-working','ay-understand','ay-real'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['ay-name','ay-friends','ay-working','ay-blindspot','ay-unsaid','ay-understand','ay-real'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('ay-send-btn').style.display='block';
   document.getElementById('ay-submit-msg').style.display='none';
   document.getElementById('ay-step-1').classList.add('active');
@@ -922,7 +1040,7 @@ let gfScoreCount=0,gfAnswered=0;
 function buildGF(){
   const grid=document.getElementById('gf-grid');
   gfStatements.forEach((s,i)=>{
-    grid.innerHTML+=`<div class="gf-item" id="gf-item-${i}"><span class="gf-text">${s.text}</span><div class="gf-btns"><button type="button" class="gf-btn" id="gf-g-${i}" onclick="gfPick(${i},'green')" title="Green flag">🟢</button><button type="button" class="gf-btn" id="gf-r-${i}" onclick="gfPick(${i},'red')" title="Not me">🔴</button></div></div>`;
+    grid.innerHTML+=`<div class="gf-item" id="gf-item-${i}"><span class="gf-text">${sanitize(s.text)}</span><div class="gf-btns"><button type="button" class="gf-btn" id="gf-g-${i}" onclick="gfPick(${i},'green')" title="Green flag">🟢</button><button type="button" class="gf-btn" id="gf-r-${i}" onclick="gfPick(${i},'red')" title="Not me">🔴</button></div></div>`;
   });
 }
 function gfPick(i,pick){
@@ -952,6 +1070,11 @@ function gfPick(i,pick){
 }
 buildGF();
 
+function showNoticed(){
+  document.getElementById('noticed-btn').style.display='none';
+  document.getElementById('noticed-text').style.display='block';
+}
+
 function showAyProfile(){
   document.getElementById('ay-step-11').classList.remove('active');
   document.getElementById('ay-profile').classList.add('active');
@@ -963,15 +1086,15 @@ function showAyProfile(){
     {label:'Where she wants to build',val:ayAnswers.q3},
     {label:'Her love language',val:ayAnswers.q4},
     {label:'How friends describe her',val:ayAnswers.q5},
-    {label:'When she is having a hard day',val:ayAnswers.q6},
+    {label:'When something goes wrong',val:ayAnswers.q6},
     {label:'What she is working on',val:ayAnswers.q7},
-    {label:'Her relationship with family',val:ayAnswers.q8},
-    {label:'Her fear about marriage',val:ayAnswers.q9},
-    {label:'What she needs understood from day one',val:ayAnswers.q10}
+    {label:'Her blind spot',val:ayAnswers.q8},
+    {label:'Something she has never said out loud',val:ayAnswers.q9},
+    {label:'What she needs understood',val:ayAnswers.q10}
   ].filter(c=>c.val);
   const container=document.getElementById('ay-profile-cards');
   container.innerHTML='';
-  cards.forEach(c=>{container.innerHTML+=`<div class="ay-profile-card"><div class="ay-profile-dot"></div><div><div class="ay-profile-label">${c.label}</div><div class="ay-profile-val">${c.val}</div></div></div>`;});
+  cards.forEach(c=>{container.innerHTML+=`<div class="ay-profile-card"><div class="ay-profile-dot"></div><div><div class="ay-profile-label">${sanitize(c.label)}</div><div class="ay-profile-val">${sanitize(c.val)}</div></div></div>`;});
   buildMatchCard();
 }
 
@@ -1008,7 +1131,7 @@ function generateMessage(){
   setTimeout(()=>{
     let msg=firstMessages[fmgIdx%firstMessages.length];
     const name=ayAnswers.name||'your name';
-    msg=msg.replace('[name]',name);
+    msg=msg.replace('[name]',sanitize(name));
     el.textContent='"'+msg+'"';
     el.style.opacity='1';
     document.getElementById('fmg-copy-btn').style.display='block';
@@ -1024,30 +1147,47 @@ function copyMessage(){
   });
 }
 document.getElementById('fmg-text').style.transition='opacity 0.25s';
-const truths=[
-  "My biggest fear is giving everything to someone and it still not being enough. But I choose to show up anyway because the alternative is worse.",
-  "I made dua for my future wife by name in the Haram even though I did not know it yet. That is how real this has been in my mind.",
-  "I finished the Quran and it rearranged something in me permanently. Not a dramatic moment. Just a quiet shift that never went back.",
-  "I go quiet when I like someone. Not cold, just processing. It has confused people before and I am still working on that.",
-  "The home I want to build is something I have thought about in detail. Quran in the morning. Books everywhere. Calm enough that the world feels manageable from inside it.",
-  "I carry a lot privately. I am the person people come to. Letting someone in without feeling like it costs me something is still something I am learning.",
-  "I once hiked alone and talked to Allah the whole way up. That was one of the most honest conversations I have ever had.",
-  "Teaching Islamic studies changed me more than studying ever did. When you have to explain something you find out fast what you actually understand.",
-  "What I want most is someone who notices when I go quiet and checks on me without being asked. Not because I told her to.",
-  "I think about legacy every single day. Not in an ego way. More like a what does all of this add up to kind of way.",
-  "I genuinely want to go back to Somalia. Not for a visit. To build something there. That dream has not left me no matter how long I have been away.",
-  "A hard day for me looks like carrying everything silently, finishing the work anyway, and then sitting alone with it at night. I am working on not doing that alone anymore.",
-  "I wish people understood that being quiet does not mean being empty. I am always thinking. I just do not say everything out loud.",
-  "The thing I am most proud of is not the company or the degree. It is that I have never stopped trying to be a better Muslim even when it was inconvenient.",
-  "I am genuinely afraid of settling. Not just in a partner but in life. The version of me that stops pushing is not a version I respect.",
-  "I produce content in Somali because I believe the language carries something English cannot hold. Keeping it alive matters to me more than most people realize.",
-  "I do not need someone who has everything figured out. I need someone who is honest about what they are still figuring out. That honesty is more attractive to me than any polished version.",
-  "The scholars I love most, Ghazali and Nawawi, both gave up comfort for something real. I think about that when I am tempted to stay in what is safe.",
-  "If I could change one thing about myself it would be how long it takes me to let my guard down. I am working on it. Slowly.",
-  "I believe the right marriage is the most powerful project two people can build together. I do not take that lightly and I never will."
-];
-let trIdx=0;
-function nextTruth(){const el=document.getElementById('truth-text');el.style.opacity='0';setTimeout(()=>{el.textContent='"'+truths[trIdx%truths.length]+'"';el.style.opacity='1';document.getElementById('truth-num').textContent=(trIdx%truths.length+1)+' of '+truths.length;trIdx++;},300);}
+const truthCats={
+  private:[
+    "My biggest fear is giving everything to someone and it still not being enough. But I choose to show up anyway because the alternative is worse.",
+    "I carry a lot privately. I am the person people come to. Letting someone in without feeling like it costs me something is still something I am learning.",
+    "I go quiet when I like someone. Not cold, just processing. It has confused people before and I am still working on that.",
+    "I am genuinely afraid of settling. Not just in a partner but in life. The version of me that stops pushing is not a version I respect.",
+    "If I could change one thing about myself it would be how long it takes me to let my guard down. I am working on it. Slowly.",
+    "A hard day for me looks like carrying everything silently, finishing the work anyway, and then sitting alone with it at night. I am working on not doing that alone anymore."
+  ],
+  surprised:[
+    "I finished the Quran and it rearranged something in me permanently. Not a dramatic moment. Just a quiet shift that never went back.",
+    "Teaching Islamic studies changed me more than studying ever did. When you have to explain something you find out fast what you actually understand.",
+    "I once hiked alone and talked to Allah the whole way up. That was one of the most honest conversations I have ever had.",
+    "I changed my mind about what success looks like about three times in the last five years. Each time I thought I had it figured out. I probably still do not.",
+    "I produce content in Somali because I believe the language carries something English cannot hold. That surprised me when I first understood it.",
+    "I think about legacy every single day. Not in an ego way. More like a what does all of this add up to kind of way. The answer keeps changing."
+  ],
+  love:[
+    "I made dua for my future wife by name in the Haram even though I did not know it yet. That is how real this has been in my mind.",
+    "What I want most is someone who notices when I go quiet and checks on me without being asked. Not because I told her to.",
+    "I will remember the name of the restaurant you mentioned in passing three weeks ago and quietly make a reservation. That is just how I am built.",
+    "I fell in love with the idea of building a family the same way I fell in love with building a company. Intentionally. Not by accident.",
+    "I believe the right marriage is the most powerful project two people can build together. I do not take that lightly and I never will.",
+    "The home I want to build is something I have thought about in detail. Quran in the morning. Books everywhere. Calm enough that the world feels manageable from inside it."
+  ]
+};
+const truthIdx={private:0,surprised:0,love:0};
+function nextTruth(cat){
+  const arr=truthCats[cat];
+  const idx=truthIdx[cat]%arr.length;
+  const el=document.getElementById('truth-text');
+  el.style.opacity='0';
+  const labels={private:'Something private',surprised:'Surprised myself',love:'How I will love you'};
+  setTimeout(()=>{
+    document.getElementById('truth-lbl').textContent=labels[cat];
+    el.textContent='"'+arr[idx]+'"';
+    el.style.opacity='1';
+    document.getElementById('truth-num').textContent=(idx+1)+' of '+arr.length;
+    truthIdx[cat]++;
+  },300);
+}
 document.getElementById('truth-text').style.transition='opacity 0.3s';
 
 const daylife=["Fajr together, still half asleep, making duas side by side before the day pulls us apart.","A trail somewhere quiet. No phones. Just the sound of footsteps and a conversation that goes wherever it wants.","You are reading. I am building something. Same room, different worlds, completely at peace.","Saturday morning, slow. No rush. Quran on low. Breakfast that takes too long and a conversation that takes longer.","We disagree on something. We talk it out. Nobody goes to sleep carrying something unresolved.","Somewhere new, a country neither of us has been to, figuring it out together in real time.","You catch me making dua for you. I am not embarrassed. That is just what this is.","A long drive, windows down, the kind of silence that does not need filling.","I remind you of something you told me three weeks ago. You look at me like you cannot believe I remembered.","Home. Somewhere warm and full of meaning. Something we built together from scratch."];
@@ -1075,8 +1215,13 @@ document.querySelectorAll('.fade-item').forEach(el=>fadeObserver.observe(el));
 
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
+  const btn=this.querySelector('button[type="submit"]');
+  btn.disabled=true;
   fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}})
-  .then(r=>{if(r.ok){this.style.display='none';document.getElementById('submit-msg').style.display='block';}});
+  .then(r=>{
+    if(r.ok){this.style.display='none';document.getElementById('submit-msg').style.display='block';}
+    else{btn.disabled=false;}
+  }).catch(()=>{btn.disabled=false;});
 });
 </script>
 </body>
