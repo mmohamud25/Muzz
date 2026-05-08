@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meet Qasim</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="An introduction to Qasim - founder, MS student, podcast host, and someone building something real. Faith-driven, purpose-built, looking for the one.">
+<meta property="og:title" content="Meet Qasim">
+<meta property="og:description" content="A man trying to build something meaningful in this dunya. A company, a legacy, and inshallah a home full of purpose and peace.">
+<meta property="og:url" content="https://meet.mmohamud.me/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://meet.mmohamud.me/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meet Qasim">
+<meta name="twitter:description" content="Faith-driven, purpose-built, looking for the one.">
+<meta name="twitter:image" content="https://meet.mmohamud.me/og-image.png">
+<link rel="canonical" href="https://meet.mmohamud.me/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230e9e92'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' fill='%23f0ece4'>ق</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{--navy:#07111f;--navy2:#0d1829;--teal:#0e9e92;--teal2:rgba(14,158,146,0.12);--gold:#c98c2a;--gold2:rgba(201,140,42,0.12);--cream:#f0ece4;--muted:rgba(240,236,228,0.55);--dim:rgba(240,236,228,0.12)}
@@ -74,7 +86,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .outdoor-label{font-size:0.72rem;color:var(--muted)}
 
 .flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
-.flip-card{height:128px;perspective:800px;cursor:pointer}
+.flip-card{height:128px;perspective:800px;cursor:pointer;transition:transform 0.2s}
+.flip-card:hover .flip-f{border-color:rgba(14,158,146,0.4);background:rgba(255,255,255,0.07)}
+.flip-card:hover{transform:translateY(-2px)}
 .flip-inner{width:100%;height:100%;transition:transform 0.55s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d;position:relative}
 .flip-card.flipped .flip-inner{transform:rotateY(180deg)}
 .flip-f,.flip-b{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.85rem;text-align:center}
@@ -225,11 +239,46 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .btn-gold{background:var(--gold2);border:1px solid rgba(201,140,42,0.25);color:var(--gold)}
 .btn-gold:hover{background:rgba(201,140,42,0.2)}
 .divider{width:40px;height:1px;background:linear-gradient(to right,var(--teal),var(--gold));margin:0 auto 1.2rem}
+
+.gf-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:1.2rem}
+.gf-item{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:12px;padding:0.9rem 1rem;transition:all 0.25s}
+.gf-item.green{background:rgba(45,122,79,0.15);border-color:rgba(45,122,79,0.4)}
+.gf-item.red{background:rgba(255,255,255,0.02);border-color:var(--dim);opacity:0.45}
+.gf-text{font-size:0.84rem;color:rgba(240,236,228,0.82);line-height:1.5;flex:1}
+.gf-item.green .gf-text{color:var(--cream)}
+.gf-btns{display:flex;gap:6px;flex-shrink:0}
+.gf-btn{background:rgba(255,255,255,0.05);border:1px solid var(--dim);border-radius:8px;padding:0.4rem 0.6rem;font-size:1rem;cursor:pointer;transition:all 0.2s;min-height:36px;min-width:36px;line-height:1}
+.gf-btn.active-green{background:rgba(45,122,79,0.3);border-color:rgba(45,122,79,0.5)}
+.gf-btn.active-red{background:rgba(200,50,50,0.2);border-color:rgba(200,50,50,0.4)}
+.gf-result{text-align:center;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;margin-bottom:1rem}
+.gf-score{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:#5acea0;line-height:1}
+.gf-score-label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem}
+.gf-verdict{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.92rem;color:var(--muted);margin-top:0.6rem;line-height:1.6}
+
+.match-card{background:linear-gradient(135deg,rgba(14,158,146,0.1),rgba(201,140,42,0.08));border:1px solid rgba(14,158,146,0.25);border-radius:16px;padding:1.3rem;margin-bottom:1.2rem;text-align:center}
+.match-label{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:0.6rem}
+.match-emoji{font-size:2rem;margin-bottom:0.5rem}
+.match-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--cream);margin-bottom:0.4rem}
+.match-desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:var(--muted);line-height:1.65}
+
+.fmg-box{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.3rem;margin-bottom:1.2rem}
+.fmg-label{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:0.8rem;display:block}
+.fmg-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.75;margin-bottom:1rem;min-height:80px;transition:opacity 0.3s}
+.fmg-copy-row{display:flex;gap:8px}
+.fmg-copy-btn{flex:1;background:rgba(255,255,255,0.05);border:1px solid var(--dim);border-radius:10px;padding:0.7rem;font-size:0.8rem;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;min-height:44px}
+.fmg-copy-btn:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream)}
+.fmg-copied{font-size:0.75rem;color:var(--teal);text-align:center;margin-top:0.5rem;display:none}
+.back-top{position:fixed;bottom:1.5rem;right:1.2rem;width:42px;height:42px;border-radius:50%;background:var(--teal);border:none;color:white;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all 0.3s;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.back-top.visible{opacity:1;transform:translateY(0)}
+.back-top:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.fade-item{opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease}
+.fade-item.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
 <div class="wrap">
+<button class="back-top" id="back-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
 <div class="hero">
   <div class="hero-ring"><div class="hero-inner">ق</div></div>
@@ -261,12 +310,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 
 <div class="sticky-nav">
   <div class="nav-inner">
-    <button class="nav-btn active" onclick="goTo('story',this,0)">My Story</button>
-    <button class="nav-btn" onclick="goTo('know',this,1)">Know Me</button>
-    <button class="nav-btn" onclick="goTo('faith',this,2)">My Faith</button>
-    <button class="nav-btn" onclick="goTo('letter',this,3)">Letter</button>
-    <button class="nav-btn" onclick="goTo('couldwe',this,4)">Could We?</button>
-    <button class="nav-btn" onclick="goTo('contact',this,5)">Talk</button>
+    <button type="button" class="nav-btn active" onclick="goTo('story',this,0)">My Story</button>
+    <button type="button" class="nav-btn" onclick="goTo('know',this,1)">Know Me</button>
+    <button type="button" class="nav-btn" onclick="goTo('faith',this,2)">My Faith</button>
+    <button type="button" class="nav-btn" onclick="goTo('letter',this,3)">Letter</button>
+    <button type="button" class="nav-btn" onclick="goTo('couldwe',this,4)">Could We?</button>
+    <button type="button" class="nav-btn" onclick="goTo('contact',this,5)">Talk</button>
   </div>
 </div>
 
@@ -333,25 +382,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   </div>
   <span class="sub-label" style="color:var(--teal)">What I bring to you</span>
   <div class="vibe-grid" style="margin-bottom:1.4rem">
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">You will never feel like a burden for being honest with me</div><div class="vibe-sub">I chose to listen before I chose to respond</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I notice when you go quiet and check on you without being asked</div><div class="vibe-sub">You should never have to ask me to check on you</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will be your biggest supporter without losing myself in it</div><div class="vibe-sub">Your wins feel like mine. That is just how I work.</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will remind you of Allah when the world pulls you away</div><div class="vibe-sub">The best a spouse can do is make the deen feel lighter</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">You will never feel like a burden for being honest with me</div><div class="vibe-sub">I chose to listen before I chose to respond</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I notice when you go quiet and check on you without being asked</div><div class="vibe-sub">You should never have to ask me to check on you</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will be your biggest supporter without losing myself in it</div><div class="vibe-sub">Your wins feel like mine. That is just how I work.</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will remind you of Allah when the world pulls you away</div><div class="vibe-sub">The best a spouse can do is make the deen feel lighter</div></div></div>
   </div>
   <span class="sub-label" style="color:var(--gold)">What I need from you</span>
   <div class="vibe-grid" style="margin-bottom:1.5rem">
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Honesty, even when it costs something</div><div class="vibe-sub">I can handle the truth. I cannot handle being managed.</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Deen that is real and chosen, not just inherited</div><div class="vibe-sub">I want a partner who chose Islam, not just someone born into it</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Communication when things get hard</div><div class="vibe-sub">Go quiet from the world, never from me</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Your own purpose and drive</div><div class="vibe-sub">I want a partner, not a passenger</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Honesty, even when it costs something</div><div class="vibe-sub">I can handle the truth. I cannot handle being managed.</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Deen that is real and chosen, not just inherited</div><div class="vibe-sub">I want a partner who chose Islam, not just someone born into it</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Communication when things get hard</div><div class="vibe-sub">Go quiet from the world, never from me</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Your own purpose and drive</div><div class="vibe-sub">I want a partner, not a passenger</div></div></div>
   </div>
   <span class="sub-label" style="color:var(--teal)">This or that</span>
   <div class="tot-card">
     <div class="tot-counter" id="tot-counter">Round 1 of 10</div>
     <div class="tot-q" id="tot-q"></div>
-    <div class="tot-row"><button class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button><span class="tot-vs">or</span><button class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button></div>
+    <div class="tot-row"><button type="button" class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button><span class="tot-vs">or</span><button type="button" class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button></div>
     <div class="tot-answer" id="tot-ans"></div>
-    <button class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round →</button>
+    <button type="button" class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round →</button>
   </div>
   <span class="sub-label" style="color:var(--teal)">Books that shaped me</span>
   <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Ihya Ulum al-Din</div><div class="book-author">Imam Al-Ghazali</div><div class="book-note">A complete manual for cleaning the soul and building a life with meaning. I return to it constantly.</div></div></div>
@@ -368,17 +417,17 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="hadith-box"><div class="hadith-text">"The world is a provision, and the best provision of the world is a righteous wife."</div><div class="hadith-ref">Sahih Muslim</div></div>
   <div class="hadith-box"><div class="hadith-text">"When a man marries, he has fulfilled half of his religion. Let him then fear Allah regarding the remaining half."</div><div class="hadith-ref">Al-Bayhaqi</div></div>
   <div class="vibe-grid" style="margin-bottom:1.5rem">
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I completed the Quran</div><div class="vibe-sub">The book that shaped everything I believe and how I move through this world</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I used to teach Islamic studies</div><div class="vibe-sub">Teaching forced me to go deeper into everything I thought I understood</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Fiqh is my favorite subject</div><div class="vibe-sub">The way scholars reasoned through complexity across centuries fascinates me</div></div></div>
-    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Tarbiya is the real work</div><div class="vibe-sub">Cleaning the nafs, building the character. The outward is easy compared to the inward.</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I completed the Quran</div><div class="vibe-sub">The book that shaped everything I believe and how I move through this world</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I used to teach Islamic studies</div><div class="vibe-sub">Teaching forced me to go deeper into everything I thought I understood</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Fiqh is my favorite subject</div><div class="vibe-sub">The way scholars reasoned through complexity across centuries fascinates me</div></div></div>
+    <div class="vibe-item fade-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Tarbiya is the real work</div><div class="vibe-sub">Cleaning the nafs, building the character. The outward is easy compared to the inward.</div></div></div>
   </div>
   <span class="sub-label" style="color:var(--gold)">The scholars who shaped me</span>
   <div class="scholar-card"><div class="scholar-name">Imam Al-Ghazali</div><div class="scholar-era">1058 to 1111 CE · Philosopher, Theologian, Scholar of the Soul</div><div class="scholar-desc">Hujjat al-Islam. He left prestige and comfort at the height of his career to search for what was real. His Ihya Ulum al-Din is the most thorough guide I have found for building a life of inner integrity.</div></div>
   <div class="scholar-card"><div class="scholar-name">Imam An-Nawawi</div><div class="scholar-era">1233 to 1277 CE · Jurist, Hadith Scholar</div><div class="scholar-desc">His 40 Hadith is something I return to constantly. Riyadh al-Salihin sits near where I sleep. He had a gift for making the profound feel accessible without losing any of its weight.</div></div>
   <div class="faith-pills"><span class="faith-pill">Tazkiyat al-nafs</span><span class="faith-pill">Fiqh al-ibadat</span><span class="faith-pill">Ihsan</span><span class="faith-pill">Akhlaaq</span><span class="faith-pill">Quran and tafsir</span><span class="faith-pill">Hadith sciences</span><span class="faith-pill">Usul al-fiqh</span><span class="faith-pill">Spiritual discipline</span></div>
   <div class="dua-box"><div class="dua-label">A dua I make often</div><div class="dua-arabic">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div><div class="dua-trans">Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous.</div></div>
-  <div class="ayah-box" style="margin-top:1.3rem"><div class="ayah-arabic">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</div><div class="ayah-trans">Actions are but by intentions.</div><div class="ayah-ref">Hadith — Bukhari and Muslim</div></div>
+  <div class="ayah-box" style="margin-top:1.3rem"><div class="ayah-arabic">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</div><div class="ayah-trans">Actions are but by intentions.</div><div class="ayah-ref">Hadith - Bukhari and Muslim</div></div>
 </div>
 
 <!-- LETTER -->
@@ -407,6 +456,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="cw-intro"><p>You have been reading about me for a few minutes now. This is where it gets interesting. Answer honestly, imagine openly, and see what comes up. No right answers, no pressure. Just two people figuring out if this makes sense.</p></div>
   <div class="honest-note"><p><strong>One honest thing before you start.</strong> I want to live in a Muslim country, ideally back in Somalia or somewhere in East Africa. That is not a dealbreaker question but it is an honest one. You deserve to know that going in.</p></div>
 
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem">
+    <div style="width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:white;flex-shrink:0">1</div>
+    <div style="font-size:0.72rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em">The compatibility quiz</div>
+  </div>
   <div class="q-top"><span class="q-label" id="q-num">Question 1 of 15</span><span class="q-label" id="q-pct">0%</span></div>
   <div class="q-bar"><div class="q-fill" id="q-fill" style="width:0%"></div></div>
   <div class="q-card" id="q-card">
@@ -415,7 +468,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   </div>
 
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
-
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:var(--navy);flex-shrink:0">2</div><div style="font-size:0.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em">Quick check - optional enrichment</div></div>
   <div class="sec-eyebrow">We would work if...</div>
   <div class="sec-title">Tap what <em>resonates</em></div>
   <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem">Tap everything that sounds like you. Be honest.</p>
@@ -427,8 +480,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   </div>
 
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:var(--navy);flex-shrink:0">3</div><div style="font-size:0.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em">Green flag check - optional</div></div>
+  <div class="sec-eyebrow">Green flag or red flag?</div>
+  <div class="sec-title">Be honest with <em>yourself</em></div>
+  <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem">Tap 🟢 if it is true about you. Tap 🔴 if it is not. No judgment either way.</p>
+  <div class="gf-grid" id="gf-grid"></div>
+  <div class="gf-result" id="gf-result" style="display:none">
+    <div class="gf-score" id="gf-score">0</div>
+    <div class="gf-score-label">green flags for Qasim</div>
+    <div class="gf-verdict" id="gf-verdict"></div>
+  </div>
 
-  <div class="sec-eyebrow">Now your turn</div>
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><div style="width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:white;flex-shrink:0">4</div><div style="font-size:0.72rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em">The final step - tell him about you</div></div>
   <div class="sec-title">Let me get to <em>know you</em></div>
   <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem">You have been learning about me this whole time. Fair is fair. Answer honestly and at the end you can send your answers directly to me.</p>
   <div id="ay-form">
@@ -436,7 +500,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
       <div class="ay-progress-row"><span class="ay-progress-label">1 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:9%"></div></div></div>
       <div class="ay-question">What should I call you?</div>
       <input type="text" class="ay-input" id="ay-name" placeholder="Your name..." maxlength="60">
-      <button class="btn" style="margin-top:1rem" onclick="ayNext(1)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(1)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-2">
       <div class="ay-progress-row"><span class="ay-progress-label">2 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:18%"></div></div></div>
@@ -447,7 +511,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,2)">I am somewhere in the middle and being honest about it</div>
         <div class="ay-opt" onclick="ayPick(this,2)">It is more cultural right now but I want more</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-2" onclick="ayNext(2)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-2" onclick="ayNext(2)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-3">
       <div class="ay-progress-row"><span class="ay-progress-label">3 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:27%"></div></div></div>
@@ -458,7 +522,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,3)">Western country but with a strong Muslim community</div>
         <div class="ay-opt" onclick="ayPick(this,3)">Wherever opportunity and family are</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-3" onclick="ayNext(3)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-3" onclick="ayNext(3)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-4">
       <div class="ay-progress-row"><span class="ay-progress-label">4 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:36%"></div></div></div>
@@ -469,13 +533,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,4)">Acts of service, show up without being asked</div>
         <div class="ay-opt" onclick="ayPick(this,4)">Physical touch, presence and closeness</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-4" onclick="ayNext(4)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-4" onclick="ayNext(4)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-5">
       <div class="ay-progress-row"><span class="ay-progress-label">5 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:45%"></div></div></div>
       <div class="ay-question">How would your closest friends describe you in one sentence?</div>
       <input type="text" class="ay-input" id="ay-friends" placeholder="What would they say..." maxlength="120">
-      <button class="btn" style="margin-top:1rem" onclick="ayNext(5)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(5)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-6">
       <div class="ay-progress-row"><span class="ay-progress-label">6 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:54%"></div></div></div>
@@ -486,13 +550,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,6)">Give me space and check on me later</div>
         <div class="ay-opt" onclick="ayPick(this,6)">Distract me, take me somewhere else mentally</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-6" onclick="ayNext(6)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-6" onclick="ayNext(6)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-7">
       <div class="ay-progress-row"><span class="ay-progress-label">7 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:63%"></div></div></div>
       <div class="ay-question">What are you actively working on about yourself right now?</div>
       <input type="text" class="ay-input" id="ay-working" placeholder="Be honest..." maxlength="150">
-      <button class="btn" style="margin-top:1rem" onclick="ayNext(7)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(7)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-8">
       <div class="ay-progress-row"><span class="ay-progress-label">8 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:72%"></div></div></div>
@@ -503,7 +567,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,8)">Complicated but I am working on it</div>
         <div class="ay-opt" onclick="ayPick(this,8)">I am building my own definition of family</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-8" onclick="ayNext(8)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-8" onclick="ayNext(8)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-9">
       <div class="ay-progress-row"><span class="ay-progress-label">9 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:81%"></div></div></div>
@@ -514,19 +578,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,9)">Not being enough for the other person</div>
         <div class="ay-opt" onclick="ayPick(this,9)">The responsibility and everything that comes with it</div>
       </div>
-      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-9" onclick="ayNext(9)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-9" onclick="ayNext(9)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-10">
       <div class="ay-progress-row"><span class="ay-progress-label">10 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:90%"></div></div></div>
       <div class="ay-question">What is one thing you need your partner to understand about you from day one?</div>
       <input type="text" class="ay-input" id="ay-understand" placeholder="What is non-negotiable for you..." maxlength="150">
-      <button class="btn" style="margin-top:1rem" onclick="ayNext(10)">Next →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(10)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-11">
       <div class="ay-progress-row"><span class="ay-progress-label">11 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
       <div class="ay-question">Tell me one real thing about yourself that a profile would never show.</div>
       <textarea class="ay-input" id="ay-real" placeholder="Be honest. This goes straight to me." rows="4" maxlength="500"></textarea>
-      <button class="btn" style="margin-top:1rem" onclick="ayNext(11)">See my profile →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(11)">See my profile →</button>
     </div>
     <div class="ay-step" id="ay-profile">
       <div style="text-align:center;margin-bottom:1.5rem">
@@ -534,6 +598,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream)" id="ay-profile-name"></div>
       </div>
       <div id="ay-profile-cards"></div>
+      <div id="ay-match-card" class="match-card" style="display:none">
+        <div class="match-label">You two would be...</div>
+        <div class="match-emoji" id="match-emoji">✨</div>
+        <div class="match-title" id="match-title"></div>
+        <div class="match-desc" id="match-desc"></div>
+      </div>
       <div style="background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:12px;padding:1rem;margin-bottom:1.2rem">
         <div style="font-size:0.65rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Something real</div>
         <p style="font-size:0.85rem;color:rgba(240,236,228,0.8);line-height:1.65;font-style:italic" id="ay-profile-real"></p>
@@ -543,8 +613,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="form-group"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your email</label><input type="email" class="ay-input" id="ay-email" placeholder="So he can reach you..."></div>
         <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" class="ay-input" id="ay-phone" placeholder="If you prefer a text..."></div>
       </div>
-      <button class="btn" id="ay-send-btn" onclick="aySubmit()">Send my answers to Qasim →</button>
-      <button class="btn btn-outline" onclick="ayRestart()">Start over</button>
+      <button type="button" class="btn" id="ay-send-btn" onclick="aySubmit()">Send my answers to Qasim →</button>
+      <button type="button" class="btn btn-outline" onclick="ayRestart()">Start over</button>
       <div class="submit-msg" id="ay-submit-msg">Sent. JazakAllah khayr. Qasim will be in touch. 🤍</div>
     </div>
   </div>
@@ -558,7 +628,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="truth-text" id="truth-text">Press the button. No performance, no filter.</div>
     <div class="truth-num" id="truth-num"></div>
   </div>
-  <button class="btn btn-outline" onclick="nextTruth()">Ask me something 🎲</button>
+  <button class="btn btn-outline" type="button" onclick="nextTruth()">Reveal something unfiltered 🎲</button>
 
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
 
@@ -566,7 +636,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-title">A day in <em>our life</em></div>
   <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;font-style:italic">Press the button and picture it for a moment.</p>
   <div class="daylife-card"><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.65;transition:opacity 0.3s" id="daylife-text">Press the button below.</p></div>
-  <button class="btn btn-outline" onclick="nextDaylife()">Show me another moment 🌙</button>
+  <button type="button" class="btn btn-outline" onclick="nextDaylife()">Show me another moment 🌙</button>
 </div>
 
 <!-- TALK -->
@@ -575,6 +645,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-title">Let us actually <em>talk</em></div>
   <div class="divider"></div>
   <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);text-align:center;margin-bottom:1.5rem;line-height:1.75">If something here resonated with you, that is not a coincidence. Reach out. The worst that happens is a good conversation.</p>
+  <div class="fmg-box">
+    <span class="fmg-label">Not sure what to say? Let me help 😊</span>
+    <div class="fmg-text" id="fmg-text">Press the button and get a suggested first message. Edit it however you want before sending.</div>
+    <div class="fmg-copy-row">
+      <button type="button" class="fmg-copy-btn" onclick="generateMessage()">Generate a message ✨</button>
+      <button type="button" class="fmg-copy-btn" onclick="copyMessage()" id="fmg-copy-btn" style="display:none">Copy it 📋</button>
+    </div>
+    <div class="fmg-copied" id="fmg-copied">Copied to clipboard ✓</div>
+  </div>
+
   <div class="form-wrap">
     <p style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Send me a message</p>
     <p style="font-size:0.78rem;color:var(--dim);font-style:italic;text-align:center;margin-bottom:1rem">Goes straight to me. No one else sees it.</p>
@@ -692,13 +772,19 @@ function showResult(){
   const max=qs.reduce((a,q)=>a+Math.max(...q.w),0);
   const pct=Math.round((qt/max)*100);
   let emoji,title,desc;
-  if(pct>=87){emoji='🔥';title='We might actually be something real';desc='The way you answered tells me your values and what you want from life lines up with mine in a way I do not take lightly. Keep scrolling. Tell me about yourself.';}
+  if(pct>=87){emoji='🔥';title='We might actually be something real';desc='The way you answered tells me your values and what you want from life lines up with mine. Keep going - tell me about yourself.';}
   else if(pct>=72){emoji='✨';title='Strong potential here';desc='There is real alignment on the things that actually matter. A few things would need an honest conversation but the foundation looks solid.';}
   else if(pct>=55){emoji='🌱';title='Worth exploring';desc='We see a couple of things differently. That is not always a dealbreaker. The only way to really know is to just talk.';}
   else{emoji='🤝';title='Different paths, mutual respect';desc='We might not be aligned right now. But going through this honestly says something good about you.';}
   document.getElementById('q-fill').style.width='100%';
   document.getElementById('q-pct').textContent='100%';
-  document.getElementById('q-card').innerHTML=`<div class="result-wrap"><div class="result-pct">${pct}%</div><div class="result-emoji">${emoji}</div><div class="result-title">${title}</div><div class="result-desc">${desc}</div><button class="btn" onclick="resetQ()" style="margin-bottom:8px">Take it again</button></div>`;
+  const primaryBtn = pct>=72
+    ? `<button type="button" class="btn" onclick="document.getElementById('ay-step-1').scrollIntoView({behavior:'smooth'})" style="margin-bottom:8px">Tell me about yourself →</button>`
+    : `<button type="button" class="btn" onclick="resetQ()" style="margin-bottom:8px">Take it again</button>`;
+  const secondaryBtn = pct>=72
+    ? `<button type="button" class="btn btn-outline" onclick="resetQ()">Take it again</button>`
+    : '';
+  document.getElementById('q-card').innerHTML=`<div class="result-wrap"><div class="result-pct">${pct}%</div><div class="result-emoji">${emoji}</div><div class="result-title">${title}</div><div class="result-desc">${desc}</div>${primaryBtn}${secondaryBtn}</div>`;
 }
 function resetQ(){qi=0;qt=0;document.getElementById('q-card').innerHTML='<div class="q-text" id="q-text"></div><div class="q-opts" id="q-opts"></div>';loadQ();}
 loadQ();
@@ -719,7 +805,7 @@ let wwAgreed=0;
 function buildWW(){
   const grid=document.getElementById('ww-grid');
   wwStatements.forEach((s,i)=>{
-    grid.innerHTML+=`<div class="ww-item" id="ww-${i}" onclick="toggleWW(${i})"><span class="ww-text">${s.text}</span><button class="ww-btn" id="ww-btn-${i}">Tap if this is you</button></div>`;
+    grid.innerHTML+=`<div class="ww-item" id="ww-${i}" onclick="toggleWW(${i})"><span class="ww-text">${s.text}</span><button type="button" class="ww-btn" id="ww-btn-${i}">Tap if this is you</button></div>`;
   });
 }
 function toggleWW(i){
@@ -755,27 +841,6 @@ function ayPick(el,step){
   ayAnswers['q'+step]=el.textContent;
   document.getElementById('ay-next-'+step).style.display='block';
 }
-function showAyProfile(){
-  document.getElementById('ay-step-11').classList.remove('active');
-  document.getElementById('ay-profile').classList.add('active');
-  document.getElementById('ay-avatar').textContent=ayAnswers.name.charAt(0).toUpperCase();
-  document.getElementById('ay-profile-name').textContent=ayAnswers.name;
-  document.getElementById('ay-profile-real').textContent=ayAnswers.real;
-  const cards=[
-    {label:'Her deen',val:ayAnswers.q2},
-    {label:'Where she wants to build',val:ayAnswers.q3},
-    {label:'Her love language',val:ayAnswers.q4},
-    {label:'How friends describe her',val:ayAnswers.q5},
-    {label:'When she is having a hard day',val:ayAnswers.q6},
-    {label:'What she is working on',val:ayAnswers.q7},
-    {label:'Her relationship with family',val:ayAnswers.q8},
-    {label:'Her fear about marriage',val:ayAnswers.q9},
-    {label:'What she needs understood from day one',val:ayAnswers.q10}
-  ].filter(c=>c.val);
-  const container=document.getElementById('ay-profile-cards');
-  container.innerHTML='';
-  cards.forEach(c=>{container.innerHTML+=`<div class="ay-profile-card"><div class="ay-profile-dot"></div><div><div class="ay-profile-label">${c.label}</div><div class="ay-profile-val">${c.val}</div></div></div>`;});
-}
 function aySubmit(){
   const lines=[`Name: ${ayAnswers.name}`,`Deen: ${ayAnswers.q2}`,`Where she wants to live: ${ayAnswers.q3}`,`Love language: ${ayAnswers.q4}`,`How friends describe her: ${ayAnswers.q5}`,`Hard day needs: ${ayAnswers.q6}`,`Working on: ${ayAnswers.q7}`,`Family relationship: ${ayAnswers.q8}`,`Fear about marriage: ${ayAnswers.q9}`,`Needs understood from day one: ${ayAnswers.q10}`,`Something real: ${ayAnswers.real}`];
   const email=document.getElementById('ay-email').value.trim();
@@ -797,6 +862,127 @@ function ayRestart(){
   document.getElementById('ay-step-1').classList.add('active');
 }
 
+
+const gfStatements=[
+  {text:"You pray your five daily prayers consistently",flag:'green'},
+  {text:"You can sit in comfortable silence with someone you care about",flag:'green'},
+  {text:"You check on people without being asked",flag:'green'},
+  {text:"You are genuinely interested in learning more about your deen",flag:'green'},
+  {text:"You communicate when something is wrong instead of going quiet",flag:'green'},
+  {text:"You would support a partner's big dreams even when they require sacrifice",flag:'green'},
+  {text:"You are honest even when it would be easier not to be",flag:'green'},
+  {text:"You find long conversations more interesting than small talk",flag:'green'},
+  {text:"You are working on something about yourself right now",flag:'green'},
+  {text:"You believe marriage is a partnership, not a transaction",flag:'green'},
+  {text:"You could see yourself living in a Muslim country one day",flag:'green'},
+  {text:"You think a quiet evening at home sounds better than a loud night out",flag:'green'}
+];
+let gfScoreCount=0,gfAnswered=0;
+function buildGF(){
+  const grid=document.getElementById('gf-grid');
+  gfStatements.forEach((s,i)=>{
+    grid.innerHTML+=`<div class="gf-item" id="gf-item-${i}"><span class="gf-text">${s.text}</span><div class="gf-btns"><button type="button" class="gf-btn" id="gf-g-${i}" onclick="gfPick(${i},'green')" title="Green flag">🟢</button><button type="button" class="gf-btn" id="gf-r-${i}" onclick="gfPick(${i},'red')" title="Not me">🔴</button></div></div>`;
+  });
+}
+function gfPick(i,pick){
+  const item=document.getElementById('gf-item-'+i);
+  const gBtn=document.getElementById('gf-g-'+i);
+  const rBtn=document.getElementById('gf-r-'+i);
+  const wasGreen=gBtn.classList.contains('active-green');
+  const wasRed=rBtn.classList.contains('active-red');
+  if(!wasGreen&&!wasRed)gfAnswered++;
+  if(pick==='green'){
+    if(wasGreen){gBtn.classList.remove('active-green');item.classList.remove('green');gfScoreCount--;gfAnswered--;}
+    else{gBtn.classList.add('active-green');rBtn.classList.remove('active-red');item.classList.add('green');item.classList.remove('red');if(wasRed)gfScoreCount++;else gfScoreCount++;}
+  }else{
+    if(wasRed){rBtn.classList.remove('active-red');item.classList.remove('red');gfAnswered--;}
+    else{rBtn.classList.add('active-red');gBtn.classList.remove('active-green');item.classList.add('red');item.classList.remove('green');if(wasGreen)gfScoreCount--;}
+  }
+  const result=document.getElementById('gf-result');
+  result.style.display='block';
+  document.getElementById('gf-score').textContent=gfScoreCount;
+  let verdict='';
+  if(gfScoreCount>=10)verdict='"You would walk into his life and it would just make sense. MashaAllah."';
+  else if(gfScoreCount>=8)verdict='"There is a lot here. The foundation is solid. The rest is just conversation."';
+  else if(gfScoreCount>=6)verdict='"Good overlap where it matters. Some things to figure out together."';
+  else if(gfScoreCount>=4)verdict='"Honest is better than perfect. Keep going."';
+  else verdict='"Maybe not the right fit. Or maybe just the right starting point for honesty."';
+  document.getElementById('gf-verdict').textContent=verdict;
+}
+buildGF();
+
+function showAyProfile(){
+  document.getElementById('ay-step-11').classList.remove('active');
+  document.getElementById('ay-profile').classList.add('active');
+  document.getElementById('ay-avatar').textContent=ayAnswers.name.charAt(0).toUpperCase();
+  document.getElementById('ay-profile-name').textContent=ayAnswers.name;
+  document.getElementById('ay-profile-real').textContent=ayAnswers.real;
+  const cards=[
+    {label:'Her deen',val:ayAnswers.q2},
+    {label:'Where she wants to build',val:ayAnswers.q3},
+    {label:'Her love language',val:ayAnswers.q4},
+    {label:'How friends describe her',val:ayAnswers.q5},
+    {label:'When she is having a hard day',val:ayAnswers.q6},
+    {label:'What she is working on',val:ayAnswers.q7},
+    {label:'Her relationship with family',val:ayAnswers.q8},
+    {label:'Her fear about marriage',val:ayAnswers.q9},
+    {label:'What she needs understood from day one',val:ayAnswers.q10}
+  ].filter(c=>c.val);
+  const container=document.getElementById('ay-profile-cards');
+  container.innerHTML='';
+  cards.forEach(c=>{container.innerHTML+=`<div class="ay-profile-card"><div class="ay-profile-dot"></div><div><div class="ay-profile-label">${c.label}</div><div class="ay-profile-val">${c.val}</div></div></div>`;});
+  buildMatchCard();
+}
+
+function buildMatchCard(){
+  const matches=[
+    {condition:()=>ayAnswers.q2&&ayAnswers.q2.includes('center'),emoji:'🌙',title:'The couple that built on deen first',desc:'Everything else followed naturally. People around them could feel the barakah.'},
+    {condition:()=>ayAnswers.q4&&ayAnswers.q4.includes('Quality time'),emoji:'🏔️',title:'The couple that disappears together',desc:'Nobody hears from them on weekends. They are either on a trail or deep in a conversation nobody else would understand.'},
+    {condition:()=>ayAnswers.q4&&ayAnswers.q4.includes('Acts of service'),emoji:'🤝',title:'The couple that just shows up',desc:'They do not say much. They just appear when it matters. And somehow that is always enough.'},
+    {condition:()=>ayAnswers.q6&&ayAnswers.q6.includes('sit with me'),emoji:'🌿',title:'The couple that does not need words',desc:'Presence is the love language. The silence between them is never empty.'},
+    {condition:()=>ayAnswers.q3&&ayAnswers.q3.includes('Somalia'),emoji:'🌍',title:'The couple that went back',desc:'They built something in the place that shaped them. That took courage and nobody could talk them out of it.'},
+    {condition:()=>ayAnswers.q9&&ayAnswers.q9.includes('losing myself'),emoji:'✨',title:'The couple that stayed whole',desc:'They loved each other completely without disappearing into each other. That balance is rare and they both knew it.'},
+    {condition:()=>true,emoji:'🔥',title:'The couple nobody expected',desc:'On paper maybe it looked unlikely. In practice they made it look effortless. The kind of love that makes other people quietly reconsider what they settled for.'}
+  ];
+  const match=matches.find(m=>m.condition())||matches[matches.length-1];
+  document.getElementById('ay-match-card').style.display='block';
+  document.getElementById('match-emoji').textContent=match.emoji;
+  document.getElementById('match-title').textContent=match.title;
+  document.getElementById('match-desc').textContent=match.desc;
+}
+
+const firstMessages=[
+  "Assalamu alaikum. I went through the whole site and I appreciated how honest it was. I am not sure I would have reached out otherwise. My name is [name] and I think it is worth a conversation.",
+  "I finished the quiz and the about you form and I still wanted to say something. That does not happen often. Assalamu alaikum, I am [name].",
+  "The letter made me stop scrolling for a minute. I do not usually do things like this but here I am. Assalamu alaikum, my name is [name].",
+  "I appreciated that you were honest about Somalia and what you actually want. So I will be honest too - I think we could have a real conversation. I am [name].",
+  "Assalamu alaikum. I went through everything and I have one question I would want to ask you in person. I am [name] if you want to find out what it is.",
+  "The truth section got me. Specifically the one about making dua for someone you have not met yet. Assalamu alaikum, I am [name].",
+  "I do not have a perfect opening line. I just know I read this and thought I should say something. Assalamu alaikum - I am [name]."
+];
+let fmgIdx=0;
+function generateMessage(){
+  const el=document.getElementById('fmg-text');
+  el.style.opacity='0';
+  setTimeout(()=>{
+    let msg=firstMessages[fmgIdx%firstMessages.length];
+    const name=ayAnswers.name||'your name';
+    msg=msg.replace('[name]',name);
+    el.textContent='"'+msg+'"';
+    el.style.opacity='1';
+    document.getElementById('fmg-copy-btn').style.display='block';
+    fmgIdx++;
+  },250);
+}
+function copyMessage(){
+  const text=document.getElementById('fmg-text').textContent.replace(/^"|"$/g,'');
+  navigator.clipboard.writeText(text).then(()=>{
+    const c=document.getElementById('fmg-copied');
+    c.style.display='block';
+    setTimeout(()=>c.style.display='none',2500);
+  });
+}
+document.getElementById('fmg-text').style.transition='opacity 0.25s';
 const truths=[
   "My biggest fear is giving everything to someone and it still not being enough. But I choose to show up anyway because the alternative is worse.",
   "I made dua for my future wife by name in the Haram even though I did not know it yet. That is how real this has been in my mind.",
@@ -827,6 +1013,24 @@ const daylife=["Fajr together, still half asleep, making duas side by side befor
 let dlIdx=0;
 function nextDaylife(){const el=document.getElementById('daylife-text');el.style.opacity='0';setTimeout(()=>{el.textContent=daylife[dlIdx%daylife.length];el.style.opacity='1';dlIdx++;},250);}
 document.getElementById('daylife-text').style.transition='opacity 0.25s';
+
+// Back to top button
+window.addEventListener('scroll',()=>{
+  const btn=document.getElementById('back-top');
+  if(window.scrollY>400)btn.classList.add('visible');
+  else btn.classList.remove('visible');
+});
+
+// Scroll fade-in for vibe items
+const fadeObserver=new IntersectionObserver((entries)=>{
+  entries.forEach((entry,i)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>entry.target.classList.add('visible'),i*80);
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.fade-item').forEach(el=>fadeObserver.observe(el));
 
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
