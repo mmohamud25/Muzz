@@ -380,14 +380,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <p style="font-size:0.65rem;color:rgba(240,236,228,0.25);letter-spacing:0.1em;text-transform:uppercase" id="progress-label">1 of 6 sections explored</p>
   </div>
   <div class="scroll-hint"><span>scroll</span><div class="scroll-arrow"></div></div>
+  <p style="font-size:0.72rem;color:rgba(240,236,228,0.25);margin-top:0.8rem;line-height:1.6;text-align:center">Start with My Story - or skip straight to the <button type="button" onclick="goTo('letter',document.querySelectorAll('.nav-btn')[1],1)" style="background:none;border:none;color:var(--gold);font-size:0.72rem;cursor:pointer;text-decoration:underline;padding:0;font-family:'DM Sans',sans-serif">Letter</button>. It is the most honest thing here.</p>
 </div>
 
 <div class="sticky-nav">
   <div class="nav-inner">
     <button type="button" class="nav-btn active" onclick="goTo('story',this,0)">My Story</button>
-    <button type="button" class="nav-btn" onclick="goTo('know',this,1)">Know Me</button>
-    <button type="button" class="nav-btn" onclick="goTo('faith',this,2)">My Faith</button>
-    <button type="button" class="nav-btn" onclick="goTo('letter',this,3)">Letter</button>
+    <button type="button" class="nav-btn" onclick="goTo('letter',this,1)">Letter</button>
+    <button type="button" class="nav-btn" onclick="goTo('know',this,2)">Know Me</button>
+    <button type="button" class="nav-btn" onclick="goTo('faith',this,3)">My Faith</button>
     <button type="button" class="nav-btn" onclick="goTo('couldwe',this,4)">Could We?</button>
     <button type="button" class="nav-btn" onclick="goTo('contact',this,5)">Talk</button>
   </div>
@@ -398,40 +399,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-eyebrow">Who I am</div>
   <div class="sec-title">A life built with <em>intention</em></div>
   <div class="timeline">
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The roots</div><div class="tl-title">Somali diaspora, two worlds</div><div class="tl-desc">Growing up between cultures taught me how to listen without assuming and how to hold onto who you are no matter where you land. I also produce content in both English and Somali because the community matters to me in a real and practical way.</div></div>
-    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The student</div><div class="tl-title">Always learning, never arriving</div><div class="tl-desc">BS in Business Administration. Now finishing an MS in Business Analytics. I believe the moment you stop being a student of something you start going backwards.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The builder</div><div class="tl-title">Founded Kulan Group Ltd</div><div class="tl-desc">I built an education technology company from nothing. Four verticals, real impact on real people. I am the kind of person who sees a gap and cannot leave it alone until I do something about it.</div></div>
-    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The voice</div><div class="tl-title">Co-host of Intel Cast</div><div class="tl-desc">I co-host a podcast because honest conversations shift things. I bring the same care to every discussion that I bring to every relationship.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The community</div><div class="tl-title">Co-founder of Rise Community Development</div><div class="tl-desc">Legacy is not just about your family. It is about what you leave behind for the people around you. Giving back has never felt optional to me.</div></div>
-    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">What home means to me</div><div class="tl-title">Somewhere with meaning</div><div class="tl-desc">I do not picture a house. I picture a feeling. Quran in the morning. The smell of food being made without rush. A place where conversation never feels forced and silence never feels awkward. Somewhere warm enough that people do not want to leave.</div></div>
-    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The real week</div><div class="tl-title">A Tuesday looks like this</div><div class="tl-desc">Up before most people. Fajr. Then the laptop opens and it does not close for a long time. MS coursework in the morning, company decisions by afternoon, podcast prep somewhere in between. By evening I am usually still at it - building something, fixing something, thinking about what the next version of something should look like. Around 11pm I sit with a book or just with my thoughts. That is not a performance. That is just what building actually looks like from the inside. I want a partner who understands that this is not me neglecting her. It is me being exactly who I said I was.</div></div>
-    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The next chapter</div><div class="tl-title">Looking for a partner in all of it</div><div class="tl-desc">Not someone to complete me. Someone to build alongside. Someone with her own fire, her own deen, her own vision who chooses to share the journey with mine.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The roots</div><div class="tl-title">Somali diaspora, two worlds</div><div class="tl-desc">Growing up between cultures taught me how to listen without assuming and how to hold onto who you are no matter where you land. I produce content in both English and Somali because the community matters to me in a real and practical way. 7 countries visited so far. Somalia and the Haram are the two that stayed with me longest.</div></div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">The student and the builder</div><div class="tl-title">MS in Business Analytics. Founded Kulan Group Ltd.</div><div class="tl-desc">I believe the moment you stop being a student of something you start going backwards. I also built an education technology company from nothing. I co-host a podcast called Intel Cast and co-founded Rise Community Development because giving back has never felt optional.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The real week</div><div class="tl-title">A Tuesday looks like this</div><div class="tl-desc">Up before most people. Fajr. Then the laptop opens and it does not close for a long time. MS coursework in the morning, company decisions by afternoon, podcast prep somewhere in between. By evening I am usually still at it. Around 11pm I sit with a book or just with my thoughts. That is not a performance. That is just what building actually looks like from the inside. I want a partner who understands that this is not me neglecting her.</div></div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-time">What home means to me</div><div class="tl-title">Somewhere with meaning</div><div class="tl-desc">I do not picture a house. I picture a feeling. Quran in the morning. The smell of food being made without rush. A place where conversation never feels forced and silence never feels awkward. I hike alone sometimes and think about what it would feel like to have someone worth talking to beside me. That is the version of home I am building toward.</div></div>
+    <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">The next chapter</div><div class="tl-title">Looking for a partner in all of it</div><div class="tl-desc">Not someone to complete me. Someone to build alongside. Someone with her own fire, her own deen, her own vision who chooses to share the journey with mine. Ideally somewhere in East Africa or a Muslim country where the azan wakes you up.</div></div>
   </div>
-  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
-  <div class="sec-eyebrow">The world through my eyes</div>
-  <div class="sec-title" style="margin-bottom:1rem">Where I have <em>been</em></div>
-  <div style="background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:14px;padding:1rem;text-align:center;margin-bottom:1.2rem"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1">7</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem">Countries and counting</div></div>
-  <div class="country-grid" style="margin-bottom:1rem">
-    <div class="country-card fade-item"><div class="country-flag">🇸🇴</div><div class="country-name">Somalia</div><div class="country-note">Where the roots are. Going back reminds you who you are before the world tells you who to be.</div></div>
-    <div class="country-card fade-item"><div class="country-flag">🇸🇦</div><div class="country-name">Saudi Arabia</div><div class="country-note">Standing in the Haram rearranges something in you. Some things cannot be explained, only felt.</div></div>
-    <div class="country-card fade-item"><div class="country-flag">🇶🇦</div><div class="country-name">Qatar</div><div class="country-note">A country that decided what it wanted to be and built it. Ambition in architecture form.</div></div>
-    <div class="country-card fade-item"><div class="country-flag">🇯🇴</div><div class="country-name">Jordan</div><div class="country-note">Petra. The Dead Sea. History you can walk through and touch with your hands.</div></div>
-    <div class="country-card fade-item"><div class="country-flag">🇪🇹</div><div class="country-name">Ethiopia</div><div class="country-note">Addis Ababa has a pulse. A continent finding its way on its own terms.</div></div>
-    <div class="country-card fade-item"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div><div class="country-note">Home base for now. Where I am building. The list is not finished.</div></div>
-    <div class="country-card" style="grid-column:span 2"><div class="country-flag">🇨🇦</div><div class="country-name">Canada</div><div class="country-note">A good reminder that the world is bigger than wherever you are standing right now.</div></div>
-  </div>
-  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
-  <div class="sec-eyebrow">Outside</div>
-  <div class="sec-title" style="margin-bottom:1rem">How I <em>recharge</em></div>
-  <div class="outdoor-row" style="margin-bottom:1rem">
-    <div class="outdoor-card"><div class="outdoor-icon">🥾</div><div class="outdoor-label">Hiking</div></div>
-    <div class="outdoor-card"><div class="outdoor-icon">🚶</div><div class="outdoor-label">Long walks</div></div>
-    <div class="outdoor-card"><div class="outdoor-icon">🌲</div><div class="outdoor-label">Nature</div></div>
-    <div class="outdoor-card"><div class="outdoor-icon">🌅</div><div class="outdoor-label">Sunrises</div></div>
-    <div class="outdoor-card"><div class="outdoor-icon">🚴</div><div class="outdoor-label">Cycling</div></div>
-    <div class="outdoor-card"><div class="outdoor-icon">⛺</div><div class="outdoor-label">Camping</div></div>
-  </div>
-  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:12px;padding:1rem;text-align:center"><p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.92rem;color:var(--muted);line-height:1.65">A long walk fixes most things. A good hike fixes everything else. The right person makes both better.</p></div>
 </div>
 
 <!-- KNOW ME -->
@@ -481,14 +454,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     </div>
   </div>
 
-  <span class="sub-label" style="color:var(--teal)">This or that</span>
-  <div class="tot-card">
-    <div class="tot-counter" id="tot-counter">Round 1 of 10</div>
-    <div class="tot-q" id="tot-q"></div>
-    <div class="tot-row"><button type="button" class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button><span class="tot-vs">or</span><button type="button" class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button></div>
-    <div class="tot-answer" id="tot-ans"></div>
-    <button type="button" class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round →</button>
-  </div>
   <span class="sub-label" style="color:var(--teal)">Books that shaped me</span>
   <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Ihya Ulum al-Din</div><div class="book-author">Imam Al-Ghazali</div><div class="book-note">A complete manual for cleaning the soul and building a life with meaning. I return to it constantly.</div></div></div>
   <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Riyadh al-Salihin</div><div class="book-author">Imam An-Nawawi</div><div class="book-note">Every time I open it something recalibrates quietly inside me.</div></div></div>
@@ -541,7 +506,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-eyebrow">Could we?</div>
   <div class="sec-title">Let us actually <em>find out</em></div>
   <div class="cw-intro"><p>You have been reading about me for a few minutes now. This is where it gets interesting. Answer honestly, imagine openly, and see what comes up. No right answers, no pressure. Just two people figuring out if this makes sense.</p></div>
+
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><div style="width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:var(--muted);flex-shrink:0">0</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em">Warm up - this or that</div></div>
+  <div class="tot-card">
+    <div class="tot-counter" id="tot-counter">Round 1 of 12</div>
+    <div class="tot-q" id="tot-q"></div>
+    <div class="tot-row"><button type="button" class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button><span class="tot-vs">or</span><button type="button" class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button></div>
+    <div class="tot-answer" id="tot-ans"></div>
+    <button type="button" class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round →</button>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
   <div class="honest-note"><p><strong>One honest thing before you start.</strong> I want to live in a Muslim country, ideally back in Somalia or somewhere in East Africa. That is not a dealbreaker question but it is an honest one. You deserve to know that going in.</p></div>
+
+  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:12px;padding:0.8rem 1rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between">
+    <span style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em">Your progress</span>
+    <div style="display:flex;gap:6px;align-items:center">
+      <div style="display:flex;gap:4px">
+        <div style="width:32px;height:4px;border-radius:2px;background:var(--muted)" id="cw-step-0"></div>
+        <div style="width:32px;height:4px;border-radius:2px;background:var(--dim)" id="cw-step-1"></div>
+        <div style="width:32px;height:4px;border-radius:2px;background:var(--dim)" id="cw-step-2"></div>
+        <div style="width:32px;height:4px;border-radius:2px;background:var(--dim)" id="cw-step-3"></div>
+        <div style="width:32px;height:4px;border-radius:2px;background:var(--dim)" id="cw-step-4"></div>
+      </div>
+      <span style="font-size:0.65rem;color:var(--muted)" id="cw-step-label">Warm up</span>
+    </div>
+  </div>
 
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:1.2rem">
     <div style="width:24px;height:24px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:white;flex-shrink:0">1</div>
@@ -785,12 +775,12 @@ function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeigh
 function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.globalAlpha=s.a*0.55;ctx.fillStyle='#f0ece4';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(drawStars)}
 window.addEventListener('resize',resize);resize();drawStars();
 
-const phrases=["faith-driven, purpose-built","building something real","a founder with a soft heart","looking for the one","loves a hike and a deep talk","making dua for you already","student of deen and world"];
+const phrases=["faith-driven, purpose-built","building something real","I have made dua for you by name","a founder with a soft heart","looking for the one","student of deen and world","I am not looking for finished"];
 let pi=0,ci=0,del=false,typed='';
 function type(){const p=phrases[pi];if(!del){if(ci<p.length){typed+=p[ci++];document.getElementById('typed').textContent=typed;setTimeout(type,65);}else{del=true;setTimeout(type,2200);}}else{if(ci>0){typed=typed.slice(0,-1);ci--;document.getElementById('typed').textContent=typed;setTimeout(type,38);}else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);}}}
 type();
 
-const tabOrder=['story','know','faith','letter','couldwe','contact'];
+const tabOrder=['story','letter','know','faith','couldwe','contact'];
 let visitedTabs=new Set([0]);
 function goTo(id,btn,idx){
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
@@ -1212,6 +1202,34 @@ const fadeObserver=new IntersectionObserver((entries)=>{
   });
 },{threshold:0.15});
 document.querySelectorAll('.fade-item').forEach(el=>fadeObserver.observe(el));
+
+// Could We step progress observer
+const cwStepLabels=['Warm up','Quiz','Quick check','Green flags','About you'];
+const cwStepEls=['tot-counter','q-num','ww-grid','gf-grid','ay-step-1'];
+function updateCWStep(stepIdx){
+  for(let i=0;i<5;i++){
+    const el=document.getElementById('cw-step-'+i);
+    if(!el)continue;
+    el.style.background=i<=stepIdx?'var(--teal)':'var(--dim)';
+    if(i===stepIdx)el.style.background='var(--gold)';
+  }
+  const lbl=document.getElementById('cw-step-label');
+  if(lbl)lbl.textContent=cwStepLabels[stepIdx]||'';
+}
+const cwObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const id=entry.target.id;
+    if(id==='tot-counter')updateCWStep(0);
+    else if(id==='q-num')updateCWStep(1);
+    else if(id==='ww-grid')updateCWStep(2);
+    else if(id==='gf-grid')updateCWStep(3);
+    else if(id==='ay-step-1')updateCWStep(4);
+  });
+},{threshold:0.3});
+setTimeout(()=>{
+  cwStepEls.forEach(id=>{const el=document.getElementById(id);if(el)cwObserver.observe(el);});
+},500);
 
 document.getElementById('contact-form').addEventListener('submit',function(e){
   e.preventDefault();
