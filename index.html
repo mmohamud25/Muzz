@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Qasim</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --navy:#07111f;
+  --navy2:#0d1829;
+  --teal:#0e9e92;
+  --teal2:rgba(14,158,146,0.12);
+  --gold:#c98c2a;
+  --gold2:rgba(201,140,42,0.12);
+  --cream:#f0ece4;
+  --muted:rgba(240,236,228,0.55);
+  --dim:rgba(240,236,228,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;overflow-x:hidden}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4}
+.wrap{position:relative;z-index:1;max-width:480px;margin:0 auto}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem}
+.hero-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--teal),var(--gold),var(--navy),var(--teal));padding:3px;margin:0 auto 1.5rem;animation:spinRing 10s linear infinite}
+@keyframes spinRing{to{transform:rotate(360deg)}}
+.hero-inner{width:100%;height:100%;border-radius:50%;background:var(--navy2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--cream)}
+.hero-bismillah{font-size:1.3rem;color:var(--gold);margin-bottom:0.6rem;opacity:0.75}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1.1;margin-bottom:0.4rem}
+.hero h1 span{color:var(--teal)}
+.hero-sub{font-size:0.88rem;color:var(--muted);font-style:italic;min-height:1.4em;margin-bottom:0.5rem}
+.cursor{display:inline-block;width:2px;height:0.85em;background:var(--teal);vertical-align:middle;animation:blink 1s step-end infinite;margin-left:1px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-tagline{font-size:0.84rem;color:var(--dim);margin:0.5rem auto 1.8rem;line-height:1.75;max-width:300px}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:2.5rem}
+.tag{background:rgba(255,255,255,0.05);border:1px solid var(--dim);color:rgba(240,236,228,0.7);font-size:0.72rem;padding:5px 12px;border-radius:20px;transition:all 0.25s}
+.tag:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream)}
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--dim);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;animation:float 2.5s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+.scroll-arrow{width:1px;height:28px;background:linear-gradient(to bottom,var(--dim),transparent)}
+
+.sticky-nav{position:sticky;top:0;z-index:100;background:rgba(7,17,31,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--dim)}
+.nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-btn{flex:0 0 auto;padding:0.9rem 1rem;font-size:0.68rem;color:var(--muted);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;min-height:48px;-webkit-tap-highlight-color:transparent}
+.nav-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+
+.section{padding:2.5rem 1.5rem;border-top:1px solid var(--dim)}
+.page-section{display:none}
+.page-section.active{display:block}
+.sec-eyebrow{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:0.4rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--cream);line-height:1.2;margin-bottom:1.5rem}
+.sec-title em{color:var(--gold);font-style:italic}
+.sub-label{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.13em;margin:1.5rem 0 0.75rem;display:block}
+.section-break{border:none;border-top:1px solid var(--dim);margin:2rem 0}
+
+.timeline{position:relative;padding-left:1.6rem}
+.timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--teal),var(--gold),transparent)}
+.tl-item{position:relative;margin-bottom:1.6rem}
+.tl-dot{position:absolute;left:-1.9rem;top:5px;width:8px;height:8px;border-radius:50%;background:var(--teal);border:2px solid var(--navy)}
+.tl-time{font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem}
+.tl-title{font-weight:500;font-size:0.92rem;color:var(--cream);margin-bottom:0.3rem}
+.tl-desc{font-size:0.83rem;color:var(--muted);line-height:1.65}
+
+.country-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.country-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:13px;padding:0.9rem;transition:all 0.2s}
+.country-card:hover{border-color:var(--teal);background:var(--teal2);transform:translateY(-2px)}
+.country-flag{font-size:1.6rem;margin-bottom:0.3rem}
+.country-name{font-size:0.84rem;font-weight:500;color:var(--cream);margin-bottom:0.2rem}
+.country-note{font-size:0.75rem;color:var(--muted);line-height:1.5}
+
+.outdoor-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.outdoor-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:12px;padding:0.85rem 0.5rem;text-align:center;transition:all 0.2s}
+.outdoor-card:hover{background:var(--teal2);border-color:var(--teal);transform:translateY(-2px)}
+.outdoor-icon{font-size:1.5rem;margin-bottom:0.3rem}
+.outdoor-label{font-size:0.72rem;color:var(--muted)}
+
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem}
+.flip-card{height:128px;perspective:800px;cursor:pointer}
+.flip-inner{width:100%;height:100%;transition:transform 0.55s cubic-bezier(0.4,0.2,0.2,1);transform-style:preserve-3d;position:relative}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-f,.flip-b{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.85rem;text-align:center}
+.flip-f{background:rgba(255,255,255,0.04);border:1px solid var(--dim)}
+.flip-b{background:linear-gradient(135deg,rgba(14,158,146,0.11),rgba(201,140,42,0.07));border:1px solid rgba(14,158,146,0.25);transform:rotateY(180deg)}
+.flip-icon{font-size:1.6rem;margin-bottom:0.3rem}
+.flip-lbl{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.flip-reveal{font-size:0.79rem;color:var(--cream);line-height:1.45}
+.flip-hint{font-size:0.58rem;color:var(--dim);margin-top:0.3rem}
+
+.trait-row{margin-bottom:1rem}
+.trait-top{display:flex;justify-content:space-between;margin-bottom:0.35rem}
+.trait-name{font-size:0.82rem;color:var(--cream)}
+.trait-val{font-size:0.73rem;color:var(--muted)}
+.trait-bar{height:4px;background:var(--dim);border-radius:2px;overflow:hidden}
+.trait-fill{height:100%;border-radius:2px;width:0;transition:width 1.3s cubic-bezier(0.4,0,0.2,1)}
+
+.vibe-grid{display:flex;flex-direction:column;gap:8px}
+.vibe-item{display:flex;align-items:flex-start;gap:10px;padding:0.9rem;border-radius:11px;background:rgba(255,255,255,0.03);border:1px solid var(--dim);transition:all 0.2s}
+.vibe-item:hover{background:rgba(255,255,255,0.05)}
+.vibe-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0}
+.vibe-text{font-size:0.85rem;color:rgba(240,236,228,0.82);line-height:1.55}
+.vibe-sub{font-size:0.75rem;color:var(--muted);margin-top:0.2rem;font-style:italic}
+
+.tot-card{background:rgba(255,255,255,0.02);border:1px solid var(--dim);border-radius:16px;padding:1.5rem}
+.tot-counter{font-size:0.65rem;color:var(--dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.8rem}
+.tot-q{font-family:'Cormorant Garamond',serif;font-size:1.12rem;font-style:italic;color:var(--cream);margin-bottom:1.1rem;min-height:2.2rem;line-height:1.4}
+.tot-row{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;margin-bottom:0.8rem}
+.tot-opt{background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.7rem 0.4rem;font-size:0.8rem;color:var(--muted);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;line-height:1.3}
+.tot-opt:hover{color:var(--cream)}
+.tot-opt.chosen.a{background:var(--teal2);border-color:var(--teal);color:var(--cream)}
+.tot-opt.chosen.b{background:var(--gold2);border-color:var(--gold);color:var(--cream)}
+.tot-vs{font-size:0.68rem;color:var(--dim);text-align:center}
+.tot-answer{font-size:0.82rem;color:var(--muted);line-height:1.65;padding:0.75rem;background:rgba(255,255,255,0.03);border-radius:10px;border-left:2px solid var(--teal);display:none;margin-top:0.5rem}
+.tot-answer.show{display:block}
+
+.book-card{display:flex;align-items:flex-start;gap:0.85rem;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:13px;padding:1rem;margin-bottom:10px;transition:all 0.2s}
+.book-card:hover{background:rgba(255,255,255,0.05)}
+.book-spine{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0}
+.book-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:0.15rem;line-height:1.3}
+.book-author{font-size:0.7rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.35rem}
+.book-note{font-size:0.8rem;color:var(--muted);line-height:1.55}
+
+.ayah-box{background:linear-gradient(135deg,rgba(201,140,42,0.07),rgba(14,158,146,0.04));border:1px solid rgba(201,140,42,0.18);border-radius:14px;padding:1.4rem;text-align:center;margin-bottom:1.2rem}
+.ayah-arabic{font-size:1.35rem;color:var(--gold);line-height:1.9;margin-bottom:0.6rem;direction:rtl}
+.ayah-trans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:var(--muted);line-height:1.65}
+.ayah-ref{font-size:0.63rem;color:var(--dim);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em}
+.hadith-box{background:rgba(14,158,146,0.06);border:1px solid rgba(14,158,146,0.18);border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1.2rem}
+.hadith-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:var(--cream);line-height:1.7;margin-bottom:0.4rem}
+.hadith-ref{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em}
+.scholar-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;margin-bottom:10px;transition:all 0.2s}
+.scholar-card:hover{background:var(--gold2);border-color:rgba(201,140,42,0.28)}
+.scholar-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--gold);margin-bottom:0.15rem}
+.scholar-era{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
+.scholar-desc{font-size:0.82rem;color:var(--muted);line-height:1.65}
+.faith-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.2rem}
+.faith-pill{background:rgba(45,122,79,0.12);border:1px solid rgba(45,122,79,0.28);color:#5acea0;font-size:0.72rem;padding:4px 12px;border-radius:20px}
+.dua-box{background:linear-gradient(135deg,rgba(201,140,42,0.08),rgba(14,158,146,0.05));border:1px solid rgba(201,140,42,0.2);border-radius:14px;padding:1.3rem;margin-top:1.2rem;text-align:center}
+.dua-label{font-size:0.63rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:0.8rem}
+.dua-arabic{font-size:1.2rem;color:var(--gold);direction:rtl;line-height:1.9;margin-bottom:0.6rem}
+.dua-trans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.86rem;color:var(--muted);line-height:1.65}
+
+.letter-box{background:rgba(201,140,42,0.05);border:1px solid rgba(201,140,42,0.17);border-radius:16px;padding:2rem 1.6rem;position:relative;overflow:hidden}
+.letter-box::before{content:'"';position:absolute;top:-15px;left:8px;font-size:9rem;font-family:'Cormorant Garamond',serif;color:rgba(201,140,42,0.06);line-height:1;pointer-events:none}
+.letter-bismillah{text-align:center;font-size:1.15rem;color:var(--gold);margin-bottom:1.4rem;opacity:0.75}
+.letter-sal{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold);margin-bottom:1.2rem}
+.letter-body{font-size:0.92rem;color:rgba(240,236,228,0.8);line-height:2.05;position:relative;z-index:1}
+.letter-body p{margin-bottom:1.2rem}
+.letter-body p:last-child{margin-bottom:0}
+.letter-sig{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-top:1.4rem}
+
+.cw-intro{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;margin-bottom:1.5rem}
+.cw-intro p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);line-height:1.75}
+.honest-note{background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:12px;padding:1rem;margin-bottom:1.5rem}
+.honest-note p{font-size:0.83rem;color:rgba(240,236,228,0.8);line-height:1.65}
+.honest-note strong{color:var(--gold);font-weight:500}
+
+.q-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem}
+.q-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
+.q-bar{height:3px;background:var(--dim);border-radius:2px;margin-bottom:1.2rem;overflow:hidden}
+.q-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px;transition:width 0.4s ease}
+.q-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--cream);line-height:1.45;margin-bottom:1.2rem}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.9rem 1rem;cursor:pointer;font-size:0.86rem;color:var(--muted);transition:all 0.2s;text-align:left;font-family:'DM Sans',sans-serif;line-height:1.45;min-height:48px;-webkit-tap-highlight-color:transparent}
+.q-opt:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream);transform:translateX(4px)}
+.result-wrap{text-align:center;animation:fadeUp 0.5s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.result-pct{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:var(--gold);line-height:1}
+.result-emoji{font-size:2.5rem;margin:0.5rem 0}
+.result-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--cream);margin-bottom:0.5rem}
+.result-desc{font-size:0.84rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem}
+
+.truth-stage{background:rgba(255,255,255,0.02);border:1px solid var(--dim);border-radius:16px;padding:1.5rem;text-align:center;min-height:155px;display:flex;flex-direction:column;justify-content:center;margin-bottom:1rem}
+.truth-lbl{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:0.8rem}
+.truth-text{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;color:var(--cream);line-height:1.65;transition:opacity 0.3s}
+.truth-num{font-size:0.68rem;color:var(--dim);margin-top:0.9rem}
+
+.ay-step{display:none}
+.ay-step.active{display:block;animation:fadeUp 0.4s ease}
+.ay-progress-row{display:flex;align-items:center;gap:10px;margin-bottom:1.2rem}
+.ay-progress-label{font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;white-space:nowrap}
+.ay-prog-bar{flex:1;height:3px;background:var(--dim);border-radius:2px;overflow:hidden}
+.ay-prog-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px;transition:width 0.5s ease}
+.ay-question{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--cream);line-height:1.45;margin-bottom:1.1rem}
+.ay-input{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--cream);font-family:'DM Sans',sans-serif;outline:none;transition:border 0.2s;resize:none;display:block}
+.ay-input:focus{border-color:var(--teal)}
+.ay-input::placeholder{color:var(--dim)}
+.ay-opts{display:flex;flex-direction:column;gap:8px}
+.ay-opt{background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.9rem 1rem;cursor:pointer;font-size:0.86rem;color:var(--muted);transition:all 0.2s;line-height:1.45;min-height:48px;-webkit-tap-highlight-color:transparent}
+.ay-opt:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream);transform:translateX(4px)}
+.ay-opt.selected{background:var(--teal2);border-color:var(--teal);color:var(--cream)}
+.ay-profile-card{display:flex;gap:10px;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:11px;padding:0.8rem;align-items:flex-start;margin-bottom:8px}
+.ay-profile-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:5px;flex-shrink:0}
+.ay-profile-label{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem}
+.ay-profile-val{font-size:0.84rem;color:var(--cream);line-height:1.4}
+
+.daylife-card{background:var(--teal2);border:1px solid rgba(14,158,146,0.2);border-radius:12px;padding:1.2rem;min-height:90px;display:flex;align-items:center;margin-bottom:0.8rem}
+
+.form-wrap{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.3rem;margin-bottom:10px}
+.form-group{margin-bottom:0.8rem}
+.form-group label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem}
+.form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--cream);font-family:'DM Sans',sans-serif;outline:none;transition:border 0.2s;resize:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--teal)}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--dim)}
+.submit-msg{display:none;text-align:center;color:var(--teal);font-size:0.85rem;padding:0.8rem;background:var(--teal2);border-radius:10px;margin-top:0.5rem}
+.closing-note{background:linear-gradient(135deg,rgba(14,158,146,0.07),rgba(201,140,42,0.07));border:1px solid var(--dim);border-radius:14px;padding:1.2rem;text-align:center;margin-top:0.5rem}
+.closing-note p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);line-height:1.7}
+
+.btn{width:100%;background:var(--teal);color:white;border:none;padding:1rem 1.5rem;border-radius:11px;font-size:0.9rem;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:500;transition:all 0.2s;margin-bottom:8px;display:block;min-height:48px;-webkit-tap-highlight-color:transparent}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-outline{background:transparent;border:1px solid var(--dim);color:var(--muted)}
+.btn-outline:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.25);color:var(--cream)}
+.btn-gold{background:var(--gold2);border:1px solid rgba(201,140,42,0.25);color:var(--gold)}
+.btn-gold:hover{background:rgba(201,140,42,0.2)}
+.divider{width:40px;height:1px;background:linear-gradient(to right,var(--teal),var(--gold));margin:0 auto 1.2rem}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-ring"><div class="hero-inner">ق</div></div>
+  <div class="hero-bismillah">بسم الله الرحمن الرحيم</div>
+  <h1>Hey, I'm <span>Qasim</span></h1>
+  <p class="hero-sub"><span id="typed"></span><span class="cursor"></span></p>
+  <p class="hero-tagline">A man trying to build something meaningful in this dunya. A company, a legacy, and inshallah a home full of purpose and peace.</p>
+  <div class="tags">
+    <span class="tag">🕌 Muslim</span>
+    <span class="tag">📖 Quran complete</span>
+    <span class="tag">🎙️ Podcast host</span>
+    <span class="tag">📚 MS student</span>
+    <span class="tag">🌍 Somali roots</span>
+    <span class="tag">🏗️ Founder</span>
+    <span class="tag">🏔️ Outdoorsy</span>
+    <span class="tag">🌗 Ambivert</span>
+    <span class="tag">✈️ 7 countries</span>
+  </div>
+  <div class="scroll-hint"><span>scroll</span><div class="scroll-arrow"></div></div>
+</div>
+
+<div class="sticky-nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="goTo('story',this)">My Story</button>
+    <button class="nav-btn" onclick="goTo('know',this)">Know Me</button>
+    <button class="nav-btn" onclick="goTo('faith',this)">My Faith</button>
+    <button class="nav-btn" onclick="goTo('letter',this)">Letter</button>
+    <button class="nav-btn" onclick="goTo('couldwe',this)">Could We?</button>
+    <button class="nav-btn" onclick="goTo('contact',this)">Talk</button>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="section page-section active" id="story">
+  <div class="sec-eyebrow">Who I am</div>
+  <div class="sec-title">A life built with <em>intention</em></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">The roots</div>
+      <div class="tl-title">Somali diaspora, two worlds</div>
+      <div class="tl-desc">Growing up between cultures taught me how to listen without assuming and how to hold onto who you are no matter where you land. I carry that into every relationship I build. I also produce content in both English and Somali because the community matters to me in a real and practical way.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-time">The student</div>
+      <div class="tl-title">Always learning, never arriving</div>
+      <div class="tl-desc">BS in Business Administration. Now finishing an MS in Business Analytics. I believe the moment you stop being a student of something you start going backwards. That applies to deen, relationships, and everything in between.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">The builder</div>
+      <div class="tl-title">Founded Kulan Group Ltd</div>
+      <div class="tl-desc">I built an education technology company from nothing. Four verticals, real impact on real people. I am the kind of person who sees a gap and cannot leave it alone until I do something about it.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-time">The voice</div>
+      <div class="tl-title">Co-host of Intel Cast</div>
+      <div class="tl-desc">I co-host a podcast because honest conversations shift things. I bring the same care to every discussion that I bring to every relationship. Nothing halfway.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">The community</div>
+      <div class="tl-title">Co-founder of Rise Community Development</div>
+      <div class="tl-desc">Legacy is not just about your family. It is about what you leave behind for the people around you. Giving back has never felt optional to me.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--gold)"></div>
+      <div class="tl-time">What home means to me</div>
+      <div class="tl-title">Somewhere with meaning</div>
+      <div class="tl-desc">I do not picture a house. I picture a feeling. Quran in the morning. The smell of food being made without rush. A place where the conversation never feels forced and silence never feels awkward. Somewhere warm enough that people do not want to leave. That is what I am building toward and I want to build it with someone, not for someone.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-time">The next chapter</div>
+      <div class="tl-title">Looking for a partner in all of it</div>
+      <div class="tl-desc">Not someone to complete me. Someone to build alongside. Someone with her own fire, her own deen, her own vision who chooses to share the journey with mine.</div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
+  <div class="sec-eyebrow">The world through my eyes</div>
+  <div class="sec-title" style="margin-bottom:1rem">Where I have <em>been</em></div>
+  <div style="background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:14px;padding:1rem;text-align:center;margin-bottom:1.2rem">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1">7</div>
+    <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem">Countries and counting</div>
+  </div>
+  <div class="country-grid" style="margin-bottom:1rem">
+    <div class="country-card"><div class="country-flag">🇸🇴</div><div class="country-name">Somalia</div><div class="country-note">Where the roots are. Going back reminds you who you are before the world tells you who to be.</div></div>
+    <div class="country-card"><div class="country-flag">🇸🇦</div><div class="country-name">Saudi Arabia</div><div class="country-note">Standing in the Haram rearranges something in you. Some things cannot be explained, only felt.</div></div>
+    <div class="country-card"><div class="country-flag">🇶🇦</div><div class="country-name">Qatar</div><div class="country-note">A country that decided what it wanted to be and built it. Ambition in architecture form.</div></div>
+    <div class="country-card"><div class="country-flag">🇯🇴</div><div class="country-name">Jordan</div><div class="country-note">Petra. The Dead Sea. History you can walk through and touch with your hands.</div></div>
+    <div class="country-card"><div class="country-flag">🇪🇹</div><div class="country-name">Ethiopia</div><div class="country-note">Addis Ababa has a pulse. A continent finding its way on its own terms.</div></div>
+    <div class="country-card"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div><div class="country-note">Home base for now. Where I am building. The list is not finished.</div></div>
+    <div class="country-card" style="grid-column:span 2"><div class="country-flag">🇨🇦</div><div class="country-name">Canada</div><div class="country-note">A good reminder that the world is bigger than wherever you are standing right now.</div></div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
+  <div class="sec-eyebrow">Outside</div>
+  <div class="sec-title" style="margin-bottom:1rem">How I <em>recharge</em></div>
+  <div class="outdoor-row" style="margin-bottom:1rem">
+    <div class="outdoor-card"><div class="outdoor-icon">🥾</div><div class="outdoor-label">Hiking</div></div>
+    <div class="outdoor-card"><div class="outdoor-icon">🚶</div><div class="outdoor-label">Long walks</div></div>
+    <div class="outdoor-card"><div class="outdoor-icon">🌲</div><div class="outdoor-label">Nature</div></div>
+    <div class="outdoor-card"><div class="outdoor-icon">🌅</div><div class="outdoor-label">Sunrises</div></div>
+    <div class="outdoor-card"><div class="outdoor-icon">🚴</div><div class="outdoor-label">Cycling</div></div>
+    <div class="outdoor-card"><div class="outdoor-icon">⛺</div><div class="outdoor-label">Camping</div></div>
+  </div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:12px;padding:1rem;text-align:center">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.92rem;color:var(--muted);line-height:1.65">A long walk fixes most things. A good hike fixes everything else. The right person makes both better.</p>
+  </div>
+</div>
+
+<!-- KNOW ME -->
+<div class="section page-section" id="know">
+  <div class="sec-eyebrow">The real me</div>
+  <div class="sec-title">Tap the cards to <em>reveal</em></div>
+  <div class="flip-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">🌗</div><div class="flip-lbl">My energy</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Ambivert. I read the room. Quiet in a crowd, fully present one on one. I notice what people do not say.</div></div></div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">💌</div><div class="flip-lbl">How I love</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Slowly and completely. You will feel it in the small consistent things more than any grand gesture.</div></div></div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">⚡</div><div class="flip-lbl">Inside</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Constantly thinking, building, and running through three problems at once. The calm outside is earned.</div></div></div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">🤝</div><div class="flip-lbl">In conflict</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">I talk it out. I do not shut down or go cold. Communication is not optional for me.</div></div></div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">😄</div><div class="flip-lbl">My humor</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Dry, deadpan, and comes out of nowhere. The people who get it really get it.</div></div></div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner"><div class="flip-f"><div class="flip-icon">🔧</div><div class="flip-lbl">Still working on</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Letting people in without feeling like it costs me something. Showing that I care before I am asked to.</div></div></div>
+    </div>
+  </div>
+
+  <span class="sub-label" style="color:var(--teal)">My traits</span>
+  <div id="traits-wrap" style="margin-bottom:1.5rem">
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Emotional depth</span><span class="trait-val">95%</span></div><div class="trait-bar"><div class="trait-fill" data-w="95" style="background:var(--teal)"></div></div></div>
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Patience</span><span class="trait-val">90%</span></div><div class="trait-bar"><div class="trait-fill" data-w="90" style="background:var(--teal)"></div></div></div>
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Ambition</span><span class="trait-val">98%</span></div><div class="trait-bar"><div class="trait-fill" data-w="98" style="background:var(--gold)"></div></div></div>
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Loyalty</span><span class="trait-val">100%</span></div><div class="trait-bar"><div class="trait-fill" data-w="100" style="background:var(--gold)"></div></div></div>
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Communication</span><span class="trait-val">88%</span></div><div class="trait-bar"><div class="trait-fill" data-w="88" style="background:var(--teal)"></div></div></div>
+    <div class="trait-row"><div class="trait-top"><span class="trait-name">Extroversion</span><span class="trait-val">55%</span></div><div class="trait-bar"><div class="trait-fill" data-w="55" style="background:#888"></div></div></div>
+  </div>
+
+  <span class="sub-label" style="color:var(--teal)">What I bring to you</span>
+  <div class="vibe-grid" style="margin-bottom:1.4rem">
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">You will never feel like a burden for being honest with me</div><div class="vibe-sub">I chose to listen before I chose to respond</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I notice when you go quiet and check on you without being asked</div><div class="vibe-sub">You should never have to ask me to check on you</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will be your biggest supporter without losing myself in it</div><div class="vibe-sub">Your wins feel like mine. That is just how I work.</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--teal)"></div><div><div class="vibe-text">I will remind you of Allah when the world pulls you away</div><div class="vibe-sub">The best a spouse can do is make the deen feel lighter</div></div></div>
+  </div>
+
+  <span class="sub-label" style="color:var(--gold)">What I need from you</span>
+  <div class="vibe-grid" style="margin-bottom:1.5rem">
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Honesty, even when it costs something</div><div class="vibe-sub">I can handle the truth. I cannot handle being managed.</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Deen that is real and chosen, not just inherited</div><div class="vibe-sub">I want a partner who chose Islam, not just someone born into it</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Communication when things get hard</div><div class="vibe-sub">Go quiet from the world, never from me</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Your own purpose and drive</div><div class="vibe-sub">I want a partner, not a passenger</div></div></div>
+  </div>
+
+  <span class="sub-label" style="color:var(--teal)">This or that</span>
+  <div class="tot-card">
+    <div class="tot-counter" id="tot-counter">Round 1 of 10</div>
+    <div class="tot-q" id="tot-q"></div>
+    <div class="tot-row">
+      <button class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button>
+      <span class="tot-vs">or</span>
+      <button class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button>
+    </div>
+    <div class="tot-answer" id="tot-ans"></div>
+    <button class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round →</button>
+  </div>
+
+  <span class="sub-label" style="color:var(--teal)">Books that shaped me</span>
+  <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Ihya Ulum al-Din</div><div class="book-author">Imam Al-Ghazali</div><div class="book-note">The Revival of the Religious Sciences. A complete manual for cleaning the soul and building a life with meaning. I return to it constantly.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Riyadh al-Salihin</div><div class="book-author">Imam An-Nawawi</div><div class="book-note">The Gardens of the Righteous. Every time I open it something recalibrates quietly inside me.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:var(--teal)"></div><div><div class="book-title">1984</div><div class="book-author">George Orwell</div><div class="book-note">A book about truth and what happens when people stop questioning things. Still uncomfortably relevant.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:var(--teal)"></div><div><div class="book-title">Animal Farm</div><div class="book-author">George Orwell</div><div class="book-note">Short and honest about how ideals get corrupted by power. Orwell said plainly what most people dress up in complexity to avoid.</div></div></div>
+</div>
+
+<!-- FAITH + LETTER -->
+<div class="section page-section" id="faith">
+  <div class="sec-eyebrow">The most important thing about me</div>
+  <div class="sec-title">My <em>deen</em></div>
+
+  <div class="ayah-box">
+    <div class="ayah-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+    <div class="ayah-trans">And of His signs is that He created for you from yourselves mates that you may find tranquility in them, and He placed between you affection and mercy.</div>
+    <div class="ayah-ref">Surah Ar-Rum 30:21</div>
+  </div>
+
+  <div class="hadith-box">
+    <div class="hadith-text">"The world is a provision, and the best provision of the world is a righteous wife."</div>
+    <div class="hadith-ref">Sahih Muslim</div>
+  </div>
+
+  <div class="hadith-box">
+    <div class="hadith-text">"When a man marries, he has fulfilled half of his religion. Let him then fear Allah regarding the remaining half."</div>
+    <div class="hadith-ref">Al-Bayhaqi</div>
+  </div>
+
+  <div class="vibe-grid" style="margin-bottom:1.5rem">
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I completed the Quran</div><div class="vibe-sub">The book that shaped everything I believe and how I move through this world</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">I used to teach Islamic studies</div><div class="vibe-sub">Teaching forced me to go deeper into everything I thought I understood</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Fiqh is my favorite subject</div><div class="vibe-sub">The way scholars reasoned through complexity across centuries fascinates me</div></div></div>
+    <div class="vibe-item"><div class="vibe-dot" style="background:var(--gold)"></div><div><div class="vibe-text">Tarbiya is the real work</div><div class="vibe-sub">Cleaning the nafs, building the character. The outward is easy compared to the inward.</div></div></div>
+  </div>
+
+  <span class="sub-label" style="color:var(--gold)">The scholars who shaped me</span>
+  <div class="scholar-card">
+    <div class="scholar-name">Imam Al-Ghazali</div>
+    <div class="scholar-era">1058 to 1111 CE · Philosopher, Theologian, Scholar of the Soul</div>
+    <div class="scholar-desc">Hujjat al-Islam. He left prestige and comfort at the height of his career to search for what was real. His Ihya Ulum al-Din is the most thorough guide I have found for building a life of inner integrity. That kind of intellectual courage is rare in any era.</div>
+  </div>
+  <div class="scholar-card">
+    <div class="scholar-name">Imam An-Nawawi</div>
+    <div class="scholar-era">1233 to 1277 CE · Jurist, Hadith Scholar</div>
+    <div class="scholar-desc">His 40 Hadith is something I return to constantly. Riyadh al-Salihin sits near where I sleep. He had a gift for making the profound feel accessible without losing any of its weight.</div>
+  </div>
+
+  <div class="faith-pills">
+    <span class="faith-pill">Tazkiyat al-nafs</span>
+    <span class="faith-pill">Fiqh al-ibadat</span>
+    <span class="faith-pill">Ihsan</span>
+    <span class="faith-pill">Akhlaaq</span>
+    <span class="faith-pill">Quran and tafsir</span>
+    <span class="faith-pill">Hadith sciences</span>
+    <span class="faith-pill">Usul al-fiqh</span>
+    <span class="faith-pill">Spiritual discipline</span>
+  </div>
+
+  <div class="dua-box">
+    <div class="dua-label">A dua I make often</div>
+    <div class="dua-arabic">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+    <div class="dua-trans">Our Lord, grant us from among our wives and offspring comfort to our eyes and make us a leader for the righteous.</div>
+  </div>
+
+  <div class="ayah-box" style="margin-top:1.3rem">
+    <div class="ayah-arabic">إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ</div>
+    <div class="ayah-trans">Actions are but by intentions.</div>
+    <div class="ayah-ref">Hadith — Bukhari and Muslim</div>
+  </div>
+</div>
+
+<!-- LETTER -->
+<div class="section page-section" id="letter">
+  <div class="sec-eyebrow">From me, to you</div>
+  <div class="sec-title">A <em>letter</em> I have been meaning to write</div>
+  <div class="letter-box">
+    <div class="letter-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+    <div class="letter-sal">To the one I have not met yet,</div>
+    <div class="letter-body">
+      <p>I do not know your name yet. I do not know what your laugh sounds like or what your face looks like when you are thinking hard about something. But I know you exist somewhere and when we find each other it will feel like it was always supposed to happen.</p>
+      <p>I want you to know that I have been building. Not just a company or a degree. I have been building the version of myself that is actually ready for you. Patient enough to hold space for the hard days. Grounded enough in deen to be your anchor when things shake. Present enough to actually see you, not just what I want you to be.</p>
+      <p>I grew up between worlds. Somali roots, American soil, a faith that held it all together. That taught me that belonging is something you build, not somewhere you arrive. I want to build that with you, ideally back home or somewhere in East Africa where the azan wakes you up and the community is still the community.</p>
+      <p>I have walked trails alone and thought about what it would feel like to have someone worth talking to beside me. I have sat in the Haram and made dua for you by name, even though I did not know it yet. That is how real this has been in my mind before we have even spoken.</p>
+      <p>I will not be perfect. I have things I am still working on and Al-Ghazali would have a lot to say about some of them. But I will always be honest, I will always choose you over my ego, and I will never let you feel alone in something we are supposed to face together.</p>
+      <p>Just come as yourself. No performance, no curated version. I am not looking for finished. I am looking for real. Take your time. Khayr inshallah.</p>
+    </div>
+    <div class="letter-sig">Qasim</div>
+  </div>
+</div>
+
+<!-- COULD WE? -->
+<div class="section page-section" id="couldwe">
+  <div class="sec-eyebrow">Could we?</div>
+  <div class="sec-title">Let us actually <em>find out</em></div>
+
+  <div class="cw-intro">
+    <p>You have been reading about me for a few minutes now. This is where it gets interesting. Answer honestly, imagine openly, and see what comes up. No right answers, no pressure. Just two people figuring out if this makes sense.</p>
+  </div>
+
+  <div class="honest-note">
+    <p><strong>One honest thing before you start.</strong> I want to live in a Muslim country, ideally back in Somalia or somewhere in East Africa. That is not a dealbreaker question but it is an honest one. You deserve to know that going in.</p>
+  </div>
+
+  <div class="q-top"><span class="q-label" id="q-num">Question 1 of 12</span><span class="q-label" id="q-pct">0%</span></div>
+  <div class="q-bar"><div class="q-fill" id="q-fill" style="width:0%"></div></div>
+  <div class="q-card" id="q-card">
+    <div class="q-text" id="q-text"></div>
+    <div class="q-opts" id="q-opts"></div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
+  <div class="sec-eyebrow">Now your turn</div>
+  <div class="sec-title">Let me get to <em>know you</em></div>
+  <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem">You have been learning about me this whole time. Fair is fair. Answer honestly and at the end you can send your answers directly to me.</p>
+
+  <div id="ay-form">
+    <div class="ay-step active" id="ay-step-1">
+      <div class="ay-progress-row"><span class="ay-progress-label">1 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:14%"></div></div></div>
+      <div class="ay-question">What should I call you?</div>
+      <input type="text" class="ay-input" id="ay-name" placeholder="Your name..." maxlength="60">
+      <button class="btn" style="margin-top:1rem" onclick="ayNext(1)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-2">
+      <div class="ay-progress-row"><span class="ay-progress-label">2 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:28%"></div></div></div>
+      <div class="ay-question">How would you describe your relationship with your deen right now?</div>
+      <div class="ay-opts" id="ay-opts-2">
+        <div class="ay-opt" onclick="ayPick(this,2)">It is the foundation of everything I do</div>
+        <div class="ay-opt" onclick="ayPick(this,2)">I practice sincerely and it is growing</div>
+        <div class="ay-opt" onclick="ayPick(this,2)">I am somewhere in the middle and being honest about it</div>
+        <div class="ay-opt" onclick="ayPick(this,2)">It is more cultural right now but I want more</div>
+      </div>
+      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-2" onclick="ayNext(2)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-3">
+      <div class="ay-progress-row"><span class="ay-progress-label">3 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:42%"></div></div></div>
+      <div class="ay-question">When it comes to where you want to build your life, what feels right?</div>
+      <div class="ay-opts" id="ay-opts-3">
+        <div class="ay-opt" onclick="ayPick(this,3)">A Muslim country, ideally Somalia or East Africa</div>
+        <div class="ay-opt" onclick="ayPick(this,3)">Open to a Muslim country, still figuring it out</div>
+        <div class="ay-opt" onclick="ayPick(this,3)">Western country but with a strong Muslim community</div>
+        <div class="ay-opt" onclick="ayPick(this,3)">Wherever opportunity and family are</div>
+      </div>
+      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-3" onclick="ayNext(3)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-4">
+      <div class="ay-progress-row"><span class="ay-progress-label">4 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:57%"></div></div></div>
+      <div class="ay-question">How do you handle hard conversations in a relationship?</div>
+      <div class="ay-opts" id="ay-opts-4">
+        <div class="ay-opt" onclick="ayPick(this,4)">I bring it up directly, always</div>
+        <div class="ay-opt" onclick="ayPick(this,4)">I process first then I talk it through</div>
+        <div class="ay-opt" onclick="ayPick(this,4)">I struggle with it but I am working on it</div>
+        <div class="ay-opt" onclick="ayPick(this,4)">I tend to keep things inside until I cannot</div>
+      </div>
+      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-4" onclick="ayNext(4)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-5">
+      <div class="ay-progress-row"><span class="ay-progress-label">5 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:71%"></div></div></div>
+      <div class="ay-question">What does your ambition look like right now?</div>
+      <div class="ay-opts" id="ay-opts-5">
+        <div class="ay-opt" onclick="ayPick(this,5)">I am actively building something of my own</div>
+        <div class="ay-opt" onclick="ayPick(this,5)">I have goals and I work toward them daily</div>
+        <div class="ay-opt" onclick="ayPick(this,5)">I am still figuring out my direction</div>
+        <div class="ay-opt" onclick="ayPick(this,5)">I value building a home and family above career</div>
+      </div>
+      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-5" onclick="ayNext(5)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-6">
+      <div class="ay-progress-row"><span class="ay-progress-label">6 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:85%"></div></div></div>
+      <div class="ay-question">What are you actually looking for right now?</div>
+      <div class="ay-opts" id="ay-opts-6">
+        <div class="ay-opt" onclick="ayPick(this,6)">Marriage, when the right person comes</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Something serious with no pressure on timing</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Still genuinely figuring that out</div>
+        <div class="ay-opt" onclick="ayPick(this,6)">Connection first and see where it goes</div>
+      </div>
+      <button class="btn" style="margin-top:1rem;display:none" id="ay-next-6" onclick="ayNext(6)">Next →</button>
+    </div>
+    <div class="ay-step" id="ay-step-7">
+      <div class="ay-progress-row"><span class="ay-progress-label">7 of 7</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
+      <div class="ay-question">Tell me one real thing about yourself that a profile would never show.</div>
+      <textarea class="ay-input" id="ay-real" placeholder="Be honest. This goes straight to me." rows="4" maxlength="500"></textarea>
+      <button class="btn" style="margin-top:1rem" onclick="ayNext(7)">See my profile →</button>
+    </div>
+    <div class="ay-step" id="ay-profile">
+      <div style="text-align:center;margin-bottom:1.5rem">
+        <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:white;margin:0 auto 0.8rem" id="ay-avatar">?</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream)" id="ay-profile-name"></div>
+      </div>
+      <div id="ay-profile-cards"></div>
+      <div style="background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:12px;padding:1rem;margin-bottom:1.2rem">
+        <div style="font-size:0.65rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Something real</div>
+        <p style="font-size:0.85rem;color:rgba(240,236,228,0.8);line-height:1.65;font-style:italic" id="ay-profile-real"></p>
+      </div>
+      <p style="font-size:0.83rem;color:var(--muted);text-align:center;line-height:1.65;margin-bottom:1.2rem;font-style:italic">Send this to Qasim. He will read every word.</p>
+      <button class="btn" id="ay-send-btn" onclick="aySubmit()">Send my answers to Qasim →</button>
+      <button class="btn btn-outline" onclick="ayRestart()">Start over</button>
+      <div class="submit-msg" id="ay-submit-msg">Sent. JazakAllah khayr. Qasim will be in touch. 🤍</div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
+  <div class="sec-eyebrow">No filter</div>
+  <div class="sec-title">Ask me <em>anything</em></div>
+  <div class="truth-stage">
+    <div class="truth-lbl">Qasim answers honestly</div>
+    <div class="truth-text" id="truth-text">Press the button. No performance, no filter.</div>
+    <div class="truth-num" id="truth-num"></div>
+  </div>
+  <button class="btn btn-outline" onclick="nextTruth()">Ask me something 🎲</button>
+  <button class="btn btn-gold" onclick="sendPrompt('Ask Qasim a deep personal question like we are playing truth or dare, and answer it from his perspective based on what you know about him')">Go deeper with AI ↗</button>
+
+  <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
+
+  <div class="sec-eyebrow">Just imagine it</div>
+  <div class="sec-title">A day in <em>our life</em></div>
+  <p style="font-size:0.83rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;font-style:italic">Press the button and picture it for a moment.</p>
+  <div class="daylife-card">
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.65;transition:opacity 0.3s" id="daylife-text">Press the button below.</p>
+  </div>
+  <button class="btn btn-outline" onclick="nextDaylife()">Show me another moment 🌙</button>
+</div>
+
+<!-- TALK -->
+<div class="section page-section" id="contact">
+  <div class="sec-eyebrow">The next step</div>
+  <div class="sec-title">Let us actually <em>talk</em></div>
+  <div class="divider"></div>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);text-align:center;margin-bottom:1.5rem;line-height:1.75">If something here resonated with you, that is not a coincidence. Reach out. The worst that happens is a good conversation.</p>
+  <div class="form-wrap">
+    <p style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Send me a message</p>
+    <p style="font-size:0.78rem;color:var(--dim);font-style:italic;text-align:center;margin-bottom:1rem">Goes straight to me. No one else sees it.</p>
+    <form id="contact-form" action="https://formspree.io/f/mrejarlr" method="POST">
+      <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="What should I call you?" required></div>
+      <div class="form-group"><label>Your message</label><textarea name="message" rows="4" placeholder="Say something real..." required></textarea></div>
+      <button type="submit" class="btn">Send message →</button>
+    </form>
+    <div class="submit-msg" id="submit-msg">Message sent. JazakAllah khayr. I will respond when I can. 🤍</div>
+  </div>
+  <div class="closing-note">
+    <p>Not looking for perfect. Just looking for real. If you made it this far you probably already know.</p>
+  </div>
+</div>
+
+</div>
+<script>
+const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
+let stars=[];
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;stars=Array.from({length:90},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+0.3,a:Math.random(),s:Math.random()*0.004+0.002}))}
+function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.globalAlpha=s.a*0.55;ctx.fillStyle='#f0ece4';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(drawStars)}
+window.addEventListener('resize',resize);resize();drawStars();
+
+const phrases=["a student of this deen and this world","building something real","faith-driven, purpose-built","a founder with a soft heart","looking for the one","ambivert who connects deeply","loves a good hike and a deeper conversation","making dua for you already"];
+let pi=0,ci=0,del=false,typed='';
+function type(){const p=phrases[pi];if(!del){if(ci<p.length){typed+=p[ci++];document.getElementById('typed').textContent=typed;setTimeout(type,65);}else{del=true;setTimeout(type,2200);}}else{if(ci>0){typed=typed.slice(0,-1);ci--;document.getElementById('typed').textContent=typed;setTimeout(type,38);}else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);}}}
+type();
+
+function goTo(id,btn){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='know')setTimeout(animTraits,300);
+  window.scrollTo({top:document.querySelector('.sticky-nav').offsetTop-2,behavior:'smooth'});
+}
+
+let traitsAnimated=false;
+function animTraits(){if(traitsAnimated)return;traitsAnimated=true;document.querySelectorAll('.trait-fill').forEach((el,i)=>{setTimeout(()=>{el.style.width=el.dataset.w+'%'},i*130)});}
+
+const tots=[
+  {q:"Trail hike or city walk?",a:"Trail hike",b:"City walk",ans:"Trail hike without hesitation. Being in nature with no notifications and nowhere to be resets everything."},
+  {q:"Early morning or late night?",a:"Early morning",b:"Late night",ans:"Late nights. That is when the world quiets down and the best thinking happens."},
+  {q:"Somalia or Saudi Arabia?",a:"Somalia",b:"Saudi Arabia",ans:"Somalia for the soul. Saudi Arabia for the spirit. Standing in the Haram rearranges you. But Somalia is where the roots are."},
+  {q:"Stay in or go out?",a:"Stay in",b:"Go out",ans:"Stay in. Good food, a real conversation, no pressure to perform for anyone. That is a perfect night."},
+  {q:"Head or heart?",a:"Head",b:"Heart",ans:"Head for decisions that affect the future. Heart for relationships. The two should work together not fight."},
+  {q:"Ghazali or Nawawi?",a:"Al-Ghazali",b:"Imam Nawawi",ans:"That question is not fair. Ghazali for the inner life. Nawawi for precision and practice. I need both."},
+  {q:"Quran recitation or understanding?",a:"Recitation",b:"Understanding",ans:"Both are necessary but understanding changed me more. Knowing what Allah is saying to you is a completely different experience."},
+  {q:"Adventure or peace?",a:"Adventure",b:"Peace",ans:"Peace. Every time. I want home to feel like the calmest place in my life."},
+  {q:"Orwell or Al-Ghazali?",a:"Orwell",b:"Al-Ghazali",ans:"Al-Ghazali for how to live. Orwell for how to see the world clearly. Both are necessary."},
+  {q:"Sunrise hike or sunset walk?",a:"Sunrise hike",b:"Sunset walk",ans:"Sunrise hike. Starting the day with something hard and beautiful puts everything else in perspective."}
+];
+let ti=0,tPicked=false;
+function loadTot(){
+  if(ti>=tots.length){document.querySelector('.tot-card').innerHTML='<p style="color:var(--muted);font-size:0.9rem;text-align:center;padding:1rem;font-style:italic;font-family:\'Cormorant Garamond\',serif">You know me pretty well now. The real test is an actual conversation.</p>';return;}
+  const t=tots[ti];
+  document.getElementById('tot-counter').textContent='Round '+(ti+1)+' of '+tots.length;
+  document.getElementById('tot-q').textContent=t.q;
+  document.getElementById('tot-a').textContent=t.a;
+  document.getElementById('tot-b').textContent=t.b;
+  document.getElementById('tot-a').className='tot-opt a';
+  document.getElementById('tot-b').className='tot-opt b';
+  document.getElementById('tot-ans').className='tot-answer';
+  document.getElementById('tot-ans').textContent='';
+  document.getElementById('tot-next').style.display='none';
+  tPicked=false;
+}
+function pickTot(side){if(tPicked)return;tPicked=true;document.getElementById(side===0?'tot-a':'tot-b').className='tot-opt '+(side===0?'a':'b')+' chosen';const ans=document.getElementById('tot-ans');ans.textContent='My answer: '+tots[ti].ans;ans.className='tot-answer show';document.getElementById('tot-next').style.display='block';}
+function nextTot(){ti++;loadTot();}
+loadTot();
+
+const qs=[
+  {q:"Your relationship with your deen right now is...",opts:["It is the center of every decision I make","I practice sincerely and it is growing","I am in the middle and being honest about it","More cultural than spiritual right now"],w:[10,8,6,3]},
+  {q:"Working on your inner character, your nafs...",opts:["It is something I actively invest in daily","I think about it and try to be consistent","I struggle with it but it genuinely matters","I have not thought deeply about it this way"],w:[10,8,6,3]},
+  {q:"When it comes to where you want to build your life...",opts:["A Muslim country, ideally Somalia or East Africa","Open to a Muslim country, still thinking","Western country with a strong Muslim community","Wherever opportunity and family are"],w:[10,8,6,5]},
+  {q:"Raising children immersed in Somali culture and language...",opts:["Something I deeply want and value","Important to me, I am open to it","I respect it but have not thought much about it","Not something I have considered"],w:[10,8,5,3]},
+  {q:"When something is bothering you in a relationship...",opts:["I bring it up directly, always","I process it first then I talk it through","I hint and hope they notice","I tend to keep things inside"],w:[10,8,3,2]},
+  {q:"The outdoors, hiking, and nature are...",opts:["Something I genuinely love and seek out","Nice occasionally when the chance comes","I can appreciate it for the right person","Not really my thing honestly"],w:[9,7,6,3]},
+  {q:"Your ambition and sense of purpose looks like...",opts:["I am actively building something of my own","I have clear goals I work toward daily","I am still figuring out my direction","I value building a home and family above career"],w:[10,9,5,7]},
+  {q:"Living simply and intentionally, away from excess...",opts:["Resonates deeply with me","I like the idea and try to practice it","I am somewhere in between","I enjoy my comforts honestly"],w:[10,8,6,4]},
+  {q:"Extended family and community in your life...",opts:["Family and community are central to how I live","I value them and stay involved","I am close with family but keep things smaller","I prefer a more independent lifestyle"],w:[10,8,6,4]},
+  {q:"Reading, learning, and growing intellectually...",opts:["A core part of how I live","Something I enjoy and make time for","Occasional when something catches my interest","Not really how I spend my time"],w:[10,8,5,3]},
+  {q:"Travel and experiencing different places...",opts:["Something that changes me and I actively seek","I enjoy it when the opportunity is there","I am open to it but have not done much","I prefer staying close to home"],w:[9,7,5,4]},
+  {q:"Honestly, what are you actually looking for right now?",opts:["Something real and intentional, marriage","A serious connection, no pressure on timing","Still genuinely figuring that out","Connection first and seeing where it goes"],w:[10,8,5,6]}
+];
+let qi=0,qt=0;
+function loadQ(){
+  if(qi>=qs.length){showResult();return;}
+  const q=qs[qi];
+  document.getElementById('q-num').textContent='Question '+(qi+1)+' of '+qs.length;
+  const pct=Math.round(qi/qs.length*100);
+  document.getElementById('q-fill').style.width=pct+'%';
+  document.getElementById('q-pct').textContent=pct+'%';
+  document.getElementById('q-text').textContent=q.q;
+  const o=document.getElementById('q-opts');o.innerHTML='';
+  q.opts.forEach((opt,i)=>{const b=document.createElement('button');b.className='q-opt';b.textContent=opt;b.onclick=()=>{qt+=q.w[i];qi++;loadQ();};o.appendChild(b);});
+}
+function showResult(){
+  const max=qs.reduce((a,q)=>a+Math.max(...q.w),0);
+  const pct=Math.round((qt/max)*100);
+  let emoji,title,desc;
+  if(pct>=87){emoji='🔥';title='We might actually be something real';desc='The way you answered tells me your values and what you want from life lines up with mine in a way I do not take lightly. Keep scrolling. Tell me about yourself.';}
+  else if(pct>=72){emoji='✨';title='Strong potential here';desc='There is real alignment on the things that actually matter. A few things would need an honest conversation but the foundation looks solid.';}
+  else if(pct>=55){emoji='🌱';title='Worth exploring';desc='We see a couple of things differently. That is not always a dealbreaker. The only way to really know is to just talk.';}
+  else{emoji='🤝';title='Different paths, mutual respect';desc='We might not be aligned right now. But going through this honestly says something good about you.';}
+  document.getElementById('q-fill').style.width='100%';
+  document.getElementById('q-pct').textContent='100%';
+  document.getElementById('q-card').innerHTML=`<div class="result-wrap"><div class="result-pct">${pct}%</div><div class="result-emoji">${emoji}</div><div class="result-title">${title}</div><div class="result-desc">${desc}</div><button class="btn" onclick="resetQ()" style="margin-bottom:8px">Take it again</button></div>`;
+}
+function resetQ(){qi=0;qt=0;document.getElementById('q-card').innerHTML='<div class="q-text" id="q-text"></div><div class="q-opts" id="q-opts"></div>';loadQ();}
+loadQ();
+
+const ayAnswers={name:'',q2:'',q3:'',q4:'',q5:'',q6:'',real:''};
+function ayNext(step){
+  if(step===1){const n=document.getElementById('ay-name').value.trim();if(!n){document.getElementById('ay-name').focus();return;}ayAnswers.name=n;}
+  if(step===7){const r=document.getElementById('ay-real').value.trim();if(!r){document.getElementById('ay-real').focus();return;}ayAnswers.real=r;showAyProfile();return;}
+  document.getElementById('ay-step-'+step).classList.remove('active');
+  document.getElementById('ay-step-'+(step+1)).classList.add('active');
+}
+function ayPick(el,step){
+  document.querySelectorAll('#ay-opts-'+step+' .ay-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  ayAnswers['q'+step]=el.textContent;
+  document.getElementById('ay-next-'+step).style.display='block';
+}
+function showAyProfile(){
+  document.getElementById('ay-step-7').classList.remove('active');
+  document.getElementById('ay-profile').classList.add('active');
+  document.getElementById('ay-avatar').textContent=ayAnswers.name.charAt(0).toUpperCase();
+  document.getElementById('ay-profile-name').textContent=ayAnswers.name;
+  document.getElementById('ay-profile-real').textContent=ayAnswers.real;
+  const cards=[
+    {label:'Her deen',val:ayAnswers.q2},
+    {label:'Where she wants to build',val:ayAnswers.q3},
+    {label:'In hard conversations',val:ayAnswers.q4},
+    {label:'Her ambition',val:ayAnswers.q5},
+    {label:'What she is looking for',val:ayAnswers.q6}
+  ].filter(c=>c.val);
+  const container=document.getElementById('ay-profile-cards');
+  container.innerHTML='';
+  cards.forEach(c=>{container.innerHTML+=`<div class="ay-profile-card"><div class="ay-profile-dot"></div><div><div class="ay-profile-label">${c.label}</div><div class="ay-profile-val">${c.val}</div></div></div>`;});
+}
+function aySubmit(){
+  const msg=`Name: ${ayAnswers.name}\n\nDeen: ${ayAnswers.q2}\n\nWhere she wants to live: ${ayAnswers.q3}\n\nIn hard conversations: ${ayAnswers.q4}\n\nHer ambition: ${ayAnswers.q5}\n\nLooking for: ${ayAnswers.q6}\n\nSomething real: ${ayAnswers.real}`;
+  const fd=new FormData();fd.append('name',ayAnswers.name);fd.append('message',msg);
+  fetch('https://formspree.io/f/mrejarlr',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+  .then(r=>{if(r.ok){document.getElementById('ay-send-btn').style.display='none';document.getElementById('ay-submit-msg').style.display='block';}});
+}
+function ayRestart(){
+  Object.keys(ayAnswers).forEach(k=>ayAnswers[k]='');
+  document.querySelectorAll('.ay-step').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.ay-opt').forEach(o=>o.classList.remove('selected'));
+  document.querySelectorAll('[id^=ay-next-]').forEach(b=>b.style.display='none');
+  document.getElementById('ay-name').value='';
+  document.getElementById('ay-real').value='';
+  document.getElementById('ay-send-btn').style.display='block';
+  document.getElementById('ay-submit-msg').style.display='none';
+  document.getElementById('ay-step-1').classList.add('active');
+}
+
+const truths=[
+  "My biggest fear is giving everything to someone and it still not being enough. But I choose to show up anyway because the alternative is worse.",
+  "I made dua for my future wife by name in the Haram even though I did not know it yet. That is how real this has been in my mind.",
+  "I finished the Quran and it rearranged something in me permanently. Not a dramatic moment. Just a quiet shift that never went back.",
+  "I go quiet when I like someone. Not cold, just processing. It has confused people before and I am still working on that.",
+  "The home I want to build is something I have thought about in detail. Quran in the morning. Books everywhere. Calm enough that the world feels manageable from inside it.",
+  "I carry a lot privately. I am the person people come to. Letting someone in without feeling like it costs me something is still something I am learning.",
+  "I once hiked alone and talked to Allah the whole way up. That was one of the most honest conversations I have ever had.",
+  "Teaching Islamic studies changed me more than studying ever did. When you have to explain something you find out fast what you actually understand.",
+  "What I want most is someone who notices when I go quiet and checks on me without being asked. Not because I told her to.",
+  "I think about legacy every single day. Not in an ego way. More like a what does all of this add up to kind of way."
+];
+let trIdx=0;
+function nextTruth(){const el=document.getElementById('truth-text');el.style.opacity='0';setTimeout(()=>{el.textContent='"'+truths[trIdx%truths.length]+'"';el.style.opacity='1';document.getElementById('truth-num').textContent=(trIdx%truths.length+1)+' of '+truths.length;trIdx++;},300);}
+document.getElementById('truth-text').style.transition='opacity 0.3s';
+
+const daylife=[
+  "Fajr together, still half asleep, making duas side by side before the day pulls us in different directions.",
+  "A trail somewhere quiet. No phones. Just the sound of footsteps and a conversation that goes wherever it wants.",
+  "You are reading. I am building something. Same room, different worlds, completely at peace.",
+  "Saturday morning, slow. No rush. Quran on low. Breakfast that takes too long and a conversation that takes longer.",
+  "We disagree on something. We talk it out. Nobody goes to sleep carrying something unresolved.",
+  "Somewhere new, a country neither of us has been to, figuring it out together in real time.",
+  "You catch me making dua for you. I am not embarrassed. That is just what this is.",
+  "A long drive, windows down, the kind of silence that does not need filling.",
+  "I remind you of something you told me three weeks ago. You look at me like you cannot believe I remembered.",
+  "Home. Somewhere warm and full of meaning. Something we built together from scratch."
+];
+let dlIdx=0;
+function nextDaylife(){const el=document.getElementById('daylife-text');el.style.opacity='0';setTimeout(()=>{el.textContent=daylife[dlIdx%daylife.length];el.style.opacity='1';dlIdx++;},250);}
+document.getElementById('daylife-text').style.transition='opacity 0.25s';
+
+document.getElementById('contact-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}})
+  .then(r=>{if(r.ok){this.style.display='none';document.getElementById('submit-msg').style.display='block';}});
+});
+</script>
+</body>
+</html>
