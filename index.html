@@ -297,13 +297,16 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <span class="tag">🌗 Ambivert</span>
     <span class="tag">✈️ 7 countries</span>
   </div>
-  <div class="progress-tabs" id="progress-tabs">
-    <div class="ptab active" id="pt-0"></div>
-    <div class="ptab" id="pt-1"></div>
-    <div class="ptab" id="pt-2"></div>
-    <div class="ptab" id="pt-3"></div>
-    <div class="ptab" id="pt-4"></div>
-    <div class="ptab" id="pt-5"></div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:2rem">
+    <div class="progress-tabs" id="progress-tabs">
+      <div class="ptab active" id="pt-0"></div>
+      <div class="ptab" id="pt-1"></div>
+      <div class="ptab" id="pt-2"></div>
+      <div class="ptab" id="pt-3"></div>
+      <div class="ptab" id="pt-4"></div>
+      <div class="ptab" id="pt-5"></div>
+    </div>
+    <p style="font-size:0.65rem;color:rgba(240,236,228,0.25);letter-spacing:0.1em;text-transform:uppercase" id="progress-label">1 of 6 sections explored</p>
   </div>
   <div class="scroll-hint"><span>scroll</span><div class="scroll-arrow"></div></div>
 </div>
@@ -337,12 +340,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-title" style="margin-bottom:1rem">Where I have <em>been</em></div>
   <div style="background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:14px;padding:1rem;text-align:center;margin-bottom:1.2rem"><div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold);line-height:1">7</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.2rem">Countries and counting</div></div>
   <div class="country-grid" style="margin-bottom:1rem">
-    <div class="country-card"><div class="country-flag">🇸🇴</div><div class="country-name">Somalia</div><div class="country-note">Where the roots are. Going back reminds you who you are before the world tells you who to be.</div></div>
-    <div class="country-card"><div class="country-flag">🇸🇦</div><div class="country-name">Saudi Arabia</div><div class="country-note">Standing in the Haram rearranges something in you. Some things cannot be explained, only felt.</div></div>
-    <div class="country-card"><div class="country-flag">🇶🇦</div><div class="country-name">Qatar</div><div class="country-note">A country that decided what it wanted to be and built it. Ambition in architecture form.</div></div>
-    <div class="country-card"><div class="country-flag">🇯🇴</div><div class="country-name">Jordan</div><div class="country-note">Petra. The Dead Sea. History you can walk through and touch with your hands.</div></div>
-    <div class="country-card"><div class="country-flag">🇪🇹</div><div class="country-name">Ethiopia</div><div class="country-note">Addis Ababa has a pulse. A continent finding its way on its own terms.</div></div>
-    <div class="country-card"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div><div class="country-note">Home base for now. Where I am building. The list is not finished.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇸🇴</div><div class="country-name">Somalia</div><div class="country-note">Where the roots are. Going back reminds you who you are before the world tells you who to be.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇸🇦</div><div class="country-name">Saudi Arabia</div><div class="country-note">Standing in the Haram rearranges something in you. Some things cannot be explained, only felt.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇶🇦</div><div class="country-name">Qatar</div><div class="country-note">A country that decided what it wanted to be and built it. Ambition in architecture form.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇯🇴</div><div class="country-name">Jordan</div><div class="country-note">Petra. The Dead Sea. History you can walk through and touch with your hands.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇪🇹</div><div class="country-name">Ethiopia</div><div class="country-note">Addis Ababa has a pulse. A continent finding its way on its own terms.</div></div>
+    <div class="country-card fade-item"><div class="country-flag">🇺🇸</div><div class="country-name">United States</div><div class="country-note">Home base for now. Where I am building. The list is not finished.</div></div>
     <div class="country-card" style="grid-column:span 2"><div class="country-flag">🇨🇦</div><div class="country-name">Canada</div><div class="country-note">A good reminder that the world is bigger than wherever you are standing right now.</div></div>
   </div>
   <hr style="border:none;border-top:1px solid var(--dim);margin:2rem 0">
@@ -364,12 +367,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-eyebrow">The real me</div>
   <div class="sec-title">Tap the cards to <em>reveal</em></div>
   <div class="flip-grid">
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🌗</div><div class="flip-lbl">My energy</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Ambivert. Quiet in a crowd, fully present one on one. I notice what people do not say.</div></div></div></div>
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">💌</div><div class="flip-lbl">How I love</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Slowly and completely. You will feel it in the small consistent things more than any grand gesture.</div></div></div></div>
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">⚡</div><div class="flip-lbl">Inside</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Constantly thinking, building, solving three problems at once. The calm outside is earned.</div></div></div></div>
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🤝</div><div class="flip-lbl">In conflict</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">I talk it out. I do not shut down or go cold. Communication is not optional for me.</div></div></div></div>
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">😄</div><div class="flip-lbl">My humor</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Dry, deadpan, comes out of nowhere. The people who get it really get it.</div></div></div></div>
-    <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🔧</div><div class="flip-lbl">Still working on</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Letting people in without feeling like it costs me something. Showing that I care before I am asked to.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🌗</div><div class="flip-lbl">My energy</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Ambivert. Quiet in a crowd, fully present one on one. I notice what people do not say.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">💌</div><div class="flip-lbl">How I love</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Slowly and completely. You will feel it in the small consistent things more than any grand gesture.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">⚡</div><div class="flip-lbl">Inside</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Constantly thinking, building, solving three problems at once. The calm outside is earned.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🤝</div><div class="flip-lbl">In conflict</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">I talk it out. I do not shut down or go cold. Communication is not optional for me.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">😄</div><div class="flip-lbl">My humor</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Dry, deadpan, comes out of nowhere. The people who get it really get it.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🔧</div><div class="flip-lbl">Still working on</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Letting people in without feeling like it costs me something. Showing that I care before I am asked to.</div></div></div></div>
   </div>
   <span class="sub-label" style="color:var(--teal)">My traits</span>
   <div id="traits-wrap" style="margin-bottom:1.5rem">
@@ -670,6 +673,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="closing-note"><p>Not looking for perfect. Just looking for real. If you made it this far you probably already know.</p></div>
 </div>
 
+<footer style="position:relative;z-index:1;max-width:480px;margin:0 auto;padding:1.5rem 1.5rem 2rem;text-align:center;border-top:1px solid rgba(240,236,228,0.08)">
+  <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);opacity:0.75;margin-bottom:0.35rem;letter-spacing:0.03em">meet.mmohamud.me</div>
+  <p style="font-size:0.72rem;color:rgba(240,236,228,0.2);line-height:1.6">Built with intention. Read with an open heart.</p>
+</footer>
+
 </div>
 <script>
 const canvas=document.getElementById('bg'),ctx=canvas.getContext('2d');
@@ -703,6 +711,8 @@ function updateProgress(activeIdx){
     if(i===activeIdx)el.classList.add('active');
     else if(visitedTabs.has(i))el.classList.add('visited');
   }
+  const label=document.getElementById('progress-label');
+  if(label)label.textContent=visitedTabs.size+' of 6 sections explored';
 }
 
 let traitsAnimated=false;
@@ -720,9 +730,9 @@ const tots=[
   {q:"Orwell or Al-Ghazali?",a:"Orwell",b:"Al-Ghazali",ans:"Al-Ghazali for how to live. Orwell for how to see the world clearly. Both necessary."},
   {q:"Sunrise hike or sunset walk?",a:"Sunrise hike",b:"Sunset walk",ans:"Sunrise hike. Starting the day with something hard and beautiful puts everything in perspective."}
 ];
-let ti=0,tPicked=false;
+let ti=0,tPicked=false,totHistory=[];
 function loadTot(){
-  if(ti>=tots.length){document.querySelector('.tot-card').innerHTML='<p style="color:var(--muted);font-size:0.9rem;text-align:center;padding:1rem;font-style:italic;font-family:\'Cormorant Garamond\',serif">You know me pretty well now. The real test is a conversation.</p>';return;}
+  if(ti>=tots.length){showTotSummary();return;}
   const t=tots[ti];
   document.getElementById('tot-counter').textContent='Round '+(ti+1)+' of '+tots.length;
   document.getElementById('tot-q').textContent=t.q;
@@ -735,8 +745,39 @@ function loadTot(){
   document.getElementById('tot-next').style.display='none';
   tPicked=false;
 }
-function pickTot(side){if(tPicked)return;tPicked=true;document.getElementById(side===0?'tot-a':'tot-b').className='tot-opt '+(side===0?'a':'b')+' chosen';const ans=document.getElementById('tot-ans');ans.textContent='My answer: '+tots[ti].ans;ans.className='tot-answer show';document.getElementById('tot-next').style.display='block';}
+function pickTot(side){
+  if(tPicked)return;tPicked=true;
+  document.getElementById(side===0?'tot-a':'tot-b').className='tot-opt '+(side===0?'a':'b')+' chosen';
+  const ans=document.getElementById('tot-ans');
+  ans.textContent='My answer: '+tots[ti].ans;
+  ans.className='tot-answer show';
+  document.getElementById('tot-next').style.display='block';
+  totHistory.push({q:tots[ti].q,hers:side===0?tots[ti].a:tots[ti].b,mine:tots[ti].ans});
+}
 function nextTot(){ti++;loadTot();}
+function showTotSummary(){
+  const matches=totHistory.filter(r=>tots.find(t=>t.q===r.q&&(t.a===r.hers&&r.mine.startsWith(t.a)||t.b===r.hers&&r.mine.startsWith(t.b)))).length;
+  let rows=totHistory.map(r=>{
+    const t=tots.find(x=>x.q===r.q);
+    const iMatch=t&&(r.mine.toLowerCase().startsWith(r.hers.toLowerCase().substring(0,4)));
+    return `<div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:10px;padding:0.75rem;margin-bottom:8px">
+      <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem">${r.q}</div>
+      <div style="display:flex;gap:8px;font-size:0.8rem">
+        <span style="flex:1;color:var(--teal)">You: ${r.hers}</span>
+        <span style="flex:1;color:var(--gold)">Qasim: ${r.hers}</span>
+      </div>
+    </div>`;
+  }).join('');
+  document.querySelector('.tot-card').innerHTML=`
+    <div style="text-align:center;margin-bottom:1.2rem">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--gold)">${totHistory.length}</div>
+      <div style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em">rounds completed</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:var(--muted);margin-top:0.5rem;line-height:1.6">Now you know how he thinks. Does it match how you think?</p>
+    </div>
+    <div style="max-height:320px;overflow-y:auto;padding-right:4px">${rows}</div>
+    <button type="button" class="btn btn-outline" onclick="resetTot()" style="margin-top:1rem">Play again</button>`;
+}
+function resetTot(){ti=0;tPicked=false;totHistory=[];document.querySelector('.tot-card').innerHTML=`<div class="tot-counter" id="tot-counter"></div><div class="tot-q" id="tot-q"></div><div class="tot-row"><button type="button" class="tot-opt a" id="tot-a" onclick="pickTot(0)"></button><span class="tot-vs">or</span><button type="button" class="tot-opt b" id="tot-b" onclick="pickTot(1)"></button></div><div class="tot-answer" id="tot-ans"></div><button type="button" class="btn btn-outline" id="tot-next" onclick="nextTot()" style="display:none;margin-top:10px">Next round -></button>`;loadTot();}
 loadTot();
 
 const qs=[
