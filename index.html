@@ -1091,10 +1091,22 @@ function aySubmit(){
   const originalText=sendBtn.textContent;
   sendBtn.disabled=true;
   sendBtn.textContent='Sending...';
-  fetch('https://formspree.io/f/mrejarlr',{method:'POST',body:fd,headers:{Accept:'application/json'}})
+  fetch('https://formspree.io/f/mrejarlr',{
+    method:'POST',
+    body:fd,
+    headers:{
+      'Accept':'application/json'
+    }
+  })
   .then(r=>{
     if(r.ok){
       sendBtn.style.display='none';
+      document.getElementById('ay-submit-msg').style.display='block';
+    }else if(r.status===403){
+      sendBtn.disabled=false;
+      sendBtn.textContent=originalText;
+      document.getElementById('ay-submit-msg').textContent='Please visit the live site at meet.mmohamud.me to send your message.';
+      document.getElementById('ay-submit-msg').style.color='#e05c5c';
       document.getElementById('ay-submit-msg').style.display='block';
     }else{
       sendBtn.disabled=false;
@@ -1256,6 +1268,9 @@ function aySkip(step){
   document.getElementById('ay-step-'+(step+1)).classList.add('active');
 }
 function copyToMessage(){
+  const el=document.getElementById('fmg-text');
+  if(!el)return;
+  const text=el.textContent.replace(/^"|"$/g,'');
   const msgEl=document.getElementById('ay-message');
   if(msgEl){msgEl.value=text;msgEl.focus();}
 }
