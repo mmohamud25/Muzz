@@ -743,7 +743,8 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
       <div id="ay-submit-msg" style="display:none;text-align:center;padding:2rem 1rem;animation:fadeIn 0.5s ease">
         <div style="font-size:2.5rem;margin-bottom:0.8rem">🤍</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem">Sent. JazakAllah khayr.</div>
-        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7">Qasim reads every message personally. He will be in touch inshallah.</p>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:1.2rem">Qasim reads every message personally. He will be in touch inshallah. A copy of your scores has been sent to your email.</p>
+        <div id="score-summary-display" style="background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:12px;padding:1rem;text-align:left"></div>
       </div>
 
       <div style="margin-top:1.5rem;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;text-align:center">
@@ -1064,8 +1065,27 @@ function aySubmit(){
     return;
   }
   document.getElementById('ay-email').style.borderColor='';
+
+  // Collect all scores
+  const quizMax=qs.reduce((a,q)=>a+Math.max(...q.w),0);
+  const quizPct=quizMax>0?Math.round((qt/quizMax)*100):0;
+  const wwTotal=wwStatements.length;
+  const gfTotal=gfStatements.length;
+  const totAnswered=totHistory.length;
+  const totAnswers=totHistory.map(r=>`${r.q}: ${r.hers}`).join(', ');
+
   const fiveYears=document.getElementById('five-years-input')?document.getElementById('five-years-input').value.trim():'';
-  const lines=[
+
+  const scoreSummary=[
+    `=== SCORES ===`,
+    `Quiz compatibility: ${quizPct}% (${qi} of ${qs.length} questions answered)`,
+    `We Would Work If: ${wwAgreed} out of ${wwTotal} resonated`,
+    `Green flags: ${gfScoreCount} out of ${gfTotal}`,
+    totAnswered>0?`This or That (${totAnswered} rounds): ${totAnswers}`:`This or That: not completed`
+  ].join('\n');
+
+  const aboutSummary=[
+    `=== ABOUT HER ===`,
     `Name: ${ayAnswers.name||'not provided'}`,
     `Deen: ${ayAnswers.q2}`,
     `Where she wants to live: ${ayAnswers.q3}`,
@@ -1077,31 +1097,49 @@ function aySubmit(){
     `Something never said out loud: ${ayAnswers.q9}`,
     `Needs understood from day one: ${ayAnswers.q10}`,
     `Something real: ${ayAnswers.real}`
-  ];
-  if(fiveYears)lines.push(`Five years from now: ${fiveYears}`);
-  if(message)lines.push(`Her message: ${message}`);
-  if(phone)lines.push(`Phone: ${phone}`);
+  ].filter(l=>!l.endsWith(': ')).join('\n');
+
+  const extraSummary=[];
+  if(fiveYears)extraSummary.push(`Five years from now: ${fiveYears}`);
+  if(message)extraSummary.push(`Her message: ${message}`);
+  if(phone)extraSummary.push(`Phone: ${phone}`);
+
+  const fullMessage=[scoreSummary,'',aboutSummary,'',...extraSummary].join('\n');
+
   const fd=new FormData();
   fd.append('name',ayAnswers.name||'Anonymous');
   fd.append('email',email);
   fd.append('_gotcha','');
-  fd.append('_subject',`New response from ${ayAnswers.name||'someone'} on meet.mmohamud.me`);
-  fd.append('message',lines.filter(l=>!l.endsWith(': ')).join('\n\n'));
+  fd.append('_subject',`New response from ${ayAnswers.name||'someone'} on meet.mmohamud.me - Quiz: ${quizPct}%`);
+  fd.append('message',fullMessage);
+
   const sendBtn=document.getElementById('ay-send-btn');
   const originalText=sendBtn.textContent;
   sendBtn.disabled=true;
   sendBtn.textContent='Sending...';
+
   fetch('https://formspree.io/f/mrejarlr',{
     method:'POST',
     body:fd,
-    headers:{
-      'Accept':'application/json'
-    }
+    headers:{'Accept':'application/json'}
   })
   .then(r=>{
     if(r.ok){
       sendBtn.style.display='none';
       document.getElementById('ay-submit-msg').style.display='block';
+      // Show scores on screen
+      const scoreDisplay=document.getElementById('score-summary-display');
+      if(scoreDisplay){
+        scoreDisplay.innerHTML=`
+          <div style="font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem">Your results</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="color:var(--muted)">Compatibility quiz</span><span style="color:var(--gold);font-weight:500">${quizPct}%</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="color:var(--muted)">We Would Work If</span><span style="color:var(--gold);font-weight:500">${wwAgreed} / ${wwTotal}</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="color:var(--muted)">Green flags</span><span style="color:var(--gold);font-weight:500">${gfScoreCount} / ${gfTotal}</span></div>
+            ${totAnswered>0?`<div style="display:flex;justify-content:space-between;font-size:0.84rem"><span style="color:var(--muted)">This or That</span><span style="color:var(--gold);font-weight:500">${totAnswered} rounds</span></div>`:''}
+          </div>`;
+      }
+      sendHerCopy(email, ayAnswers.name||'', quizPct, wwAgreed, wwTotal, gfScoreCount, gfTotal);
     }else if(r.status===403){
       sendBtn.disabled=false;
       sendBtn.textContent=originalText;
@@ -1122,6 +1160,30 @@ function aySubmit(){
     document.getElementById('ay-submit-msg').style.color='#e05c5c';
     document.getElementById('ay-submit-msg').style.display='block';
   });
+}
+
+function sendHerCopy(email, name, quizPct, wwScore, wwTotal, gfScore, gfTotal){
+  let quizVerdict='';
+  if(quizPct>=87)quizVerdict='We might actually be something real.';
+  else if(quizPct>=72)quizVerdict='Strong potential here.';
+  else if(quizPct>=55)quizVerdict='Worth exploring.';
+  else quizVerdict='Different paths, mutual respect.';
+
+  const herMessage=`Assalamu alaikum ${name},\n\nJazakAllah khayr for going through the site. Here is a summary of how you scored:\n\nCompatibility quiz: ${quizPct}% - ${quizVerdict}\nWe Would Work If: ${wwScore} out of ${wwTotal} resonated\nGreen flags: ${gfScore} out of ${gfTotal}\n\nQasim reads every message personally and will be in touch inshallah.\n\nmeet.mmohamud.me`;
+
+  const fd=new FormData();
+  fd.append('name','Qasim via meet.mmohamud.me');
+  fd.append('email',email);
+  fd.append('_gotcha','');
+  fd.append('_subject','Your compatibility results from meet.mmohamud.me');
+  fd.append('message',herMessage);
+  fd.append('_replyto','mmohamud25@gmail.com');
+
+  fetch('https://formspree.io/f/mrejarlr',{
+    method:'POST',
+    body:fd,
+    headers:{'Accept':'application/json'}
+  }).catch(()=>{});
 }
 function ayRestart(){
   Object.keys(ayAnswers).forEach(k=>ayAnswers[k]='');
