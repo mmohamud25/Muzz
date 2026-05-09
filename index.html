@@ -16,28 +16,28 @@
 <meta name="twitter:image" content="https://meet.mmohamud.me/og-image.png">
 <link rel="canonical" href="https://meet.mmohamud.me/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230e9e92'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='serif' fill='%23f0ece4'>ق</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-:root{--navy:#07111f;--navy2:#0d1829;--teal:#0e9e92;--teal2:rgba(14,158,146,0.12);--gold:#c98c2a;--gold2:rgba(201,140,42,0.12);--cream:#f0ece4;--muted:rgba(240,236,228,0.55);--dim:rgba(240,236,228,0.12)}
+:root{--navy:#122b47;--navy2:#173358;--teal:#0e9e92;--teal2:rgba(14,158,146,0.12);--gold:#c98c2a;--gold2:rgba(201,140,42,0.12);--cream:#f0ece4;--muted:rgba(240,236,228,0.92);--dim:rgba(240,236,228,0.35)}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 0%,#0d1f35 100%);background-attachment:fixed;color:var(--cream);min-height:100vh;overflow-x:hidden}
 #bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.4}
 .wrap{position:relative;z-index:1;max-width:480px;margin:0 auto}
 
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem 1.5rem}
 .hero-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--teal),var(--gold),var(--navy),var(--teal));padding:3px;margin:0 auto 1.5rem;animation:spinRing 10s linear infinite}
 @keyframes spinRing{to{transform:rotate(360deg)}}
-.hero-inner{width:100%;height:100%;border-radius:50%;background:var(--navy2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--cream)}
-.hero-bismillah{font-size:1.3rem;color:var(--gold);margin-bottom:0.6rem;opacity:0.75}
+.hero-inner{width:100%;height:100%;border-radius:50%;background:var(--navy2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--cream);letter-spacing:-1px}
+.hero-bismillah{font-size:1.3rem;color:var(--gold);margin-bottom:0.6rem;opacity:0.9;font-family:'Cormorant Garamond',serif}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1.1;margin-bottom:0.4rem}
 .hero h1 span{color:var(--teal)}
-.hero-sub{font-size:0.88rem;color:var(--muted);font-style:italic;min-height:1.4em;margin-bottom:0.5rem}
+.hero-sub{font-size:0.88rem;color:rgba(240,236,228,0.88);font-style:italic;min-height:1.4em;margin-bottom:0.5rem;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cursor{display:inline-block;width:2px;height:0.85em;background:var(--teal);vertical-align:middle;animation:blink 1s step-end infinite;margin-left:1px}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-tagline{font-size:0.84rem;color:var(--dim);margin:0.5rem auto 1.5rem;line-height:1.75;max-width:300px}
+.hero-tagline{font-size:0.88rem;color:rgba(240,236,228,0.85);margin:0.5rem auto 1.5rem;line-height:1.75;max-width:300px}
 .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:1.5rem}
-.tag{background:rgba(255,255,255,0.05);border:1px solid var(--dim);color:rgba(240,236,228,0.7);font-size:0.72rem;padding:5px 12px;border-radius:20px;transition:all 0.25s}
+.tag{background:rgba(255,255,255,0.1);border:1px solid rgba(240,236,228,0.28);color:rgba(240,236,228,0.95);font-size:0.72rem;padding:5px 12px;border-radius:20px;transition:all 0.25s}
 .tag:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream)}
 
 .progress-tabs{display:flex;gap:5px;justify-content:center;margin-bottom:2rem}
@@ -45,21 +45,21 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .ptab.visited{background:var(--teal)}
 .ptab.active{background:var(--gold);width:36px}
 
-.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--dim);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;animation:float 2.5s ease-in-out infinite}
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(240,236,228,0.5);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;animation:float 2.5s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 .scroll-arrow{width:1px;height:28px;background:linear-gradient(to bottom,var(--dim),transparent)}
 
 .sticky-nav{position:sticky;top:0;z-index:100;background:rgba(7,17,31,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--dim)}
 .nav-inner{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .nav-inner::-webkit-scrollbar{display:none}
-.nav-btn{flex:0 0 auto;padding:0.9rem 1rem;font-size:0.68rem;color:var(--muted);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;min-height:48px}
+.nav-btn{flex:0 0 auto;padding:0.9rem 1rem;font-size:0.68rem;color:rgba(240,236,228,0.65);background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.05em;text-transform:uppercase;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap;min-height:48px}
 .nav-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
 
-.section{padding:2.5rem 1.5rem;border-top:1px solid var(--dim)}
+.section{padding:2.5rem 1.5rem 6rem 1.5rem;border-top:1px solid rgba(14,158,146,0.12)}
 .page-section{display:none}
 .page-section.active{display:block;animation:fadeIn 0.35s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.sec-eyebrow{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.16em;margin-bottom:0.4rem}
+.sec-eyebrow{font-size:0.63rem;color:#14c4b4;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:0.4rem}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--cream);line-height:1.2;margin-bottom:1.5rem}
 .sec-title em{color:var(--gold);font-style:italic}
 .sub-label{font-size:0.63rem;text-transform:uppercase;letter-spacing:0.13em;margin:1.5rem 0 0.75rem;display:block}
@@ -70,7 +70,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .tl-dot{position:absolute;left:-1.9rem;top:5px;width:8px;height:8px;border-radius:50%;background:var(--teal);border:2px solid var(--navy)}
 .tl-time{font-size:0.65rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.2rem}
 .tl-title{font-weight:500;font-size:0.92rem;color:var(--cream);margin-bottom:0.3rem}
-.tl-desc{font-size:0.83rem;color:var(--muted);line-height:1.65}
+.tl-desc{font-size:0.84rem;color:rgba(240,236,228,0.88);line-height:1.65}
 
 .country-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .country-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:13px;padding:0.9rem;transition:all 0.2s}
@@ -110,7 +110,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .vibe-item{display:flex;align-items:flex-start;gap:10px;padding:0.9rem;border-radius:11px;background:rgba(255,255,255,0.03);border:1px solid var(--dim);transition:all 0.2s}
 .vibe-item:hover{background:rgba(255,255,255,0.05)}
 .vibe-dot{width:6px;height:6px;border-radius:50%;margin-top:6px;flex-shrink:0}
-.vibe-text{font-size:0.85rem;color:rgba(240,236,228,0.82);line-height:1.55}
+.vibe-text{font-size:0.85rem;color:rgba(240,236,228,0.95);line-height:1.55}
 .vibe-sub{font-size:0.75rem;color:var(--muted);margin-top:0.2rem;font-style:italic}
 
 .tot-card{background:rgba(255,255,255,0.02);border:1px solid var(--dim);border-radius:16px;padding:1.5rem}
@@ -130,32 +130,32 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .book-spine{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0}
 .book-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:var(--cream);margin-bottom:0.15rem;line-height:1.3}
 .book-author{font-size:0.7rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.35rem}
-.book-note{font-size:0.8rem;color:var(--muted);line-height:1.55}
+.book-note{font-size:0.81rem;color:rgba(240,236,228,0.8);line-height:1.55}
 
 .ayah-box{background:linear-gradient(135deg,rgba(201,140,42,0.07),rgba(14,158,146,0.04));border:1px solid rgba(201,140,42,0.18);border-radius:14px;padding:1.4rem;text-align:center;margin-bottom:1.2rem}
-.ayah-arabic{font-size:1.35rem;color:var(--gold);line-height:1.9;margin-bottom:0.6rem;direction:rtl}
-.ayah-trans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:var(--muted);line-height:1.65}
+.ayah-arabic{font-size:1.35rem;color:var(--gold);line-height:1.9;margin-bottom:0.6rem;direction:rtl;font-family:"Amiri",serif}
+.ayah-trans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:rgba(240,236,228,0.88);line-height:1.65}
 .ayah-ref{font-size:0.63rem;color:var(--dim);margin-top:0.5rem;text-transform:uppercase;letter-spacing:0.08em}
 .hadith-box{background:rgba(14,158,146,0.06);border:1px solid rgba(14,158,146,0.18);border-radius:14px;padding:1.2rem;text-align:center;margin-bottom:1.2rem}
-.hadith-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:var(--cream);line-height:1.7;margin-bottom:0.4rem}
+.hadith-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:#f5f0e8;line-height:1.7;margin-bottom:0.4rem}
 .hadith-ref{font-size:0.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em}
 .scholar-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;margin-bottom:10px;transition:all 0.2s}
 .scholar-card:hover{background:var(--gold2);border-color:rgba(201,140,42,0.28)}
 .scholar-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--gold);margin-bottom:0.15rem}
 .scholar-era{font-size:0.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
-.scholar-desc{font-size:0.82rem;color:var(--muted);line-height:1.65}
+.scholar-desc{font-size:0.83rem;color:rgba(240,236,228,0.82);line-height:1.65}
 .faith-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.2rem}
 .faith-pill{background:rgba(45,122,79,0.12);border:1px solid rgba(45,122,79,0.28);color:#5acea0;font-size:0.72rem;padding:4px 12px;border-radius:20px}
 .dua-box{background:linear-gradient(135deg,rgba(201,140,42,0.08),rgba(14,158,146,0.05));border:1px solid rgba(201,140,42,0.2);border-radius:14px;padding:1.3rem;margin-top:1.2rem;text-align:center}
 .dua-label{font-size:0.63rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.13em;margin-bottom:0.8rem}
-.dua-arabic{font-size:1.2rem;color:var(--gold);direction:rtl;line-height:1.9;margin-bottom:0.6rem}
+.dua-arabic{font-size:1.2rem;color:var(--gold);direction:rtl;line-height:1.9;margin-bottom:0.6rem;font-family:"Amiri",serif}
 .dua-trans{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.86rem;color:var(--muted);line-height:1.65}
 
 .letter-box{background:rgba(201,140,42,0.05);border:1px solid rgba(201,140,42,0.17);border-radius:16px;padding:2rem 1.6rem;position:relative;overflow:hidden}
 .letter-box::before{content:'"';position:absolute;top:-15px;left:8px;font-size:9rem;font-family:'Cormorant Garamond',serif;color:rgba(201,140,42,0.06);line-height:1;pointer-events:none}
 .letter-bismillah{text-align:center;font-size:1.15rem;color:var(--gold);margin-bottom:1.4rem;opacity:0.75}
 .letter-sal{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold);margin-bottom:1.2rem}
-.letter-body{font-size:0.92rem;color:rgba(240,236,228,0.8);line-height:2.05;position:relative;z-index:1}
+.letter-body{font-size:0.92rem;color:rgba(240,236,228,0.9);line-height:2.05;position:relative;z-index:1}
 .letter-body p{margin-bottom:1.2rem}
 .letter-body p:last-child{margin-bottom:0}
 .letter-sig{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1.1rem;margin-top:1.4rem}
@@ -163,7 +163,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .cw-intro{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;margin-bottom:1.5rem}
 .cw-intro p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);line-height:1.75}
 .honest-note{background:var(--gold2);border:1px solid rgba(201,140,42,0.2);border-radius:12px;padding:1rem;margin-bottom:1.5rem}
-.honest-note p{font-size:0.83rem;color:rgba(240,236,228,0.8);line-height:1.65}
+.honest-note p{font-size:0.83rem;color:rgba(240,236,228,0.88);line-height:1.65}
 .honest-note strong{color:var(--gold);font-weight:500}
 
 .q-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem}
@@ -173,7 +173,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 .q-card{background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem}
 .q-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--cream);line-height:1.5;margin-bottom:1.2rem}
 .q-opts{display:flex;flex-direction:column;gap:8px}
-.q-opt{background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.9rem 1rem;cursor:pointer;font-size:0.86rem;color:var(--muted);transition:all 0.2s;text-align:left;font-family:'DM Sans',sans-serif;line-height:1.45;min-height:48px}
+.q-opt{background:rgba(255,255,255,0.04);border:1px solid var(--dim);border-radius:10px;padding:0.9rem 1rem;cursor:pointer;font-size:0.86rem;color:rgba(240,236,228,0.88);transition:all 0.2s;text-align:left;font-family:'DM Sans',sans-serif;line-height:1.45;min-height:48px}
 .q-opt:hover{background:var(--teal2);border-color:var(--teal);color:var(--cream);transform:translateX(4px)}
 .result-wrap{text-align:center;animation:fadeIn 0.5s ease}
 .result-pct{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:var(--gold);line-height:1}
@@ -344,6 +344,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   .hero-inner { font-size: 2.6rem; }
   .hero h1 { font-size: 2.6rem; }
 }
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:200;padding:0.75rem 1.2rem 1.4rem;background:linear-gradient(to top,rgba(8,22,40,0.98) 50%,transparent);display:flex;align-items:center;justify-content:space-between;gap:10px;pointer-events:none;opacity:0;transition:opacity 0.4s ease}
+.bottom-nav.visible{opacity:1}
+.bottom-nav-btn{pointer-events:all;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);border:1px solid rgba(240,236,228,0.2);border-radius:50px !important;padding:0.55rem 1.1rem;font-size:0.78rem;color:rgba(240,236,228,0.85);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);-webkit-appearance:none;appearance:none}
+.bottom-nav-btn:hover{background:rgba(14,158,146,0.2);border-color:var(--teal);color:var(--cream);transform:scale(1.04)}
+.bottom-nav-btn:active{transform:scale(0.96)}
+.bottom-nav-btn.hidden{opacity:0;pointer-events:none}
+.bottom-nav-label{font-size:0.75rem;color:rgba(240,236,228,0.65);text-align:center;flex:1;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.02em}
 </style>
 <script src="https://analytics.kulaninstitute.org/tracker.js" data-site="meet" defer></script>
 </head>
@@ -352,18 +359,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 <div class="wrap">
 <button class="back-top" id="back-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
+<div class="bottom-nav" id="bottom-nav">
+  <button type="button" class="bottom-nav-btn hidden" id="btn-prev" onclick="navStep(-1)">← Prev</button>
+  <span class="bottom-nav-label" id="bottom-nav-label">My Story</span>
+  <button type="button" class="bottom-nav-btn" id="btn-next" onclick="navStep(1)">Next →</button>
+</div>
+
 <div class="hero">
-  <div class="hero-ring"><div class="hero-inner">ق</div></div>
-  <div class="hero-bismillah">بسم الله الرحمن الرحيم</div>
+  <div class="hero-ring"><div class="hero-inner" style="flex-direction:column;gap:0">
+    <span style="font-size:2.4rem;line-height:1;color:var(--teal)">Q</span>
+  </div></div>
+  <div class="hero-bismillah" style="font-family:'Amiri',serif">بسم الله الرحمن الرحيم</div>
   <h1>Hey, I'm <span>Qasim</span></h1>
   <p class="hero-sub"><span id="typed"></span><span class="cursor"></span></p>
-  <p class="hero-tagline">A man trying to build something meaningful in this dunya. A company, a legacy, and inshallah a home full of purpose and peace.</p>
+  <p class="hero-tagline">A man building something real in this dunya. If you are looking for someone who shows up the same way every single day - keep reading.</p>
   <div class="tags">
     <span class="tag">🕌 Muslim</span>
     <span class="tag">📖 Quran complete</span>
     <span class="tag">🎙️ Podcast host</span>
     <span class="tag">📚 MS student</span>
     <span class="tag">🌍 Somali roots</span>
+    <span class="tag">🗳️ Politics</span>
     <span class="tag">🏗️ Founder</span>
     <span class="tag">🏔️ Outdoorsy</span>
     <span class="tag">🌗 Ambivert</span>
@@ -376,12 +392,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
       <div class="ptab" id="pt-2"></div>
       <div class="ptab" id="pt-3"></div>
       <div class="ptab" id="pt-4"></div>
-      <div class="ptab" id="pt-5"></div>
     </div>
-    <p style="font-size:0.65rem;color:rgba(240,236,228,0.25);letter-spacing:0.1em;text-transform:uppercase" id="progress-label">1 of 6 sections explored</p>
+    <p style="font-size:0.65rem;color:rgba(240,236,228,0.55);letter-spacing:0.1em;text-transform:uppercase" id="progress-label">1 of 5 sections explored</p>
   </div>
   <div class="scroll-hint"><span>scroll</span><div class="scroll-arrow"></div></div>
-  <p style="font-size:0.72rem;color:rgba(240,236,228,0.25);margin-top:0.8rem;line-height:1.6;text-align:center">Start with My Story - or skip straight to the <button type="button" onclick="goTo('letter',document.querySelectorAll('.nav-btn')[1],1)" style="background:none;border:none;color:var(--gold);font-size:0.72rem;cursor:pointer;text-decoration:underline;padding:0;font-family:'DM Sans',sans-serif">Letter</button>. It is the most honest thing here.</p>
+  <p style="font-size:0.72rem;color:rgba(240,236,228,0.65);margin-top:0.8rem;line-height:1.6;text-align:center">Start with My Story - or skip straight to the <button type="button" onclick="goTo('letter',document.querySelectorAll('.nav-btn')[1],1)" style="background:none;border:none;color:var(--gold);font-size:0.72rem;cursor:pointer;text-decoration:underline;padding:0;font-family:'DM Sans',sans-serif">Letter</button>. It is the most honest thing here.</p>
+  <button type="button" onclick="jumpToMessage()" style="margin-top:1rem;background:rgba(14,158,146,0.15);border:1px solid rgba(14,158,146,0.4);color:var(--teal);font-size:0.8rem;padding:0.65rem 1.5rem;border-radius:24px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;letter-spacing:0.02em">Just want to say hi? →</button>
 </div>
 
 <div class="sticky-nav">
@@ -391,7 +407,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <button type="button" class="nav-btn" onclick="goTo('know',this,2)">Know Me</button>
     <button type="button" class="nav-btn" onclick="goTo('faith',this,3)">My Faith</button>
     <button type="button" class="nav-btn" onclick="goTo('couldwe',this,4)">Could We?</button>
-    <button type="button" class="nav-btn" onclick="goTo('contact',this,5)">Talk</button>
   </div>
 </div>
 
@@ -418,6 +433,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">⚡</div><div class="flip-lbl">Inside</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Constantly thinking, building, solving three problems at once. The calm outside is earned.</div></div></div></div>
     <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🤝</div><div class="flip-lbl">In conflict</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">I talk it out. I do not shut down or go cold. Communication is not optional for me.</div></div></div></div>
     <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">😄</div><div class="flip-lbl">My humor</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Dry, deadpan, comes out of nowhere. The people who get it really get it.</div></div></div></div>
+    <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🗳️</div><div class="flip-lbl">Politics</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Geopolitics, governance, policy, the Horn of Africa. I follow it closely, discuss it on the podcast, and think about what actually fixes things rather than what just sounds good.</div></div></div></div>
     <div class="flip-card fade-item" role="button" tabindex="0" onclick="this.classList.toggle('flipped')" onkeydown="if(event.key==='Enter'||event.key===' '){this.classList.toggle('flipped');event.preventDefault()}"><div class="flip-inner"><div class="flip-f"><div class="flip-icon">🔧</div><div class="flip-lbl">Still working on</div><div class="flip-hint">tap</div></div><div class="flip-b"><div class="flip-reveal">Letting people in without feeling like it costs me something. Showing that I care before I am asked to.</div></div></div></div>
   </div>
   <span class="sub-label" style="color:var(--teal)">My traits</span>
@@ -455,11 +471,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
     </div>
   </div>
 
+  <span class="sub-label" style="color:var(--teal)">What I think about</span>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1.5rem">
+    <p style="font-size:0.84rem;color:rgba(240,236,228,0.55);margin-bottom:0.8rem;font-style:italic">Not passively. Actively.</p>
+    <div style="display:flex;flex-direction:column;gap:7px">
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--teal);font-size:0.85rem;margin-top:1px;flex-shrink:0">→</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.88);line-height:1.5">Why Somalia is decades behind where it should be and what would actually change that</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--teal);font-size:0.85rem;margin-top:1px;flex-shrink:0">→</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.88);line-height:1.5">Whether Western governance models can ever really translate to East African contexts</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--teal);font-size:0.85rem;margin-top:1px;flex-shrink:0">→</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.88);line-height:1.5">How diaspora communities build real political influence back home rather than just talking about it</span></div>
+      <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--teal);font-size:0.85rem;margin-top:1px;flex-shrink:0">→</span><span style="font-size:0.84rem;color:rgba(240,236,228,0.88);line-height:1.5">Why most political commentary misses the point entirely and what they keep getting wrong</span></div>
+    </div>
+  </div>
+
   <span class="sub-label" style="color:var(--teal)">Books that shaped me</span>
+  <p style="font-size:0.75rem;color:rgba(240,236,228,0.4);margin-bottom:1rem;font-style:italic">Islamic scholarship, politics, philosophy.</p>
   <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Ihya Ulum al-Din</div><div class="book-author">Imam Al-Ghazali</div><div class="book-note">A complete manual for cleaning the soul and building a life with meaning. I return to it constantly.</div></div></div>
   <div class="book-card"><div class="book-spine" style="background:var(--gold)"></div><div><div class="book-title">Riyadh al-Salihin</div><div class="book-author">Imam An-Nawawi</div><div class="book-note">Every time I open it something recalibrates quietly inside me.</div></div></div>
   <div class="book-card"><div class="book-spine" style="background:var(--teal)"></div><div><div class="book-title">1984</div><div class="book-author">George Orwell</div><div class="book-note">A book about truth and what happens when people stop questioning things. Still uncomfortably relevant.</div></div></div>
   <div class="book-card"><div class="book-spine" style="background:var(--teal)"></div><div><div class="book-title">Animal Farm</div><div class="book-author">George Orwell</div><div class="book-note">Orwell said plainly what most people dress up in complexity to avoid.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:#8b5cf6"></div><div><div class="book-title">The Wretched of the Earth</div><div class="book-author">Frantz Fanon</div><div class="book-note">Decolonisation, African independence, how colonised people reclaim identity and power. Directly relevant to Somalia and the diaspora. A book that makes you think differently about history and who gets to write it.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:#8b5cf6"></div><div><div class="book-title">Sapiens</div><div class="book-author">Yuval Noah Harari</div><div class="book-note">How human societies organise themselves at scale. It changed how I see economics, religion, politics, and power. The kind of book that makes everything else make more sense.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:#8b5cf6"></div><div><div class="book-title">The Prince</div><div class="book-author">Nicolo Machiavelli</div><div class="book-note">How power actually works versus how people say it should. Uncomfortable and honest. I would rather understand reality than be comfortable with a version of it that is not true.</div></div></div>
+  <div class="book-card"><div class="book-spine" style="background:#8b5cf6"></div><div><div class="book-title">Meditations</div><div class="book-author">Marcus Aurelius</div><div class="book-note">A Roman emperor writing to himself about discipline, leadership, and how to stay grounded when the world is pulling you in every direction. It sits well next to Ghazali.</div></div></div>
 </div>
 
 <!-- FAITH -->
@@ -484,7 +516,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 </div>
 
 <!-- LETTER -->
-<div class="section page-section" id="letter">
+<div class="section page-section" id="letter" style="background:linear-gradient(180deg,rgba(201,140,42,0.04) 0%,transparent 100%)">
   <div class="sec-eyebrow">From me, to you</div>
   <div class="sec-title">A <em>letter</em> I have been meaning to write</div>
   <div class="letter-box">
@@ -494,7 +526,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
       <p>I do not know your name yet. I do not know what your laugh sounds like or what your face looks like when you are thinking hard about something. But I know you exist somewhere and when we find each other it will feel like it was always supposed to happen.</p>
       <p>I want you to know that I have been building. Not just a company or a degree. I have been building the version of myself that is actually ready for you. Patient enough to hold space for the hard days. Grounded enough in deen to be your anchor when things shake. Present enough to actually see you, not just what I want you to be.</p>
       <p>I grew up between worlds. Somali roots, American soil, a faith that held it all together. That taught me that belonging is something you build, not somewhere you arrive. I want to build that with you, ideally back home or somewhere in East Africa where the azan wakes you up and the community is still the community.</p>
+      <p style="font-size:0.83rem;color:rgba(240,236,228,0.88);line-height:1.65;margin-top:0.6rem">Politics is something I follow obsessively. Geopolitics, governance, policy, the Horn of Africa. I discuss it on the podcast and write about it because I genuinely believe ideas matter and someone has to be paying attention.</p>
       <p>I have walked trails alone and thought about what it would feel like to have someone worth talking to beside me. I have sat in the Haram and made dua for you by name, even though I did not know it yet. That is how real this has been in my mind before we have even spoken.</p>
+      <p>I think about the world a lot. Not in a passive way. In a what are we going to do about it kind of way. The politics, the governance, what Somalia could be if things were different, what the diaspora owes back home. These are not abstract questions to me. They are things I carry.</p>
       <p>I will not be perfect. I have things I am still working on and Al-Ghazali would have a lot to say about some of them. But I will always be honest, I will always choose you over my ego, and I will never let you feel alone in something we are supposed to face together.</p>
       <p>Just come as yourself. No performance, no curated version. I am not looking for finished. I am looking for real. Take your time. Khayr inshallah.</p>
     </div>
@@ -507,6 +541,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
   <div class="sec-eyebrow">Could we?</div>
   <div class="sec-title">Let us actually <em>find out</em></div>
   <div class="cw-intro"><p>You have been reading about me for a few minutes now. This is where it gets interesting. Answer honestly, imagine openly, and see what comes up. No right answers, no pressure. Just two people figuring out if this makes sense.</p></div>
+  <p style="text-align:center;margin-bottom:1.2rem"><button type="button" onclick="document.getElementById('ay-step-1').scrollIntoView({behavior:'smooth'})" style="background:none;border:none;color:rgba(240,236,228,0.45);font-size:0.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0">Skip the quiz and just tell me about yourself →</button></p>
 
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem"><div style="width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:500;color:var(--muted);flex-shrink:0">0</div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em">Warm up - this or that</div></div>
   <div class="tot-card">
@@ -612,12 +647,14 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,4)">Physical touch, presence and closeness</div>
       </div>
       <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-4" onclick="ayNext(4)">Next →</button>
+      <button type="button" onclick="aySkip(4)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-5">
       <div class="ay-progress-row"><span class="ay-progress-label">5 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:45%"></div></div></div>
       <div class="ay-question">How would your closest friends describe you in one sentence?</div>
       <input type="text" class="ay-input" id="ay-friends" placeholder="What would they say..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(5)">Next →</button>
+      <button type="button" onclick="aySkip(5)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-6">
       <div class="ay-progress-row"><span class="ay-progress-label">6 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:54%"></div></div></div>
@@ -629,30 +666,35 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div class="ay-opt" onclick="ayPick(this,6)">Depends on what it is honestly</div>
       </div>
       <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-6" onclick="ayNext(6)">Next →</button>
+      <button type="button" onclick="aySkip(6)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-7">
       <div class="ay-progress-row"><span class="ay-progress-label">7 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:63%"></div></div></div>
       <div class="ay-question">What are you actively working on about yourself right now?</div>
       <input type="text" class="ay-input" id="ay-working" placeholder="Be honest..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(7)">Next →</button>
+      <button type="button" onclick="aySkip(7)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-8">
       <div class="ay-progress-row"><span class="ay-progress-label">8 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:72%"></div></div></div>
       <div class="ay-question">What is something your closest friend would say is your blind spot?</div>
       <input type="text" class="ay-input" id="ay-blindspot" placeholder="Be real about this one..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(8)">Next →</button>
+      <button type="button" onclick="aySkip(8)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-9">
       <div class="ay-progress-row"><span class="ay-progress-label">9 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:81%"></div></div></div>
       <div class="ay-question">What is one thing you need in a marriage that you have never been able to fully say out loud before?</div>
       <textarea class="ay-input" id="ay-unsaid" placeholder="Take your time with this one..." rows="3" maxlength="400" autocomplete="off"></textarea>
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(9)">Next →</button>
+      <button type="button" onclick="aySkip(9)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-10">
       <div class="ay-progress-row"><span class="ay-progress-label">10 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:90%"></div></div></div>
       <div class="ay-question">What is one thing you need your partner to understand about you from day one?</div>
       <input type="text" class="ay-input" id="ay-understand" placeholder="What is non-negotiable for you..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(10)">Next →</button>
+      <button type="button" onclick="aySkip(10)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-11">
       <div class="ay-progress-row"><span class="ay-progress-label">11 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
@@ -676,14 +718,42 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
         <div style="font-size:0.65rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Something real</div>
         <p style="font-size:0.85rem;color:rgba(240,236,228,0.8);line-height:1.65;font-style:italic" id="ay-profile-real"></p>
       </div>
-      <div class="ay-personal-note"><p>Qasim reads every message personally. No screening, no middleman. Just him.</p></div>
-      <div style="margin-bottom:1rem">
-        <div class="form-group"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your email</label><input type="email" class="ay-input" id="ay-email" placeholder="So he can reach you..." maxlength="254" autocomplete="email"></div>
-        <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" class="ay-input" id="ay-phone" placeholder="If you prefer a text..." maxlength="20" autocomplete="tel"></div>
+      <div class="ay-personal-note"><p>This goes straight to Qasim. No screening, no middleman. Just him reading every word you wrote.</p></div>
+
+      <div style="background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.3rem;margin-bottom:1rem">
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--cream);line-height:1.65;margin-bottom:1rem;text-align:center">Now say something. Anything. Even just hi.</p>
+        <div class="form-group"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your message</label><textarea id="ay-message" class="ay-input" rows="3" placeholder="Say something real. Or just say hi. Either works." maxlength="1000" autocomplete="off"></textarea></div>
+        <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your email <span style="color:#e05c5c">*</span></label><input type="email" class="ay-input" id="ay-email" placeholder="So he can actually reach you..." maxlength="254" autocomplete="email"></div>
+        <div class="form-group" style="margin-top:0.8rem"><label style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.4rem">Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" class="ay-input" id="ay-phone" placeholder="If texting feels easier..." maxlength="20" autocomplete="tel"></div>
       </div>
-      <button type="button" class="btn" id="ay-send-btn" onclick="aySubmit()">Send my answers to Qasim →</button>
+
+      <div style="margin-bottom:1rem">
+        <div class="fmg-box">
+          <span class="fmg-label">Not sure what to say? 😊</span>
+          <div class="fmg-text" id="fmg-text" style="font-size:0.88rem;min-height:60px">Press the button and get a suggested opener. Edit it however you want.</div>
+          <div class="fmg-copy-row">
+            <button type="button" class="fmg-copy-btn" onclick="generateMessage()">Suggest something ✨</button>
+            <button type="button" class="fmg-copy-btn" onclick="copyToMessage()" id="fmg-copy-btn" style="display:none">Use this 👆</button>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn" id="ay-send-btn" onclick="aySubmit()">Send everything to Qasim →</button>
       <button type="button" class="btn btn-outline" onclick="ayRestart()">Start over</button>
-      <div class="submit-msg" id="ay-submit-msg">Sent. JazakAllah khayr. Qasim will be in touch. 🤍</div>
+      <div id="ay-submit-msg" style="display:none;text-align:center;padding:2rem 1rem;animation:fadeIn 0.5s ease">
+        <div style="font-size:2.5rem;margin-bottom:0.8rem">🤍</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);margin-bottom:0.5rem">Sent. JazakAllah khayr.</div>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7">Qasim reads every message personally. He will be in touch inshallah.</p>
+      </div>
+
+      <div style="margin-top:1.5rem;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;text-align:center">
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;font-style:italic">If you made it this far, Qasim noticed something about you.</p>
+        <button type="button" class="btn btn-gold" id="noticed-btn" onclick="showNoticed()">What did he notice? →</button>
+        <div id="noticed-text" style="display:none;margin-top:1rem;animation:fadeIn 0.5s ease">
+          <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.85;text-align:left">Someone who reads everything - every section, every question, every flip card - is not browsing. She is genuinely trying to understand who someone is before she decides anything. That kind of care before commitment is rare. It means you take people seriously. It means you would rather know the real version than the polished one. It means you probably show up the same way in real life.</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--gold);line-height:1.85;text-align:left;margin-top:0.8rem">That is exactly the kind of person this was built for. He hopes it was worth the read.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -722,45 +792,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--cream);
 </div>
 
 <!-- TALK -->
-<div class="section page-section" id="contact">
-  <div class="sec-eyebrow">The next step</div>
-  <div class="sec-title">Let us actually <em>talk</em></div>
-  <div class="divider"></div>
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);text-align:center;margin-bottom:1.5rem;line-height:1.75">If something here resonated with you, that is not a coincidence. Reach out. The worst that happens is a good conversation.</p>
-  <div class="fmg-box">
-    <span class="fmg-label">Not sure what to say? Let me help 😊</span>
-    <div class="fmg-text" id="fmg-text">Press the button and get a suggested first message. Edit it however you want before sending.</div>
-    <div class="fmg-copy-row">
-      <button type="button" class="fmg-copy-btn" onclick="generateMessage()">Generate a message ✨</button>
-      <button type="button" class="fmg-copy-btn" onclick="copyMessage()" id="fmg-copy-btn" style="display:none">Copy it 📋</button>
-    </div>
-    <div class="fmg-copied" id="fmg-copied">Copied to clipboard ✓</div>
-  </div>
-
-  <div class="form-wrap">
-    <p style="font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Send me a message</p>
-    <p style="font-size:0.78rem;color:var(--dim);font-style:italic;text-align:center;margin-bottom:1rem">Goes straight to me. No one else sees it.</p>
-    <form id="contact-form" action="https://formspree.io/f/mrejarlr" method="POST">
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-      <div class="form-group"><label>Your name</label><input type="text" name="name" placeholder="What should I call you?" maxlength="100" autocomplete="name" required></div>
-      <div class="form-group"><label>Your email</label><input type="email" name="email" placeholder="Your email address..." maxlength="254" autocomplete="email" required></div>
-      <div class="form-group"><label>Your phone <span style="font-size:0.65rem;color:var(--dim);text-transform:none;letter-spacing:0">(optional)</span></label><input type="tel" name="phone" placeholder="Your number if you prefer..." maxlength="20" autocomplete="tel"></div>
-      <div class="form-group"><label>Your message</label><textarea name="message" rows="4" placeholder="Say something real..." maxlength="2000" autocomplete="off" required></textarea></div>
-      <button type="submit" class="btn">Send message →</button>
-    </form>
-    <div class="submit-msg" id="submit-msg">Message sent. JazakAllah khayr. I will respond when I can. 🤍</div>
-  </div>
-  <div class="closing-note"><p>Not looking for perfect. Just looking for real. If you made it this far you probably already know.</p></div>
-
-  <div style="margin-top:1rem;background:rgba(255,255,255,0.03);border:1px solid var(--dim);border-radius:14px;padding:1.2rem;text-align:center">
-    <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.8rem;font-style:italic">If you made it this far, I noticed something about you.</p>
-    <button type="button" class="btn btn-gold" id="noticed-btn" onclick="showNoticed()">What did you notice? →</button>
-    <div id="noticed-text" style="display:none;margin-top:1rem;animation:fadeIn 0.5s ease">
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--cream);line-height:1.85;text-align:left">Someone who reads everything, every section, every question, every flip card - that person is not browsing. They are genuinely trying to understand who someone is before they decide anything. That kind of care before commitment is rare. It says you take people seriously. It says you would rather know the real version than the curated one. It says you are probably the kind of person who shows up fully when it matters.</p>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.95rem;color:var(--muted);line-height:1.85;text-align:left;margin-top:0.8rem">That is exactly the kind of person this site was built for.</p>
-    </div>
-  </div>
-</div>
 
 <footer style="position:relative;z-index:1;max-width:480px;margin:0 auto;padding:1.5rem 1.5rem 2rem;text-align:center;border-top:1px solid rgba(240,236,228,0.08)">
   <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);opacity:0.75;margin-bottom:0.35rem;letter-spacing:0.03em">meet.mmohamud.me</div>
@@ -775,14 +806,55 @@ let stars=[];
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;stars=Array.from({length:90},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.4+0.3,a:Math.random(),s:Math.random()*0.004+0.002}))}
 function drawStars(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.a+=s.s;if(s.a>1||s.a<0)s.s*=-1;ctx.globalAlpha=s.a*0.55;ctx.fillStyle='#f0ece4';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(drawStars)}
 window.addEventListener('resize',resize);resize();drawStars();
+const tabNames=['My Story','Letter','Know Me','My Faith','Could We?'];
+let currentTabIdx=0;
+updateBottomNav(0);
 
-const phrases=["faith-driven, purpose-built","building something real","I have made dua for you by name","a founder with a soft heart","looking for the one","student of deen and world","I am not looking for finished"];
+const phrases=["faith-driven","building something real","made dua for you already","a founder, soft heart","looking for the one","student of deen","I am not looking for perfect"];
 let pi=0,ci=0,del=false,typed='';
 function type(){const p=phrases[pi];if(!del){if(ci<p.length){typed+=p[ci++];document.getElementById('typed').textContent=typed;setTimeout(type,65);}else{del=true;setTimeout(type,2200);}}else{if(ci>0){typed=typed.slice(0,-1);ci--;document.getElementById('typed').textContent=typed;setTimeout(type,38);}else{del=false;pi=(pi+1)%phrases.length;setTimeout(type,400);}}}
 type();
 
-const tabOrder=['story','letter','know','faith','couldwe','contact'];
+const tabOrder=['story','letter','know','faith','couldwe'];
 let visitedTabs=new Set([0]);
+function updateBottomNav(idx){
+  currentTabIdx=idx;
+  const prev=document.getElementById('btn-prev');
+  const next=document.getElementById('btn-next');
+  const label=document.getElementById('bottom-nav-label');
+  // Hide prev on first tab, show otherwise
+  if(prev){
+    if(idx===0)prev.classList.add('hidden');
+    else{prev.classList.remove('hidden');prev.textContent='← '+tabNames[idx-1];}
+  }
+  // Last tab gets special next button
+  if(next){
+    if(idx===tabNames.length-1){
+      next.textContent='Say hi \u2709\ufe0f';
+      next.onclick=()=>document.getElementById('ay-step-1').scrollIntoView({behavior:'smooth'});
+    }else{
+      next.textContent='Next: '+tabNames[idx+1]+' \u2192';
+      next.onclick=()=>navStep(1);
+      next.classList.remove('hidden');
+    }
+  }
+  if(label)label.textContent=tabNames[idx]||'';
+}
+
+function navStep(dir){
+  const newIdx=Math.max(0,Math.min(tabNames.length-1,currentTabIdx+dir));
+  const sections=['story','letter','know','faith','couldwe'];
+  const navBtns=document.querySelectorAll('.nav-btn');
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  navBtns.forEach(b=>b.classList.remove('active'));
+  document.getElementById(sections[newIdx]).classList.add('active');
+  if(navBtns[newIdx])navBtns[newIdx].classList.add('active');
+  if(sections[newIdx]==='know')setTimeout(animTraits,300);
+  visitedTabs.add(newIdx);updateProgress(newIdx);
+  updateBottomNav(newIdx);
+  window.scrollTo({top:document.querySelector('.sticky-nav').offsetTop-2,behavior:'smooth'});
+}
+
 function goTo(id,btn,idx){
   document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -791,6 +863,7 @@ function goTo(id,btn,idx){
   if(id==='know')setTimeout(animTraits,300);
   visitedTabs.add(idx);
   updateProgress(idx);
+  updateBottomNav(idx);
   window.scrollTo({top:document.querySelector('.sticky-nav').offsetTop-2,behavior:'smooth'});
 }
 function updateProgress(activeIdx){
@@ -802,7 +875,7 @@ function updateProgress(activeIdx){
     else if(visitedTabs.has(i))el.classList.add('visited');
   }
   const label=document.getElementById('progress-label');
-  if(label)label.textContent=visitedTabs.size+' of 6 sections explored';
+  if(label)label.textContent=visitedTabs.size+' of 5 sections explored';
 }
 
 let traitsAnimated=false;
@@ -897,7 +970,7 @@ let qi=0,qt=0;
 function loadQ(){
   if(qi>=qs.length){showResult();return;}
   const q=qs[qi];
-  document.getElementById('q-num').textContent='Question '+(qi+1)+' of '+qs.length;
+  document.getElementById('q-num').textContent='Question '+(qi+1)+' of '+qs.length+' - keep going';
   const pct=Math.round(qi/qs.length*100);
   document.getElementById('q-fill').style.width=pct+'%';
   document.getElementById('q-pct').textContent=pct+'%';
@@ -981,32 +1054,69 @@ function ayPick(el,step){
   document.getElementById('ay-next-'+step).style.display='block';
 }
 function aySubmit(){
-  const fiveYears=document.getElementById('five-years-input')?document.getElementById('five-years-input').value.trim():'';
-  const lines=[`Name: ${ayAnswers.name}`,`Deen: ${ayAnswers.q2}`,`Where she wants to live: ${ayAnswers.q3}`,`Love language: ${ayAnswers.q4}`,`How friends describe her: ${ayAnswers.q5}`,`When something goes wrong: ${ayAnswers.q6}`,`Working on: ${ayAnswers.q7}`,`Blind spot: ${ayAnswers.q8}`,`Something never said out loud: ${ayAnswers.q9}`,`Needs understood from day one: ${ayAnswers.q10}`,`Something real: ${ayAnswers.real}`];
-  if(fiveYears)lines.push(`Five years from now: ${fiveYears}`);
   const email=document.getElementById('ay-email').value.trim();
   const phone=document.getElementById('ay-phone').value.trim();
-  if(email)lines.push(`Email: ${email}`);
+  const message=document.getElementById('ay-message')?document.getElementById('ay-message').value.trim():'';
+  if(!email){
+    document.getElementById('ay-email').focus();
+    document.getElementById('ay-email').style.borderColor='#e05c5c';
+    document.getElementById('ay-email').placeholder='Email is required so Qasim can reach you';
+    return;
+  }
+  document.getElementById('ay-email').style.borderColor='';
+  const fiveYears=document.getElementById('five-years-input')?document.getElementById('five-years-input').value.trim():'';
+  const lines=[
+    `Name: ${ayAnswers.name||'not provided'}`,
+    `Deen: ${ayAnswers.q2}`,
+    `Where she wants to live: ${ayAnswers.q3}`,
+    `Love language: ${ayAnswers.q4}`,
+    `How friends describe her: ${ayAnswers.q5}`,
+    `When something goes wrong: ${ayAnswers.q6}`,
+    `Working on: ${ayAnswers.q7}`,
+    `Blind spot: ${ayAnswers.q8}`,
+    `Something never said out loud: ${ayAnswers.q9}`,
+    `Needs understood from day one: ${ayAnswers.q10}`,
+    `Something real: ${ayAnswers.real}`
+  ];
+  if(fiveYears)lines.push(`Five years from now: ${fiveYears}`);
+  if(message)lines.push(`Her message: ${message}`);
   if(phone)lines.push(`Phone: ${phone}`);
   const fd=new FormData();
-  fd.append('name',ayAnswers.name);
-  fd.append('email',email||'not provided');
+  fd.append('name',ayAnswers.name||'Anonymous');
+  fd.append('email',email);
   fd.append('_gotcha','');
+  fd.append('_subject',`New response from ${ayAnswers.name||'someone'} on meet.mmohamud.me`);
   fd.append('message',lines.filter(l=>!l.endsWith(': ')).join('\n\n'));
   const sendBtn=document.getElementById('ay-send-btn');
+  const originalText=sendBtn.textContent;
   sendBtn.disabled=true;
+  sendBtn.textContent='Sending...';
   fetch('https://formspree.io/f/mrejarlr',{method:'POST',body:fd,headers:{Accept:'application/json'}})
   .then(r=>{
-    if(r.ok){sendBtn.style.display='none';document.getElementById('ay-submit-msg').style.display='block';}
-    else{sendBtn.disabled=false;}
-  }).catch(()=>{sendBtn.disabled=false;});
+    if(r.ok){
+      sendBtn.style.display='none';
+      document.getElementById('ay-submit-msg').style.display='block';
+    }else{
+      sendBtn.disabled=false;
+      sendBtn.textContent=originalText;
+      document.getElementById('ay-submit-msg').textContent='Something went wrong. Please try again.';
+      document.getElementById('ay-submit-msg').style.color='#e05c5c';
+      document.getElementById('ay-submit-msg').style.display='block';
+    }
+  }).catch(()=>{
+    sendBtn.disabled=false;
+    sendBtn.textContent=originalText;
+    document.getElementById('ay-submit-msg').textContent='Could not send. Please check your connection.';
+    document.getElementById('ay-submit-msg').style.color='#e05c5c';
+    document.getElementById('ay-submit-msg').style.display='block';
+  });
 }
 function ayRestart(){
   Object.keys(ayAnswers).forEach(k=>ayAnswers[k]='');
   document.querySelectorAll('.ay-step').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.ay-opt').forEach(o=>o.classList.remove('selected'));
   document.querySelectorAll('[id^=ay-next-]').forEach(b=>b.style.display='none');
-  ['ay-name','ay-friends','ay-working','ay-blindspot','ay-unsaid','ay-understand','ay-real'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['ay-name','ay-friends','ay-working','ay-blindspot','ay-unsaid','ay-understand','ay-real','ay-email','ay-phone','ay-message'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
   document.getElementById('ay-send-btn').style.display='block';
   document.getElementById('ay-submit-msg').style.display='none';
   document.getElementById('ay-step-1').classList.add('active');
@@ -1107,13 +1217,13 @@ function buildMatchCard(){
 }
 
 const firstMessages=[
-  "Assalamu alaikum. I went through the whole site and I appreciated how honest it was. I am not sure I would have reached out otherwise. My name is [name] and I think it is worth a conversation.",
-  "I finished the quiz and the about you form and I still wanted to say something. That does not happen often. Assalamu alaikum, I am [name].",
-  "The letter made me stop scrolling for a minute. I do not usually do things like this but here I am. Assalamu alaikum, my name is [name].",
-  "I appreciated that you were honest about Somalia and what you actually want. So I will be honest too - I think we could have a real conversation. I am [name].",
-  "Assalamu alaikum. I went through everything and I have one question I would want to ask you in person. I am [name] if you want to find out what it is.",
-  "The truth section got me. Specifically the one about making dua for someone you have not met yet. Assalamu alaikum, I am [name].",
-  "I do not have a perfect opening line. I just know I read this and thought I should say something. Assalamu alaikum - I am [name]."
+  "Assalamu alaikum. I went through the whole site and I still wanted to say something after. That is not nothing. My name is [name].",
+  "I finished the quiz and the about you form and I am still here. That should tell you something. Assalamu alaikum, I am [name].",
+  "The letter made me put my phone down for a minute. I do not usually do things like this but here I am. Assalamu alaikum, I am [name].",
+  "You said you made dua for someone you had not met yet. I found that hard to shake. Assalamu alaikum, I am [name].",
+  "Assalamu alaikum. I went through everything and I have one question I would want to ask in person. I am [name] if you want to find out what it is.",
+  "The truth section got me. Specifically the one about noticing when someone goes quiet. Assalamu alaikum, I am [name].",
+  "I do not have a perfect opening line. I just read all of this and thought I should say something rather than close the tab. Assalamu alaikum, I am [name]."
 ];
 let fmgIdx=0;
 function generateMessage(){
@@ -1129,12 +1239,31 @@ function generateMessage(){
     fmgIdx++;
   },250);
 }
+function jumpToMessage(){
+  document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('couldwe').classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>{if(b.textContent==='Could We?')b.classList.add('active');});
+  visitedTabs.add(4);updateProgress(4);
+  setTimeout(()=>{
+    const el=document.getElementById('ay-step-1');
+    if(el){el.scrollIntoView({behavior:'smooth'});}
+  },300);
+}
+
+function aySkip(step){
+  document.getElementById('ay-step-'+step).classList.remove('active');
+  document.getElementById('ay-step-'+(step+1)).classList.add('active');
+}
+function copyToMessage(){
+  const msgEl=document.getElementById('ay-message');
+  if(msgEl){msgEl.value=text;msgEl.focus();}
+}
 function copyMessage(){
   const text=document.getElementById('fmg-text').textContent.replace(/^"|"$/g,'');
   navigator.clipboard.writeText(text).then(()=>{
     const c=document.getElementById('fmg-copied');
-    c.style.display='block';
-    setTimeout(()=>c.style.display='none',2500);
+    if(c){c.style.display='block';setTimeout(()=>c.style.display='none',2500);}
   });
 }
 document.getElementById('fmg-text').style.transition='opacity 0.25s';
@@ -1181,7 +1310,7 @@ function nextTruth(cat){
 }
 document.getElementById('truth-text').style.transition='opacity 0.3s';
 
-const daylife=["Fajr together, still half asleep, making duas side by side before the day pulls us apart.","A trail somewhere quiet. No phones. Just the sound of footsteps and a conversation that goes wherever it wants.","You are reading. I am building something. Same room, different worlds, completely at peace.","Saturday morning, slow. No rush. Quran on low. Breakfast that takes too long and a conversation that takes longer.","We disagree on something. We talk it out. Nobody goes to sleep carrying something unresolved.","Somewhere new, a country neither of us has been to, figuring it out together in real time.","You catch me making dua for you. I am not embarrassed. That is just what this is.","A long drive, windows down, the kind of silence that does not need filling.","I remind you of something you told me three weeks ago. You look at me like you cannot believe I remembered.","Home. Somewhere warm and full of meaning. Something we built together from scratch."];
+const daylife=["Fajr together, still half asleep, making duas side by side before the day pulls us apart.","A trail somewhere quiet. No phones. Just the sound of footsteps and a conversation that goes wherever it wants.","You are reading. I am building something. Same room, different worlds, completely at peace.","Saturday morning, slow. No rush. Quran on low. Breakfast that takes too long and a conversation that takes longer.","We disagree on something. We talk it out. Nobody goes to sleep carrying something unresolved.","Somewhere new, a country neither of us has been to, figuring it out together in real time.","You catch me making dua for you. I am not embarrassed. That is just what this is.","A long drive, windows down, the kind of silence that does not need filling.","I remind you of something you told me three weeks ago. You look at me like you cannot believe I remembered.","Home. Somewhere warm and full of meaning. Something we built together from scratch.","You ask me a question I was not expecting. I think about it for a real minute before I answer. You notice. That is us.","We are disagreeing about something small and ridiculous and both of us are trying not to smile."];
 let dlIdx=0;
 function nextDaylife(){const el=document.getElementById('daylife-text');el.style.opacity='0';setTimeout(()=>{el.textContent=daylife[dlIdx%daylife.length];el.style.opacity='1';dlIdx++;},250);}
 document.getElementById('daylife-text').style.transition='opacity 0.25s';
@@ -1189,8 +1318,14 @@ document.getElementById('daylife-text').style.transition='opacity 0.25s';
 // Back to top button
 window.addEventListener('scroll',()=>{
   const btn=document.getElementById('back-top');
-  if(window.scrollY>400)btn.classList.add('visible');
-  else btn.classList.remove('visible');
+  const nav=document.getElementById('bottom-nav');
+  if(window.scrollY>300){
+    if(btn)btn.classList.add('visible');
+    if(nav)nav.classList.add('visible');
+  }else{
+    if(btn)btn.classList.remove('visible');
+    if(nav)nav.classList.remove('visible');
+  }
 });
 
 // Scroll fade-in for vibe items
@@ -1232,16 +1367,8 @@ setTimeout(()=>{
   cwStepEls.forEach(id=>{const el=document.getElementById(id);if(el)cwObserver.observe(el);});
 },500);
 
-document.getElementById('contact-form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const btn=this.querySelector('button[type="submit"]');
-  btn.disabled=true;
-  fetch(this.action,{method:'POST',body:new FormData(this),headers:{Accept:'application/json'}})
-  .then(r=>{
-    if(r.ok){this.style.display='none';document.getElementById('submit-msg').style.display='block';}
-    else{btn.disabled=false;}
-  }).catch(()=>{btn.disabled=false;});
-});
+const contactForm=document.getElementById('contact-form');
+if(contactForm){contactForm.addEventListener('submit',function(e){e.preventDefault();});}
 </script>
 </body>
 </html>
