@@ -934,7 +934,7 @@ function showTotSummary(){
       <div style="font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem">${sanitize(r.q)}</div>
       <div style="display:flex;gap:8px;font-size:0.8rem">
         <span style="flex:1;color:var(--teal)">You: ${sanitize(r.hers)}</span>
-        <span style="flex:1;color:var(--gold)">Qasim: ${r.hers}</span>
+        <span style="flex:1;color:var(--gold)">Qasim: ${sanitize(r.mine)}</span>
       </div>
     </div>`;
   }).join('');
