@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Kulan Analytics Tracker -->
-  <script
-      src="https://analytics.kulaninstitute.org/tracker.js"
-      data-site="Muzz"
-      defer>
-  </script>
+<script src="https://analytics.kulaninstitute.org/tracker.js" data-site="meet" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Meet Qasim</title>
@@ -358,8 +353,6 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
 .bottom-nav-btn.hidden{opacity:0;pointer-events:none}
 .bottom-nav-label{font-size:0.75rem;color:rgba(240,236,228,0.65);text-align:center;flex:1;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:0.02em}
 </style>
-<script src="https://analytics.kulaninstitute.org/tracker.js" data-site="meet" defer></script>
-</head>
 <body>
 <canvas id="bg"></canvas>
 <div class="wrap">
@@ -616,13 +609,13 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
   <p style="font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1.5rem">You have been learning about me this whole time. Fair is fair. Answer honestly and at the end you can send your answers directly to me.</p>
   <div id="ay-form">
     <div class="ay-step active" id="ay-step-1">
-      <div class="ay-progress-row"><span class="ay-progress-label">1 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:9%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">1 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:9%"></div></div></div>
       <div class="ay-question">What should I call you?</div>
       <input type="text" class="ay-input" id="ay-name" placeholder="Your name..." maxlength="100" autocomplete="name">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(1)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-2">
-      <div class="ay-progress-row"><span class="ay-progress-label">2 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:18%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">2 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:18%"></div></div></div>
       <div class="ay-question">How would you describe your relationship with your deen right now?</div>
       <div class="ay-opts" id="ay-opts-2">
         <div class="ay-opt" onclick="ayPick(this,2)">It is the foundation of everything I do</div>
@@ -633,7 +626,7 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
       <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-2" onclick="ayNext(2)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-3">
-      <div class="ay-progress-row"><span class="ay-progress-label">3 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:27%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">3 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:27%"></div></div></div>
       <div class="ay-question">When it comes to where you want to build your life, what feels right?</div>
       <div class="ay-opts" id="ay-opts-3">
         <div class="ay-opt" onclick="ayPick(this,3)">A Muslim country, ideally Somalia or East Africa</div>
@@ -644,7 +637,7 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
       <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-3" onclick="ayNext(3)">Next →</button>
     </div>
     <div class="ay-step" id="ay-step-4">
-      <div class="ay-progress-row"><span class="ay-progress-label">4 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:36%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">4 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:36%"></div></div></div>
       <div class="ay-question">What is your love language?</div>
       <div class="ay-opts" id="ay-opts-4">
         <div class="ay-opt" onclick="ayPick(this,4)">Quality time, undivided attention is everything</div>
@@ -656,14 +649,14 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
       <button type="button" onclick="aySkip(4)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-5">
-      <div class="ay-progress-row"><span class="ay-progress-label">5 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:45%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">5 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:45%"></div></div></div>
       <div class="ay-question">How would your closest friends describe you in one sentence?</div>
       <input type="text" class="ay-input" id="ay-friends" placeholder="What would they say..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(5)">Next →</button>
       <button type="button" onclick="aySkip(5)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-6">
-      <div class="ay-progress-row"><span class="ay-progress-label">6 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:54%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">6 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:54%"></div></div></div>
       <div class="ay-question">A close friend tells you something about your spouse that bothers you. You have not verified it yet. What do you do first?</div>
       <div class="ay-opts" id="ay-opts-6">
         <div class="ay-opt" onclick="ayPick(this,6)">Talk to my spouse directly, always</div>
@@ -675,38 +668,74 @@ body{font-family:'DM Sans',sans-serif;background:linear-gradient(180deg,#122b47 
       <button type="button" onclick="aySkip(6)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-7">
-      <div class="ay-progress-row"><span class="ay-progress-label">7 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:63%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">7 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:63%"></div></div></div>
       <div class="ay-question">What are you actively working on about yourself right now?</div>
       <input type="text" class="ay-input" id="ay-working" placeholder="Be honest..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(7)">Next →</button>
       <button type="button" onclick="aySkip(7)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-8">
-      <div class="ay-progress-row"><span class="ay-progress-label">8 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:72%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">8 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:72%"></div></div></div>
       <div class="ay-question">What is something your closest friend would say is your blind spot?</div>
       <input type="text" class="ay-input" id="ay-blindspot" placeholder="Be real about this one..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(8)">Next →</button>
       <button type="button" onclick="aySkip(8)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-9">
-      <div class="ay-progress-row"><span class="ay-progress-label">9 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:81%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">9 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:81%"></div></div></div>
       <div class="ay-question">What is one thing you need in a marriage that you have never been able to fully say out loud before?</div>
       <textarea class="ay-input" id="ay-unsaid" placeholder="Take your time with this one..." rows="3" maxlength="400" autocomplete="off"></textarea>
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(9)">Next →</button>
       <button type="button" onclick="aySkip(9)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-10">
-      <div class="ay-progress-row"><span class="ay-progress-label">10 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:90%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">10 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:71%"></div></div></div>
       <div class="ay-question">What is one thing you need your partner to understand about you from day one?</div>
       <input type="text" class="ay-input" id="ay-understand" placeholder="What is non-negotiable for you..." maxlength="200" autocomplete="off">
       <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(10)">Next →</button>
       <button type="button" onclick="aySkip(10)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
     </div>
     <div class="ay-step" id="ay-step-11">
-      <div class="ay-progress-row"><span class="ay-progress-label">11 of 11</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
+      <div class="ay-progress-row"><span class="ay-progress-label">11 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:78%"></div></div></div>
+      <div class="ay-question">How connected are you to Somali culture? Be honest.</div>
+      <div class="ay-opts" id="ay-opts-11">
+        <div class="ay-opt" onclick="ayPick(this,11)">It is central to who I am. I speak the language and live it.</div>
+        <div class="ay-opt" onclick="ayPick(this,11)">I am connected but more diaspora than back home.</div>
+        <div class="ay-opt" onclick="ayPick(this,11)">I have some connection but I am still learning.</div>
+        <div class="ay-opt" onclick="ayPick(this,11)">I am not Somali but I am open to learning and embracing it.</div>
+      </div>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-11" onclick="ayNext(11)">Next →</button>
+      <button type="button" onclick="aySkip(11)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
+    </div>
+    <div class="ay-step" id="ay-step-12">
+      <div class="ay-progress-row"><span class="ay-progress-label">12 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:85%"></div></div></div>
+      <div class="ay-question">Do you speak or understand Somali?</div>
+      <div class="ay-opts" id="ay-opts-12">
+        <div class="ay-opt" onclick="ayPick(this,12)">Fluently. It is my first language.</div>
+        <div class="ay-opt" onclick="ayPick(this,12)">I understand it well but my speaking is limited.</div>
+        <div class="ay-opt" onclick="ayPick(this,12)">A little. Mostly words and phrases.</div>
+        <div class="ay-opt" onclick="ayPick(this,12)">Not yet but I genuinely want to learn.</div>
+      </div>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-12" onclick="ayNext(12)">Next →</button>
+      <button type="button" onclick="aySkip(12)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
+    </div>
+    <div class="ay-step" id="ay-step-13">
+      <div class="ay-progress-row"><span class="ay-progress-label">13 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:92%"></div></div></div>
+      <div class="ay-question">How important is staying connected to the Somali Muslim community?</div>
+      <div class="ay-opts" id="ay-opts-13">
+        <div class="ay-opt" onclick="ayPick(this,13)">Very important. Community is everything to me.</div>
+        <div class="ay-opt" onclick="ayPick(this,13)">Important but I value quality over proximity.</div>
+        <div class="ay-opt" onclick="ayPick(this,13)">Somewhat. I have a mixed community.</div>
+        <div class="ay-opt" onclick="ayPick(this,13)">Not something I have prioritised honestly.</div>
+      </div>
+      <button type="button" class="btn" style="margin-top:1rem;display:none" id="ay-next-13" onclick="ayNext(13)">Next →</button>
+      <button type="button" onclick="aySkip(13)" style="background:none;border:none;color:rgba(240,236,228,0.35);font-size:0.72rem;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:underline;padding:0;margin-top:0.5rem;display:block">Skip this question</button>
+    </div>
+    <div class="ay-step" id="ay-step-14">
+      <div class="ay-progress-row"><span class="ay-progress-label">14 of 14</span><div class="ay-prog-bar"><div class="ay-prog-fill" style="width:100%"></div></div></div>
       <div class="ay-question">Tell me one real thing about yourself that a profile would never show.</div>
       <textarea class="ay-input" id="ay-real" placeholder="Be honest. This goes straight to me." rows="4" maxlength="500" autocomplete="off"></textarea>
-      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(11)">See my profile →</button>
+      <button type="button" class="btn" style="margin-top:1rem" onclick="ayNext(14)">See my profile →</button>
     </div>
     <div class="ay-step" id="ay-profile">
       <div style="text-align:center;margin-bottom:1.5rem">
@@ -900,6 +929,12 @@ const tots=[
   {q:"Sunrise hike or sunset walk?",a:"Sunrise hike",b:"Sunset walk",ans:"Sunrise hike. Starting the day with something hard and beautiful puts everything in perspective."},
   {q:"Orwell or Al-Ghazali?",a:"Orwell",b:"Al-Ghazali",ans:"Al-Ghazali for how to live. Orwell for how to see the world clearly. Both necessary.",twist:false},
   {q:"No easy answer - A close friend tells you something about your spouse that bothers you. You have not verified it yet. What do you do first?",a:"Talk to my spouse directly",b:"Ask the friend for more context",ans:"Talk to my spouse directly. Always. Loyalty means your spouse hears it from you first, not through anyone else. Trust has to start somewhere.",twist:true},
+  {q:"Somali wedding or nikah only?",a:"Somali wedding",b:"Nikah only",ans:"Nikah only. The commitment is the point. The celebration should follow from that not overshadow it."},
+  {q:"Raise kids speaking Somali or English first?",a:"Somali first",b:"English first",ans:"Somali first. Language carries everything else with it. The culture, the identity, the connection to home. You can always learn English. You cannot always recover what was lost."},
+  {q:"Visit Somalia or build there?",a:"Visit",b:"Build there",ans:"Build there. Visiting is tourism. Building is purpose. The diaspora owes something real back home."},
+  {q:"Somali music or nasheed?",a:"Somali music",b:"Nasheed",ans:"Nasheed. Not out of rigidity but because what you fill your home with shapes the home."},
+  {q:"Extended family in the house or nearby?",a:"In the house",b:"Nearby",ans:"Nearby. I want family close and I want a home that is ours. Both things matter and both are possible."},
+  {q:"Back home eventually or diaspora for life?",a:"Back home",b:"Diaspora for life",ans:"Back home. That is not a maybe. The question is when and how, not whether."},
   {q:"No easy answer - Your husband has been carrying something heavy for weeks and has not told you. You can see it. He has not opened up. What do you do?",a:"Give him space and wait",b:"Gently tell him I see it",ans:"Tell him I see it. Quietly. Without pressure. Just letting someone know they are not invisible is sometimes the only thing that matters.",twist:true}
 ];
 let ti=0,tPicked=false,totHistory=[];
@@ -1042,7 +1077,7 @@ function toggleWW(i){
 }
 buildWW();
 
-const ayAnswers={name:'',q2:'',q3:'',q4:'',q5:'',q6:'',q7:'',q8:'',q9:'',q10:'',real:''};
+const ayAnswers={name:'',q2:'',q3:'',q4:'',q5:'',q6:'',q7:'',q8:'',q9:'',q10:'',q11:'',q12:'',q13:'',real:''};
 function ayNext(step){
   if(step===1){const n=document.getElementById('ay-name').value.trim();if(!n){document.getElementById('ay-name').focus();return;}ayAnswers.name=n;}
   if(step===5){const v=document.getElementById('ay-friends').value.trim();if(!v){document.getElementById('ay-friends').focus();return;}ayAnswers.q5=v;}
@@ -1050,7 +1085,7 @@ function ayNext(step){
   if(step===8){const v=document.getElementById('ay-blindspot').value.trim();if(!v){document.getElementById('ay-blindspot').focus();return;}ayAnswers.q8=v;}
   if(step===9){const v=document.getElementById('ay-unsaid').value.trim();if(!v){document.getElementById('ay-unsaid').focus();return;}ayAnswers.q9=v;}
   if(step===10){const v=document.getElementById('ay-understand').value.trim();if(!v){document.getElementById('ay-understand').focus();return;}ayAnswers.q10=v;}
-  if(step===11){const r=document.getElementById('ay-real').value.trim();if(!r){document.getElementById('ay-real').focus();return;}ayAnswers.real=r;showAyProfile();return;}
+  if(step===14){const r=document.getElementById('ay-real').value.trim();if(!r){document.getElementById('ay-real').focus();return;}ayAnswers.real=r;showAyProfile();return;}
   document.getElementById('ay-step-'+step).classList.remove('active');
   document.getElementById('ay-step-'+(step+1)).classList.add('active');
 }
@@ -1257,7 +1292,7 @@ function showNoticed(){
 }
 
 function showAyProfile(){
-  document.getElementById('ay-step-11').classList.remove('active');
+  document.getElementById('ay-step-14').classList.remove('active');
   document.getElementById('ay-profile').classList.add('active');
   document.getElementById('ay-avatar').textContent=ayAnswers.name.charAt(0).toUpperCase();
   document.getElementById('ay-profile-name').textContent=ayAnswers.name;
@@ -1271,7 +1306,10 @@ function showAyProfile(){
     {label:'What she is working on',val:ayAnswers.q7},
     {label:'Her blind spot',val:ayAnswers.q8},
     {label:'Something she has never said out loud',val:ayAnswers.q9},
-    {label:'What she needs understood',val:ayAnswers.q10}
+    {label:'What she needs understood',val:ayAnswers.q10},
+    {label:'Somali culture connection',val:ayAnswers.q11},
+    {label:'Somali language',val:ayAnswers.q12},
+    {label:'Somali community',val:ayAnswers.q13}
   ].filter(c=>c.val);
   const container=document.getElementById('ay-profile-cards');
   container.innerHTML='';
